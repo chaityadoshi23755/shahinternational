@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Shah International</title>
+  <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="shared-header"></div>
+  
+  <section class="page-banner" style="background-color: var(--color-bg-dark);">
+    <div class="page-banner-overlay" style="background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(26,26,26,0.7));"></div>
+    <div class="page-banner-content">
+      <h1>Contact Us</h1>
+      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Contact Us</li></ol>
+    </div>
+  </section>
+
+  <section class="page-content">
+    <div class="container">
+      <div class="grid grid-cols-2 gap-lg" style="margin-bottom: var(--space-xl);">
+        
+        <div class="contact-info content-block">
+          <h3>Contact Us</h3>
+          <hr class="section-divider">
+          
+          <div style="margin-bottom: var(--space-md);">
+            <h4>Our Office:</h4>
+            <p>308-313, Goldcrest Business Park,<br>
+            Behind Kailash Esplanade, Opp. Shreyas Cinema,<br>
+            L.B.S. Marg, Ghatkopar West,<br>
+            Mumbai – 400086, India</p>
+          </div>
+          
+          <div style="margin-bottom: var(--space-md);">
+            <h4>Our Warehouse:</h4>
+            <p>Shree Ganesh Comm. & Indl. Complex,<br>
+            Bldg No.1, Gala No. 4/5, Behind Gupta Complex,<br>
+            Dapode, Bhiwandi – 421302,<br>
+            Dist – Thane, India</p>
+          </div>
+
+          <div style="margin-bottom: var(--space-md);">
+            <p><i class="fa-solid fa-phone"></i> (+91) 22 4099 0000</p>
+            <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@shahinternational.in">info@shahinternational.in</a></p>
+          </div>
+
+          <div>
+            <p><i class="fa-brands fa-instagram"></i> <strong>Follow us on Instagram: <a href="https://www.instagram.com/shahinternational_india" target="_blank">@shahinternational_india</a></strong></p>
+          </div>
+        </div>
+
+        <div class="contact-map">
+          <iframe allowfullscreen frameborder="0" height="450" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15080.780391163471!2d72.9061212!3d19.0990952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7bd0b29d5b3%3A0x66f14ce9cfa31b3a!2sSHAH%20INTERNATIONAL!5e0!3m2!1sen!2sin!4v1652921627579!5m2!1sen!2sin" style="border:0; width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);"></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <div id="shared-footer"></div>
+  <script src="includes.js"></script>
+</body>
+</html>

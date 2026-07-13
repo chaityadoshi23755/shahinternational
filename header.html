@@ -1,0 +1,107 @@
+<header class="site-header" id="header">
+  <div class="container flex justify-between items-center">
+    <a href="index.html" class="logo" title="Home">
+      <img alt="Shah International" src="sites/default/files/logo_v3_2024.png" />
+    </a>
+
+    <nav class="desktop-nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#" class="dropdown-toggle">Products <span class="chevron"><i class="fa-solid fa-chevron-down"></i></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="schattdecor-ag-germany.html">Printed Décor Paper – Schattdecor, Germany</a></li>
+            <li><a href="kingdecor-zhejiang-co-ltd-china.html">Plain & Print Base Décor Paper – Kingdecor, China</a></li>
+            <li><a href="deurowood-gmbh-austria.html">Additives for Impregnation – Deurowood, Austria</a></li>
+            <li><a href="hueck-rheinische-gmbh-germany.html">Press Pad – Hueck Rheinische, Germany</a></li>
+            <li><a href="arcolor.html">Printing Inks – Arcolor, Switzerland</a></li>
+            <li><a href="pyrus-panels-germany.html">Lightweight Boards – Pyrus Panels, Germany</a></li>
+            <li><a href="mitsubishi-chemical-corporation.html">Exterior UV Protection Film – Mitsubishi, Japan</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle">Design Papers <span class="chevron"><i class="fa-solid fa-chevron-down"></i></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="Decor-Collection.html">Décor Collection</a></li>
+            <li><a href="best-seller.html">Best Seller</a></li>
+            <li><a href="New-decors.html">New Decors</a></li>
+            <li><a href="MFC-Range.html">MFC Range</a></li>
+            <li><a href="Synchron-range.html">Synchron Range</a></li>
+            <li><a href="Unique-colors.html">Unique Colors</a></li>
+            <li><a href="Design-and-Trends.html">Design and Trends</a></li>
+            <li><a href="decor-applications.html">Décor Applications</a></li>
+          </ul>
+        </li>
+        <li><a href="Our-Clients.html">Our Clients</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+      </ul>
+    </nav>
+    
+    <div class="header-actions flex items-center gap-sm">
+      <a href="contact-us.html" class="btn btn-primary btn-sm">Contact Us</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="openMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation Overlay -->
+<div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+
+<!-- Mobile Navigation Panel -->
+<nav class="mobile-nav" id="mobileNav">
+  <button class="close-btn" onclick="closeMobileMenu()" aria-label="Close menu">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li>
+      <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">Products <i class="fa-solid fa-chevron-down" style="font-size:0.7em;"></i></button>
+      <ul class="sub-menu">
+        <li><a href="schattdecor-ag-germany.html">Schattdecor, Germany</a></li>
+        <li><a href="kingdecor-zhejiang-co-ltd-china.html">Kingdecor, China</a></li>
+        <li><a href="deurowood-gmbh-austria.html">Deurowood, Austria</a></li>
+        <li><a href="hueck-rheinische-gmbh-germany.html">Hueck Rheinische, Germany</a></li>
+        <li><a href="arcolor.html">Arcolor, Switzerland</a></li>
+        <li><a href="pyrus-panels-germany.html">Pyrus Panels, Germany</a></li>
+        <li><a href="mitsubishi-chemical-corporation.html">Mitsubishi, Japan</a></li>
+      </ul>
+    </li>
+    <li>
+      <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">Design Papers <i class="fa-solid fa-chevron-down" style="font-size:0.7em;"></i></button>
+      <ul class="sub-menu">
+        <li><a href="Decor-Collection.html">Décor Collection</a></li>
+        <li><a href="best-seller.html">Best Seller</a></li>
+        <li><a href="New-decors.html">New Decors</a></li>
+        <li><a href="MFC-Range.html">MFC Range</a></li>
+        <li><a href="Synchron-range.html">Synchron Range</a></li>
+        <li><a href="Unique-colors.html">Unique Colors</a></li>
+        <li><a href="Design-and-Trends.html">Design and Trends</a></li>
+        <li><a href="decor-applications.html">Décor Applications</a></li>
+      </ul>
+    </li>
+    <li><a href="Our-Clients.html">Our Clients</a></li>
+    <li><a href="about-us.html">About Us</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+  </ul>
+</nav>
+
+<script>
+function openMobileMenu() {
+  document.getElementById('mobileNav').classList.add('is-open');
+  document.getElementById('mobileOverlay').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  document.getElementById('mobileNav').classList.remove('is-open');
+  document.getElementById('mobileOverlay').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+function toggleMobileDropdown(btn) {
+  var sub = btn.nextElementSibling;
+  sub.classList.toggle('is-open');
+  var icon = btn.querySelector('i');
+  icon.style.transform = sub.classList.contains('is-open') ? 'rotate(180deg)' : '';
+}
+</script>
