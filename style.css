@@ -349,11 +349,13 @@ strong { font-weight: 600; color: var(--color-text); }
   background: rgba(0,0,0,0.5);
   z-index: 1999;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .mobile-nav-overlay.is-open {
   opacity: 1;
+  visibility: visible;
 }
 
 .mobile-nav .close-btn {
