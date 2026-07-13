@@ -1067,7 +1067,7 @@ strong { font-weight: 600; color: var(--color-text); }
     grid-template-columns: 1fr;
   }
   .product-image-container {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   .product-thumbnails {
     flex-direction: row;
