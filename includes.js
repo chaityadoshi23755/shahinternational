@@ -38,3 +38,21 @@
     loadInclude('shared-footer', 'footer.html');
   });
 })();
+
+// Mobile menu functions (must be global because they are called from inline onclick handlers)
+window.openMobileMenu = function() {
+  document.getElementById('mobileNav').classList.add('is-open');
+  document.getElementById('mobileOverlay').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+};
+window.closeMobileMenu = function() {
+  document.getElementById('mobileNav').classList.remove('is-open');
+  document.getElementById('mobileOverlay').classList.remove('is-open');
+  document.body.style.overflow = '';
+};
+window.toggleMobileDropdown = function(btn) {
+  var sub = btn.nextElementSibling;
+  sub.classList.toggle('is-open');
+  var icon = btn.querySelector('i');
+  icon.style.transform = sub.classList.contains('is-open') ? 'rotate(180deg)' : '';
+};

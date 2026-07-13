@@ -87,21 +87,3 @@
   </ul>
 </nav>
 
-<script>
-function openMobileMenu() {
-  document.getElementById('mobileNav').classList.add('is-open');
-  document.getElementById('mobileOverlay').classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-}
-function closeMobileMenu() {
-  document.getElementById('mobileNav').classList.remove('is-open');
-  document.getElementById('mobileOverlay').classList.remove('is-open');
-  document.body.style.overflow = '';
-}
-function toggleMobileDropdown(btn) {
-  var sub = btn.nextElementSibling;
-  sub.classList.toggle('is-open');
-  var icon = btn.querySelector('i');
-  icon.style.transform = sub.classList.contains('is-open') ? 'rotate(180deg)' : '';
-}
-</script>
