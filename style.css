@@ -1092,6 +1092,12 @@ strong { font-weight: 600; color: var(--color-text); }
     grid-template-columns: 1fr;
   }
   
+  .image-grid img, 
+  .image-grid-full img {
+    height: auto !important;
+    aspect-ratio: auto !important;
+  }
+  
   .card-grid {
     grid-template-columns: 1fr;
   }
