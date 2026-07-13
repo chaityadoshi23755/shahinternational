@@ -36,6 +36,62 @@
   document.addEventListener('DOMContentLoaded', function () {
     loadInclude('shared-header', 'header.html', highlightActiveNav);
     loadInclude('shared-footer', 'footer.html');
+
+    // Image Magnifier logic for Product Detail Pages
+    var mainImg = document.getElementById('main-product-image');
+    if (mainImg) {
+      var container = mainImg.parentElement;
+      container.style.position = 'relative';
+
+      var glass = document.createElement('DIV');
+      glass.setAttribute('class', 'img-magnifier-glass');
+      container.insertBefore(glass, mainImg);
+
+      var zoom = 2; // Zoom level
+
+      container.addEventListener('mouseenter', function() {
+        if (window.innerWidth <= 768) return; // Disable on small screens
+        glass.style.display = 'block';
+        container.style.cursor = 'none'; // Hide default cursor when zooming
+      });
+
+      container.addEventListener('mouseleave', function() {
+        glass.style.display = 'none';
+        container.style.cursor = '';
+      });
+
+      container.addEventListener('mousemove', function(e) {
+        if (window.innerWidth <= 768) return;
+        
+        // Sync background image in case a thumbnail was clicked
+        var bgUrl = 'url("' + mainImg.src + '")';
+        if (glass.style.backgroundImage !== bgUrl) {
+          glass.style.backgroundImage = bgUrl;
+          glass.style.backgroundRepeat = 'no-repeat';
+          glass.style.backgroundSize = (mainImg.width * zoom) + 'px ' + (mainImg.height * zoom) + 'px';
+        }
+
+        var rect = mainImg.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        
+        var w = glass.offsetWidth / 2;
+        var h = glass.offsetHeight / 2;
+
+        var bgX = x;
+        var bgY = y;
+        
+        // Prevent glass background from going outside the image boundaries
+        if (bgX > mainImg.width - (w / zoom)) { bgX = mainImg.width - (w / zoom); }
+        if (bgX < w / zoom) { bgX = w / zoom; }
+        if (bgY > mainImg.height - (h / zoom)) { bgY = mainImg.height - (h / zoom); }
+        if (bgY < h / zoom) { bgY = h / zoom; }
+
+        glass.style.left = (x - w) + 'px';
+        glass.style.top = (y - h) + 'px';
+        glass.style.backgroundPosition = '-' + ((bgX * zoom) - w) + 'px -' + ((bgY * zoom) - h) + 'px';
+      });
+    }
   });
 })();
 
