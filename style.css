@@ -1061,6 +1061,11 @@ strong { font-weight: 600; color: var(--color-text); }
   
   .page-banner {
     min-height: 220px;
+    padding: 0 1rem;
+  }
+  
+  .page-banner-content h1 {
+    font-size: 2rem;
   }
   
   .product-detail-layout {
