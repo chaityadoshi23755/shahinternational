@@ -1093,11 +1093,16 @@ strong { font-weight: 600; color: var(--color-text); }
 
   .tab-nav {
     gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .tab-btn {
     padding: 0.75rem 1rem;
     font-size: 0.8125rem;
+    white-space: normal;
+    flex: 1 1 auto;
+    text-align: center;
   }
   
   .quick-links {
