@@ -117,8 +117,9 @@
     var cardGrid = document.querySelector('.card-grid');
     var pageContent = document.querySelector('.page-content');
     
-    // If it's a PDP or a Product Category page, and we have a content section
-    if ((mainImage || cardGrid) && pageContent) {
+    // If it's a PDP, Category page, or About Us, and we have a content section
+    var isAboutUs = window.location.pathname.toLowerCase().indexOf('about-us') !== -1;
+    if ((mainImage || cardGrid || isAboutUs) && pageContent) {
       setTimeout(function() {
         // Only auto-scroll if the user hasn't already scrolled down manually
         if (window.scrollY < 50) {
