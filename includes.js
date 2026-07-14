@@ -110,6 +110,23 @@
       container.addEventListener('touchmove', moveGlass, {passive: false});
     }
   });
+
+  // Auto lazy-scroll to main content for Product and Category pages
+  window.addEventListener('load', function() {
+    var mainImage = document.getElementById('main-product-image');
+    var cardGrid = document.querySelector('.card-grid');
+    var pageContent = document.querySelector('.page-content');
+    
+    // If it's a PDP or a Product Category page, and we have a content section
+    if ((mainImage || cardGrid) && pageContent) {
+      setTimeout(function() {
+        // Only auto-scroll if the user hasn't already scrolled down manually
+        if (window.scrollY < 50) {
+          pageContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 800); // 800ms delay lets them appreciate the banner first
+    }
+  });
 })();
 
 // Mobile menu functions (must be global because they are called from inline onclick handlers)
