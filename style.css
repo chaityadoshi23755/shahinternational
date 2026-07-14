@@ -637,6 +637,15 @@ strong { font-weight: 600; color: var(--color-text); }
   border-radius: 4px;
 }
 
+/* ========== PRODUCT DETAIL MAIN IMAGE ========== */
+#main-product-image {
+  width: auto !important;
+  max-width: 100% !important;
+  max-height: 75vh !important;
+  margin: 0 auto;
+  display: block;
+}
+
 /* ========== CARD GRID (Products, Decor Collection) ========== */
 .card-grid {
   display: grid;

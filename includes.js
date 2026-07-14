@@ -49,21 +49,20 @@
 
       var zoom = 2; // Zoom level
 
-      container.addEventListener('mouseenter', function() {
-        if (window.innerWidth <= 768) return; // Disable on small screens
+      function showGlass(e) {
         glass.style.display = 'block';
-        container.style.cursor = 'none'; // Hide default cursor when zooming
-      });
+        container.style.cursor = 'none';
+        if (e) moveGlass(e);
+      }
 
-      container.addEventListener('mouseleave', function() {
+      function hideGlass() {
         glass.style.display = 'none';
         container.style.cursor = '';
-      });
+      }
 
-      container.addEventListener('mousemove', function(e) {
-        if (window.innerWidth <= 768) return;
+      function moveGlass(e) {
+        if (e.cancelable) e.preventDefault(); // Prevent scrolling on touch
         
-        // Sync background image in case a thumbnail was clicked
         var bgUrl = 'url("' + mainImg.src + '")';
         if (glass.style.backgroundImage !== bgUrl) {
           glass.style.backgroundImage = bgUrl;
@@ -72,8 +71,17 @@
         }
 
         var rect = mainImg.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var y = e.clientY - rect.top;
+        
+        var clientX = e.clientX;
+        var clientY = e.clientY;
+        
+        if (e.touches && e.touches.length > 0) {
+           clientX = e.touches[0].clientX;
+           clientY = e.touches[0].clientY;
+        }
+
+        var x = clientX - rect.left;
+        var y = clientY - rect.top;
         
         var w = glass.offsetWidth / 2;
         var h = glass.offsetHeight / 2;
@@ -81,7 +89,6 @@
         var bgX = x;
         var bgY = y;
         
-        // Prevent glass background from going outside the image boundaries
         if (bgX > mainImg.width - (w / zoom)) { bgX = mainImg.width - (w / zoom); }
         if (bgX < w / zoom) { bgX = w / zoom; }
         if (bgY > mainImg.height - (h / zoom)) { bgY = mainImg.height - (h / zoom); }
@@ -90,7 +97,17 @@
         glass.style.left = (x - w) + 'px';
         glass.style.top = (y - h) + 'px';
         glass.style.backgroundPosition = '-' + ((bgX * zoom) - w) + 'px -' + ((bgY * zoom) - h) + 'px';
-      });
+      }
+
+      container.addEventListener('mouseenter', showGlass);
+      container.addEventListener('touchstart', showGlass, {passive: false});
+      
+      container.addEventListener('mouseleave', hideGlass);
+      container.addEventListener('touchend', hideGlass);
+      container.addEventListener('touchcancel', hideGlass);
+      
+      container.addEventListener('mousemove', moveGlass);
+      container.addEventListener('touchmove', moveGlass, {passive: false});
     }
   });
 })();
