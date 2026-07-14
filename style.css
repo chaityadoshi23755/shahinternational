@@ -641,7 +641,7 @@ strong { font-weight: 600; color: var(--color-text); }
 #main-product-image {
   width: auto !important;
   max-width: 100% !important;
-  max-height: 75vh !important;
+  max-height: 85vh !important;
   margin: 0 auto;
   display: block;
 }
