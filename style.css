@@ -746,7 +746,13 @@ strong { font-weight: 600; color: var(--color-text); }
   gap: 0;
   border-bottom: 2px solid var(--color-accent-light);
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hide for Firefox */
+}
+
+.tab-nav::-webkit-scrollbar {
+  display: none; /* Hide for Chrome, Safari, Opera */
 }
 
 .tab-btn {
