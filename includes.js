@@ -123,7 +123,15 @@
       setTimeout(function() {
         // Only auto-scroll if the user hasn't already scrolled down manually
         if (window.scrollY < 50) {
-          pageContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          var headerEl = document.getElementById('header');
+          var headerOffset = headerEl ? headerEl.offsetHeight : 80;
+          var elementPosition = pageContent.getBoundingClientRect().top;
+          var offsetPosition = elementPosition + window.scrollY - headerOffset;
+          
+          window.scrollTo({
+             top: offsetPosition,
+             behavior: 'smooth'
+          });
         }
       }, 800); // 800ms delay lets them appreciate the banner first
     }
