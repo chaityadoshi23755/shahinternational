@@ -136,6 +136,47 @@
       }, 800); // 800ms delay lets them appreciate the banner first
     }
   });
+
+  // Handle color thumbnail clicks on category cards
+  var cardThumbnails = document.querySelectorAll('.card-thumbnail');
+  cardThumbnails.forEach(function(thumb) {
+    thumb.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent navigating to PDP immediately
+      e.stopPropagation(); // Prevent the parent <a> from firing
+      
+      // Remove active class from siblings
+      var siblings = this.parentElement.querySelectorAll('.card-thumbnail');
+      siblings.forEach(function(el) { el.classList.remove('active'); });
+      this.classList.add('active');
+      
+      // Change the main card image
+      var card = this.closest('.card');
+      var cardImg = card.querySelector('.card-img');
+      if (cardImg) {
+        cardImg.src = this.dataset.full;
+      }
+      
+      // Update the card link with the color parameter
+      var originalHref = card.getAttribute('href').split('?')[0];
+      card.setAttribute('href', originalHref + '?color=' + this.dataset.index);
+    });
+  });
+
+  // Pre-select color on PDP load if ?color= is present in URL
+  window.addEventListener('load', function() {
+    if (window.location.search.indexOf('color=') !== -1) {
+      var urlParams = new URLSearchParams(window.location.search);
+      var colorParam = urlParams.get('color');
+      if (colorParam !== null) {
+        var pdpThumbs = document.querySelectorAll('.gallery-thumb');
+        var index = parseInt(colorParam, 10);
+        if (!isNaN(index) && index >= 0 && index < pdpThumbs.length) {
+          // Trigger click on the correct thumbnail to pre-select it
+          pdpThumbs[index].click();
+        }
+      }
+    }
+  });
 })();
 
 // Mobile menu functions (must be global because they are called from inline onclick handlers)
