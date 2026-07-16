@@ -74,7 +74,10 @@ ul, ol {
 }
 
 /* ========== TYPOGRAPHY ========== */
-h1, h2, h3, h4, h5, h6 {\n  font-family: var(--font-heading);\n  font-weight: 400;\n  letter-spacing: 0.01em;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   margin-bottom: var(--space-sm);
   color: var(--color-text);
@@ -260,7 +263,14 @@ strong { font-weight: 600; color: var(--color-text); }
 }
 
 /* Dropdown Menus */
-.nav-links .dropdown-menu {\n  position: absolute;\n  top: calc(100% + 0.5rem);\n  left: 50%;\n  transform: translateX(-50%);\n  background: rgba(255, 255, 255, 0.95);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);
+.nav-links .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--color-accent-light);
   border-radius: 2px;
   box-shadow: var(--shadow-xl);
@@ -1214,4 +1224,18 @@ strong { font-weight: 600; color: var(--color-text); }
   from { opacity: 0; }
   to { opacity: 1; }
 }
-\n/* ========== SCROLL REVEAL ========== */\n.reveal {\n  opacity: 0;\n  transform: translateY(30px);\n  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);\n  will-change: opacity, transform;\n}\n.reveal.active {\n  opacity: 1;\n  transform: translateY(0);\n}\n.reveal-delay-1 { transition-delay: 0.1s; }\n.reveal-delay-2 { transition-delay: 0.2s; }\n.reveal-delay-3 { transition-delay: 0.3s; }\n
+
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
