@@ -248,13 +248,44 @@ window.openDecorRepeat = function(imgSrc) {
     modal = document.createElement('div');
     modal.id = 'decor-repeat-modal';
     modal.className = 'decor-repeat-modal';
-    modal.innerHTML = '<button class="decor-repeat-close" onclick="closeDecorRepeat()"><i class="fa-solid fa-times"></i></button>';
+    modal.innerHTML = 
+      '<div class="decor-repeat-header">' +
+        '<h3>Decor Repeat View</h3>' +
+        '<button class="decor-repeat-close" onclick="closeDecorRepeat()"><i class="fa-solid fa-times"></i></button>' +
+      '</div>' +
+      '<div class="decor-repeat-body" id="decor-repeat-body">' +
+        '<div class="decor-repeat-content" id="decor-repeat-content"></div>' +
+        '<div class="decor-magnifier" id="decor-magnifier"></div>' +
+      '</div>';
     document.body.appendChild(modal);
+
+    // Sync magnifier position on scroll
+    var bodyArea = document.getElementById('decor-repeat-body');
+    var magnifier = document.getElementById('decor-magnifier');
+    bodyArea.addEventListener('scroll', function() {
+      var scrollX = bodyArea.scrollLeft;
+      var scrollY = bodyArea.scrollTop;
+      // Offset background position to match underlying repeated content
+      magnifier.style.backgroundPosition = '-' + scrollX + 'px -' + scrollY + 'px';
+    });
   }
-  modal.style.backgroundImage = 'url(' + imgSrc + ')';
+  
+  var content = document.getElementById('decor-repeat-content');
+  var magnifier = document.getElementById('decor-magnifier');
+  var bodyArea = document.getElementById('decor-repeat-body');
+  
+  content.style.backgroundImage = 'url(' + imgSrc + ')';
+  magnifier.style.backgroundImage = 'url(' + imgSrc + ')';
+  
   modal.classList.add('is-open');
   document.body.style.overflow = 'hidden';
-  setTimeout(function() { modal.classList.add('is-visible'); }, 10);
+  
+  setTimeout(function() { 
+    modal.classList.add('is-visible'); 
+    // center the scroll position initially
+    bodyArea.scrollLeft = (content.offsetWidth - bodyArea.clientWidth) / 2;
+    bodyArea.scrollTop = (content.offsetHeight - bodyArea.clientHeight) / 2;
+  }, 10);
 };
 
 window.closeDecorRepeat = function() {
