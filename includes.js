@@ -255,36 +255,69 @@ window.openDecorRepeat = function(imgSrc) {
       '</div>' +
       '<div class="decor-repeat-body" id="decor-repeat-body">' +
         '<div class="decor-repeat-content" id="decor-repeat-content"></div>' +
-        '<div class="decor-magnifier" id="decor-magnifier"></div>' +
+        '<div class="img-magnifier-glass" id="decor-magnifier"></div>' +
       '</div>';
     document.body.appendChild(modal);
 
-    // Sync magnifier position on scroll
-    var bodyArea = document.getElementById('decor-repeat-body');
-    var magnifier = document.getElementById('decor-magnifier');
-    bodyArea.addEventListener('scroll', function() {
-      var scrollX = bodyArea.scrollLeft;
-      var scrollY = bodyArea.scrollTop;
-      // Offset background position to match underlying repeated content
-      magnifier.style.backgroundPosition = '-' + scrollX + 'px -' + scrollY + 'px';
-    });
+    var content = document.getElementById('decor-repeat-content');
+    var glass = document.getElementById('decor-magnifier');
+    var zoom = 2; // Same zoom as pdp
+
+    function showGlass(e) {
+      glass.style.display = 'block';
+      content.style.cursor = 'none';
+      if (e) moveGlassRepeat(e);
+    }
+    
+    function hideGlass() {
+      glass.style.display = 'none';
+      content.style.cursor = '';
+    }
+
+    function moveGlassRepeat(e) {
+      if (e.cancelable) e.preventDefault();
+      var rect = content.getBoundingClientRect();
+      var clientX = e.clientX;
+      var clientY = e.clientY;
+      if (e.touches && e.touches.length > 0) {
+         clientX = e.touches[0].clientX;
+         clientY = e.touches[0].clientY;
+      }
+      var x = clientX - rect.left;
+      var y = clientY - rect.top;
+      
+      var w = glass.offsetWidth / 2;
+      var h = glass.offsetHeight / 2;
+
+      // Restrict glass within content boundaries
+      if (x > content.offsetWidth) { x = content.offsetWidth; }
+      if (x < 0) { x = 0; }
+      if (y > content.offsetHeight) { y = content.offsetHeight; }
+      if (y < 0) { y = 0; }
+
+      glass.style.left = (x - w) + 'px';
+      glass.style.top = (y - h) + 'px';
+      
+      glass.style.backgroundImage = 'url(' + imgSrc + ')';
+      glass.style.backgroundRepeat = 'repeat-y';
+      glass.style.backgroundSize = (content.offsetWidth * zoom) + 'px auto';
+      glass.style.backgroundPosition = '-' + ((x * zoom) - w) + 'px -' + ((y * zoom) - h) + 'px';
+    }
+
+    content.addEventListener("mousemove", moveGlassRepeat);
+    content.addEventListener("touchmove", moveGlassRepeat);
+    content.addEventListener("mouseenter", showGlass);
+    content.addEventListener("mouseleave", hideGlass);
   }
   
-  var content = document.getElementById('decor-repeat-content');
-  var magnifier = document.getElementById('decor-magnifier');
-  var bodyArea = document.getElementById('decor-repeat-body');
-  
-  content.style.backgroundImage = 'url(' + imgSrc + ')';
-  magnifier.style.backgroundImage = 'url(' + imgSrc + ')';
+  var contentEl = document.getElementById('decor-repeat-content');
+  contentEl.style.backgroundImage = 'url(' + imgSrc + ')';
   
   modal.classList.add('is-open');
   document.body.style.overflow = 'hidden';
   
   setTimeout(function() { 
     modal.classList.add('is-visible'); 
-    // center the scroll position initially
-    bodyArea.scrollLeft = (content.offsetWidth - bodyArea.clientWidth) / 2;
-    bodyArea.scrollTop = (content.offsetHeight - bodyArea.clientHeight) / 2;
   }, 10);
 };
 
@@ -298,4 +331,3 @@ window.closeDecorRepeat = function() {
     }, 400);
   }
 };
-
