@@ -242,7 +242,20 @@ window.toggleMobileDropdown = function(btn) {
 };
 
 // Whole Decor Repeat Modal Logic
+window.decorVariants = [];
+window.currentDecorIndex = 0;
+
 window.openDecorRepeat = function(imgSrc) {
+  // Populate variants from DOM if not already
+  window.decorVariants = Array.from(document.querySelectorAll('.gallery-thumb')).map(function(img) { return img.src; });
+  if (window.decorVariants.length === 0) {
+    window.decorVariants = [imgSrc]; // fallback if no thumbnails
+  }
+  
+  // Find index of current imgSrc
+  window.currentDecorIndex = window.decorVariants.indexOf(imgSrc);
+  if (window.currentDecorIndex === -1) window.currentDecorIndex = 0;
+
   var modal = document.getElementById('decor-repeat-modal');
   if (!modal) {
     modal = document.createElement('div');
@@ -256,6 +269,8 @@ window.openDecorRepeat = function(imgSrc) {
       '<div class="decor-repeat-body" id="decor-repeat-body">' +
         '<div class="decor-repeat-content" id="decor-repeat-content"></div>' +
         '<div class="img-magnifier-glass" id="decor-magnifier"></div>' +
+        '<div class="decor-repeat-nav decor-repeat-prev" onclick="prevDecorRepeat()"><i class="fa-solid fa-chevron-left"></i></div>' +
+        '<div class="decor-repeat-nav decor-repeat-next" onclick="nextDecorRepeat()"><i class="fa-solid fa-chevron-right"></i></div>' +
       '</div>';
     document.body.appendChild(modal);
 
@@ -310,8 +325,7 @@ window.openDecorRepeat = function(imgSrc) {
     content.addEventListener("mouseleave", hideGlass);
   }
   
-  var contentEl = document.getElementById('decor-repeat-content');
-  contentEl.style.backgroundImage = 'url(' + imgSrc + ')';
+  updateDecorRepeatImage();
   
   modal.classList.add('is-open');
   document.body.style.overflow = 'hidden';
@@ -319,6 +333,34 @@ window.openDecorRepeat = function(imgSrc) {
   setTimeout(function() { 
     modal.classList.add('is-visible'); 
   }, 10);
+};
+
+window.updateDecorRepeatImage = function() {
+  var contentEl = document.getElementById('decor-repeat-content');
+  if (contentEl && window.decorVariants.length > 0) {
+    var newSrc = window.decorVariants[window.currentDecorIndex];
+    contentEl.style.backgroundImage = 'url(' + newSrc + ')';
+    
+    // Also update the main PDP image behind the modal so it stays in sync
+    var mainProductImage = document.getElementById('main-product-image');
+    if (mainProductImage) {
+      mainProductImage.src = newSrc;
+    }
+  }
+};
+
+window.prevDecorRepeat = function() {
+  if (window.decorVariants.length > 0) {
+    window.currentDecorIndex = (window.currentDecorIndex - 1 + window.decorVariants.length) % window.decorVariants.length;
+    updateDecorRepeatImage();
+  }
+};
+
+window.nextDecorRepeat = function() {
+  if (window.decorVariants.length > 0) {
+    window.currentDecorIndex = (window.currentDecorIndex + 1) % window.decorVariants.length;
+    updateDecorRepeatImage();
+  }
 };
 
 window.closeDecorRepeat = function() {
