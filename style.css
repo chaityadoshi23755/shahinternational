@@ -96,9 +96,28 @@ p {
 }
 
 a {
-  color: var(--color-text);
-  text-decoration: none;
+  color: var(--color-brand-red);
+  text-decoration: underline;
+  text-underline-offset: 4px;
   transition: var(--transition-fast);
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Structural Links Exceptions */
+.btn,
+.nav-links a,
+.mobile-nav a,
+.breadcrumb a,
+.site-footer a,
+.card,
+.principal-item,
+.product-card,
+.logo,
+a.btn {
+  text-decoration: none !important;
 }
 
 a:hover {
@@ -558,8 +577,11 @@ strong { font-weight: 600; color: var(--color-text); }
 
 .content-block h3,
 .content-block h4 {
-  margin-top: var(--space-md);
-  margin-bottom: var(--space-sm);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  text-align: center;
 }
 
 .content-block ul {
@@ -589,16 +611,11 @@ strong { font-weight: 600; color: var(--color-text); }
 
 /* Section divider */
 .section-divider {
-  width: 60px;
-  height: 3px;
-  background: var(--color-brand-red);
-  margin: var(--space-sm) 0 var(--space-md);
-  border: none;
+  display: none;
 }
 
 .section-divider-center {
-  margin-left: auto;
-  margin-right: auto;
+  display: none;
 }
 
 /* ========== IMAGE GRID ========== */
@@ -1479,4 +1496,61 @@ strong { font-weight: 600; color: var(--color-text); }
   0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
   40% { transform: translateY(-15px) translateX(-50%); }
   60% { transform: translateY(-7px) translateX(-50%); }
+}
+
+/* ========== Our Clients Page Specific ========== */
+.special-clients-grid {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.normal-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .special-clients-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .normal-clients-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem;
+  }
+  .normal-clients-grid .card-img-wrap {
+    padding: 0.5rem !important;
+  }
+  .normal-clients-grid .card-img {
+    height: 60px !important;
+  }
+}
+
+/* ========== Home Page Mobile Fixes ========== */
+@media (max-width: 768px) {
+  .whom-we-sell-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .who-we-are-container {
+    flex-direction: column !important;
+  }
+  .who-we-are-img {
+    display: none !important;
+  }
+  .mobile-who-we-are-img {
+    display: block !important;
+  }
+}
+
+.special-clients-grid .card-img,
+.normal-clients-grid .card-img {
+  height: auto !important;
+  max-height: 120px !important;
+}
+
+.special-clients-grid .card-img-wrap,
+.normal-clients-grid .card-img-wrap {
+  padding: 1rem !important;
 }
