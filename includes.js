@@ -177,6 +177,50 @@
       }
     }
   });
+  // Scroll Reveal Logic (Premium Aesthetic)
+  function initScrollReveal() {
+    // Inject .reveal classes to major elements if they don't have it yet
+    var elementsToReveal = document.querySelectorAll('h1, h2, .card, .product-thumbnails img, .text-center p, .principal-logo');
+    elementsToReveal.forEach(function(el, index) {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+        // Add staggered delays for grids
+        if (el.classList.contains('card') || (el.parentElement && el.parentElement.classList.contains('grid'))) {
+          var delayClass = 'reveal-delay-' + ((index % 3) + 1);
+          el.classList.add(delayClass);
+        }
+      }
+    });
+
+    if (window.IntersectionObserver) {
+      var observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('active');
+      });
+    }
+  }
+  
+  // Call it on load and also after include loads to ensure elements exist
+  document.addEventListener('DOMContentLoaded', initScrollReveal);
+  setTimeout(initScrollReveal, 500); // safety fallback for included content
+
 })();
 
 // Mobile menu functions (must be global because they are called from inline onclick handlers)
