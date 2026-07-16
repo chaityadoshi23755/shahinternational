@@ -298,7 +298,7 @@ window.openDecorRepeat = function(imgSrc) {
       glass.style.left = (x - w) + 'px';
       glass.style.top = (y - h) + 'px';
       
-      glass.style.backgroundImage = 'url(' + imgSrc + ')';
+      glass.style.backgroundImage = content.style.backgroundImage;
       glass.style.backgroundRepeat = 'repeat-y';
       glass.style.backgroundSize = (content.offsetWidth * zoom) + 'px auto';
       glass.style.backgroundPosition = '-' + ((x * zoom) - w) + 'px -' + ((y * zoom) - h) + 'px';
