@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decor Finder | Shah International</title>
+  <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="shared-header"></div>
+  <section class="page-banner" style="background-color: var(--color-bg-dark);">
+    <div class="page-banner-overlay" style="background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(26,26,26,0.7));"></div>
+    <div class="page-banner-content">
+      <h1>Decor Finder</h1>
+      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Decor Finder</li></ol>
+    </div>
+  </section>
+  <section class="page-content">
+    <div class="container">
+      <div class="decor-finder-layout">
+        <aside class="filter-sidebar">
+          <h3>Filters</h3>
+          <button id="clear-filters" class="btn btn-secondary" style="margin-bottom:1rem; width:100%;">Clear Filters</button>
+          
+          <div class="filter-group">
+            <h4 class="filter-title">Principal</h4>
+            <div class="filter-options">
+              <label><input type="checkbox" value="schattdecor" class="filter-checkbox" data-filter-type="principal"> Schattdecor</label>
+              <label><input type="checkbox" value="kingdecor" class="filter-checkbox" data-filter-type="principal"> Kingdecor</label>
+            </div>
+          </div>
+          
+          <div class="filter-group">
+            <h4 class="filter-title">Color Group</h4>
+            <div class="filter-options">
+              <label><input type="checkbox" value="oak" class="filter-checkbox" data-filter-type="color"> Oak</label>
+              <label><input type="checkbox" value="walnut" class="filter-checkbox" data-filter-type="color"> Walnut</label>
+              <label><input type="checkbox" value="grey" class="filter-checkbox" data-filter-type="color"> Grey</label>
+              <label><input type="checkbox" value="blue" class="filter-checkbox" data-filter-type="color"> Blue</label>
+              <label><input type="checkbox" value="white" class="filter-checkbox" data-filter-type="color"> White</label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4 class="filter-title">Application</h4>
+            <div class="filter-options">
+              <label><input type="checkbox" value="furniture" class="filter-checkbox" data-filter-type="application"> Furniture</label>
+              <label><input type="checkbox" value="flooring" class="filter-checkbox" data-filter-type="application"> Flooring</label>
+            </div>
+          </div>
+        </aside>
+
+        <main class="decor-results">
+          <div class="results-header">
+            <p><span id="result-count">0</span> decors found</p>
+          </div>
+          <div id="decor-grid" class="card-grid grid-cols-4">
+            <!-- Decors will be injected here via JS -->
+          </div>
+        </main>
+      </div>
+      <script src="decor-data.js"></script>
+      <script src="decor-finder.js"></script>
+    </div>
+</section>
+  <section class="page-content">
+    <div class="container">
+      <div class="card-grid grid-cols-4">
+        
+        
+        
+        <a href="Petrol-Blue.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2019-03/small%20558_53.jpg" alt="Petrol Blue" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Petrol Blue</h3>
+          </div>
+        </a>
+        <a href="Tabasco.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2019-03/small%20558_54.jpg" alt="Tabasco" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Tabasco</h3>
+          </div>
+        </a>
+        
+        <a href="true-blue.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2021-03/14-60000-011_True_Blue_558x558_0.png" alt="True Blue" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">True Blue</h3>
+          </div>
+        </a>
+        <a href="pearl_blue.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2021-11/14-90025-110_558x558_PEARL-BLUE_0.jpg" alt="Pearl Blue" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Pearl Blue</h3>
+          </div>
+        </a>
+        <a href="pearl_grey.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2021-11/14-90010-112_558x558_PEARL-GREY_0.jpg" alt="Pearl Grey" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Pearl Grey</h3>
+          </div>
+        </a>
+        
+        <a href="sea_blue.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2021-11/14-60000-448_558x558_SEA-BLUE_0.jpg" alt="Sea Blue" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Sea Blue</h3>
+          </div>
+        </a>
+        
+        
+        <a href="bluish-green.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2022-04/14-60000-468_558x558_BLUISH-GREEN_0.jpg" alt="Bluish Green" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Bluish Green</h3>
+          </div>
+        </a>
+        
+        <a href="silk_grey.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2022-07/14-60000-508-SILK-GREY_558x558.jpg" alt="Silk Grey" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Silk Grey</h3>
+          </div>
+        </a>
+        
+        <a href="pine_nut.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2022-07/14-90030-325-PINE-NUT_558x558.jpg" alt="Pine Nut" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Pine Nut</h3>
+          </div>
+        </a>
+        <a href="roman_clay.html" class="card">
+          <div class="card-img-wrap">
+            <img src="sites/default/files/2022-07/14-90328-207-%20ROMAN-CLAY_558x558.jpg" alt="Roman Clay" class="card-img">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Roman Clay</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div id="shared-footer"></div>
+  <script src="includes.js"></script>
+
+</body></html>
