@@ -10,7 +10,7 @@
   --color-text-muted: #9ca3af;
   --color-accent: #374151;
   --color-accent-light: #e5e7eb;
-  --color-accent-gold: #b8860b;
+  --color-brand-red: #e31837;
   
   /* Typography */
   --font-primary: 'Inter', sans-serif;
@@ -101,7 +101,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-accent-gold);
+  color: var(--color-brand-red);
 }
 
 strong { font-weight: 600; color: var(--color-text); }
@@ -252,7 +252,7 @@ strong { font-weight: 600; color: var(--color-text); }
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-accent-gold);
+  background-color: var(--color-brand-red);
   transition: width 0.3s ease;
 }
 
@@ -411,7 +411,7 @@ strong { font-weight: 600; color: var(--color-text); }
 }
 
 .mobile-nav .sub-menu li a:hover {
-  color: var(--color-accent-gold);
+  color: var(--color-brand-red);
 }
 
 /* ========== HERO SECTION ========== */
@@ -471,7 +471,7 @@ strong { font-weight: 600; color: var(--color-text); }
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 600;
-  color: var(--color-accent-gold);
+  color: var(--color-brand-red);
   margin-bottom: var(--space-sm);
   display: block;
 }
@@ -588,7 +588,7 @@ strong { font-weight: 600; color: var(--color-text); }
 .section-divider {
   width: 60px;
   height: 3px;
-  background: var(--color-accent-gold);
+  background: var(--color-brand-red);
   margin: var(--space-sm) 0 var(--space-md);
   border: none;
 }
@@ -712,11 +712,11 @@ strong { font-weight: 600; color: var(--color-text); }
 
 .card-thumbnail:hover {
   transform: scale(1.1);
-  border-color: var(--color-accent-gold);
+  border-color: var(--color-brand-red);
 }
 
 .card-thumbnail.active {
-  border-color: var(--color-accent-gold);
+  border-color: var(--color-brand-red);
 }
 
 .card-meta {
@@ -744,7 +744,7 @@ strong { font-weight: 600; color: var(--color-text); }
 }
 
 .logo-item:hover {
-  border-color: var(--color-accent-gold);
+  border-color: var(--color-brand-red);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -801,7 +801,7 @@ strong { font-weight: 600; color: var(--color-text); }
 
 .tab-btn.active {
   color: var(--color-text);
-  border-bottom-color: var(--color-accent-gold);
+  border-bottom-color: var(--color-brand-red);
 }
 
 .tab-panel {
@@ -853,7 +853,7 @@ strong { font-weight: 600; color: var(--color-text); }
 
 .contact-info-item i {
   font-size: 1.25rem;
-  color: var(--color-accent-gold);
+  color: var(--color-brand-red);
   width: 24px;
   text-align: center;
 }
@@ -900,7 +900,7 @@ strong { font-weight: 600; color: var(--color-text); }
 }
 
 .quick-link i {
-  color: var(--color-accent-gold);
+  color: var(--color-brand-red);
 }
 
 /* ========== PRODUCT DETAIL (individual decor pages like Torano) ========== */
@@ -933,7 +933,7 @@ strong { font-weight: 600; color: var(--color-text); }
 }
 
 .product-actions a:hover {
-  color: var(--color-accent-gold);
+  color: var(--color-brand-red);
 }
 
 .product-disclaimer {
@@ -978,7 +978,7 @@ strong { font-weight: 600; color: var(--color-text); }
 
 .social-follow i {
   font-size: 1.25rem;
-  color: var(--color-accent-gold);
+  color: var(--color-brand-red);
 }
 
 /* ========== FOOTER ========== */
@@ -1004,7 +1004,7 @@ strong { font-weight: 600; color: var(--color-text); }
 }
 
 .site-footer a:hover {
-  color: var(--color-accent-gold);
+  color: var(--color-brand-red);
 }
 
 .footer-links {
@@ -1034,7 +1034,7 @@ strong { font-weight: 600; color: var(--color-text); }
 
 .footer-contact-list i {
   width: 20px;
-  color: var(--color-accent-gold);
+  color: var(--color-brand-red);
 }
 
 .footer-bottom {
