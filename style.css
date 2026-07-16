@@ -1182,22 +1182,18 @@ strong { font-weight: 600; color: var(--color-text); }
     text-align: center;
   }
   .quick-links {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding-bottom: 0.5rem;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 1rem 0;
   }
-  .quick-links::-webkit-scrollbar { display: none; }
   .quick-link {
-    white-space: nowrap;
-    scroll-snap-align: start;
-    flex-shrink: 0;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 4px; /* Less pill-like, more button-like for grid */
   }
 
   .contact-info-row {
