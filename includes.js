@@ -240,3 +240,31 @@ window.toggleMobileDropdown = function(btn) {
   var icon = btn.querySelector('i');
   icon.style.transform = sub.classList.contains('is-open') ? 'rotate(180deg)' : '';
 };
+
+// Whole Decor Repeat Modal Logic
+window.openDecorRepeat = function(imgSrc) {
+  var modal = document.getElementById('decor-repeat-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'decor-repeat-modal';
+    modal.className = 'decor-repeat-modal';
+    modal.innerHTML = '<button class="decor-repeat-close" onclick="closeDecorRepeat()"><i class="fa-solid fa-times"></i></button>';
+    document.body.appendChild(modal);
+  }
+  modal.style.backgroundImage = 'url(' + imgSrc + ')';
+  modal.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function() { modal.classList.add('is-visible'); }, 10);
+};
+
+window.closeDecorRepeat = function() {
+  var modal = document.getElementById('decor-repeat-modal');
+  if (modal) {
+    modal.classList.remove('is-visible');
+    setTimeout(function() { 
+      modal.classList.remove('is-open'); 
+      document.body.style.overflow = ''; 
+    }, 400);
+  }
+};
+
