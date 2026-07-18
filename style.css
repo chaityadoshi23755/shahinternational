@@ -505,6 +505,7 @@ strong { font-weight: 600; color: var(--color-text); }
   align-items: center;
   justify-content: center;
   position: relative;
+  z-index: 0; /* Creates stacking context for negative z-index children */
   overflow: hidden;
   margin-top: 60px;
   text-align: center;
