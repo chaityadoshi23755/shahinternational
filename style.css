@@ -438,7 +438,7 @@ strong { font-weight: 600; color: var(--color-text); }
 
 /* ========== HERO SECTION ========== */
 .hero {
-  min-height: 70vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   position: relative;
