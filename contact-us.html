@@ -21,10 +21,36 @@
 
   <section class="page-content">
     <div class="container">
-      <div class="grid grid-cols-2 gap-lg" style="margin-bottom: var(--space-xl);">
+      <div class="grid grid-cols-2 gap-lg" style="margin-bottom: var(--space-xl); align-items: start;">
         
+        <!-- Contact Form Column -->
+        <div class="contact-form-container content-block" style="background: #fff; padding: var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+          <h3>Send us a Message</h3>
+          <hr class="section-divider">
+          <form action="#" method="POST" class="contact-form">
+            <div style="margin-bottom: 1.5rem;">
+              <label for="name" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-dark);">Full Name *</label>
+              <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); font-size: 1rem;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label for="email" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-dark);">Email Address *</label>
+              <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); font-size: 1rem;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label for="phone" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-dark);">Phone Number</label>
+              <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); font-size: 1rem;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label for="message" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-text-dark);">Your Message *</label>
+              <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); font-size: 1rem; resize: vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem;">Send Message</button>
+          </form>
+        </div>
+        
+        <!-- Contact Details & Map Column -->
         <div class="contact-info content-block">
-          <h3>Contact Us</h3>
+          <h3>Contact Details</h3>
           <hr class="section-divider">
           
           <div style="margin-bottom: var(--space-md);">

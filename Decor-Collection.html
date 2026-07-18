@@ -17,7 +17,41 @@
   </section>
   <section class="page-content">
     <div class="container">
-      <div class="card-grid grid-cols-4">
+      <div class="grid" style="grid-template-columns: 280px 1fr; gap: 2rem; align-items: start;">
+        
+        <!-- Sidebar Filter -->
+        <aside class="product-sidebar" style="background: #fff; padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); position: sticky; top: 100px;">
+          <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Filter Products</h3>
+          
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);">Search</h4>
+            <input type="text" placeholder="Search decors..." style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+          </div>
+          
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);">Categories</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> Woodgrains</label></li>
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> Solid Colors</label></li>
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> Stone & Marble</label></li>
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> Abstract</label></li>
+            </ul>
+          </div>
+          
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);">Finish</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> High Gloss</label></li>
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> Suede / Matte</label></li>
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox"> Textured</label></li>
+            </ul>
+          </div>
+          
+          <button class="btn btn-primary" style="width: 100%; justify-content: center;">Apply Filters</button>
+        </aside>
+
+        <!-- Product Grid -->
+        <div class="card-grid grid-cols-3">
         
         <a href="woodgrains.html" class="card">
           <div class="card-img-wrap">
@@ -45,7 +79,8 @@
           </div>
         </a>
         
-      </div>
+      </div> <!-- End Product Grid -->
+      </div> <!-- End Layout Grid -->
     </div>
   </section>
   <div id="shared-footer"></div>
