@@ -7,124 +7,156 @@
   <title>Shah International | Premium HPL & MFC Solutions</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=110">
 </head>
 <body>
   
   <div id="shared-header"></div>
   
   <main class="homepage-revamp">
-    <!-- Hero Section -->
+    
+    <!-- 1. Cinematic Hero Section -->
     <section class="hero">
-      <img src="sites/default/files/2019-04/14-10347-001_Canyon-Monument-Oak-JPEG.jpg" alt="Luxury surfaces" class="hero-bg">
-      <div class="hero-overlay" style="background: linear-gradient(135deg, rgba(10,10,10,0.85), rgba(20,20,20,0.6)); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+      <div class="hero-slider" id="hero-slider">
+        <img src="sites/default/files/2019-04/14-10347-001_Canyon-Monument-Oak-JPEG.jpg" class="slide active">
+        <img src="themes/agatha/img/gallery/1.jpg" class="slide">
+        <img src="sites/default/files/s5.jpg" class="slide">
+        <img src="sites/default/files/2018-12/s1.jpg" class="slide">
+      </div>
+      <div class="hero-overlay" style="background: linear-gradient(135deg, rgba(10,10,10,0.85), rgba(20,20,20,0.5)); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
       <div class="container">
         <div class="hero-content">
-          <span class="hero-subtitle">Premium Surfaces & Decors</span>
-          <h1>Elevating Indian Architecture</h1>
-          <p>We provide a one-stop solution to the manufacturers of HPL and MFC by representing world-renowned companies for India and the subcontinent.</p>
-          <div class="flex items-center gap-sm" style="margin-top: 2rem;">
+          <span class="hero-subtitle reveal">Premium Surfaces & Decors</span>
+          <div class="hero-title-mask">
+            <h1>Elevating Indian Architecture</h1>
+          </div>
+          <p class="reveal reveal-delay-1">We provide a one-stop solution to the manufacturers of HPL and MFC by representing world-renowned companies for India and the subcontinent.</p>
+          <div class="flex items-center gap-sm reveal reveal-delay-2" style="margin-top: 2rem;">
             <a href="#who-we-represent" class="btn btn-primary">Who We Represent</a>
-            <a href="#what-we-do" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;">Explore Products</a>
+            <a href="Decor-Collection.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;">Explore Products</a>
           </div>
         </div>
       </div>
-      <a href="#who-we-are" class="scroll-hint">
+      <a href="#who-we-are" class="scroll-hint reveal reveal-delay-3">
         <i class="fa-solid fa-computer-mouse"></i>
         <i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; margin-top:-5px;"></i>
       </a>
     </section>
 
-        <!-- Who We Are / About -->
-
+    <!-- Who We Are -->
     <section id="who-we-are" class="section bg-light">
       <div class="container reveal">
         <h2 class="section-heading" style="text-align: center;">Who We Are</h2>
-        <p class="section-subheading" style="text-align: center; margin-bottom: 3rem;">A Legacy of Excellence Since 1993</p>
+        <p class="section-subheading" style="text-align: center; margin-bottom: 4rem;">A Legacy of Excellence Since 1993</p>
         
-        <div class="flex gap-lg who-we-are-container" style="align-items: center; margin-bottom: 2rem;">
-          <div class="who-we-are-img" style="flex: 0 0 35%; max-width: 350px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            <img src="themes/agatha/img/gallery/1.jpg" alt="Shah International Founders" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="flex gap-lg who-we-are-container" style="align-items: center; margin-bottom: 3rem;">
+          <div class="who-we-are-img reveal reveal-delay-1" style="flex: 0 0 40%; border-radius: 4px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+            <img src="themes/agatha/img/gallery/1.jpg" alt="Shah International Founders" style="width: 100%; height: auto; object-fit: cover;">
           </div>
-          <div class="flex-1" style="display: flex; flex-direction: column; justify-content: center; padding: 0;">
-            <div class="mobile-who-we-are-img" style="display: none; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 1.5rem 0;">
-              <img src="themes/agatha/img/gallery/1.jpg" alt="Shah International Founders" style="width: 100%; height: auto; object-fit: cover;">
-            </div>
-            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
+          <div class="flex-1 reveal reveal-delay-2" style="display: flex; flex-direction: column; justify-content: center;">
+            <p style="font-family: 'Inter', sans-serif; font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; color: #444;">
               Founded by <strong style="color: var(--color-brand-red);">Mr. Kirti Shah</strong>, Shah International has built a legacy of <strong style="color: var(--color-brand-red);">over 30 years</strong> as a leading indenting house in the laminate and wood-based panel industry. Today, driven by the next generation of leadership, we proudly represent world-renowned global companies across the Indian subcontinent.
             </p>
-            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 0;">
+            <p style="font-family: 'Inter', sans-serif; font-size: 1.15rem; line-height: 1.8; margin-bottom: 0; color: #444;">
               We are more than just suppliers; we are a reliable bridge connecting global manufacturing giants with India's booming interior infrastructure market. Our commitment to integrity, high-quality service, and long-term partnerships ensures that we continually deliver world-class innovation right to your doorstep.
             </p>
           </div>
         </div>
         
-        <div style="text-align: center;">
-          <a href="about-us.html" style="color: var(--color-brand-red); text-decoration: underline; text-underline-offset: 4px; text-transform: uppercase; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px;">READ OUR STORY</a>
+        <div style="text-align: center;" class="reveal reveal-delay-3">
+          <a href="about-us.html" class="btn btn-outline" style="border-color: var(--color-brand-red); color: var(--color-brand-red);">READ OUR STORY</a>
         </div>
       </div>
     </section>
 
-
-    <!-- Our Philosophy (Dramatic Dark Section) -->
-
-    <section class="section" style="background-color: var(--color-brand-red); color: #ffffff; padding: var(--space-xl) 0; ">
-      <div class="container reveal" style="max-width: 900px; text-align: center;">
-        <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-family: 'Playfair Display', serif; margin-bottom: 2rem; color: #fff;">Our Philosophy</h2>
-        <div style="width: 60px; height: 3px; background-color: #fff; margin: 0 auto 3rem auto;"></div>
-        <p style="font-size: clamp(1.25rem, 3vw, 1.75rem); line-height: 1.8; font-weight: 300; letter-spacing: 0.5px; color: #cccccc; font-style: italic;">
+    <!-- 3. Parallax Philosophy Section -->
+    <section class="philosophy-parallax">
+      <div class="philosophy-parallax-overlay"></div>
+      <div class="philosophy-parallax-content reveal">
+        <h2>Our Philosophy</h2>
+        <div style="width: 80px; height: 3px; background-color: var(--color-brand-red); margin: 0 auto 3rem auto;"></div>
+        <p>
           "Beyond Business. We build ties that bridge global innovation with Indian excellence. Our commitment is not just to supply materials, but to elevate the very foundation of interior architecture."
         </p>
       </div>
     </section>
   
-    <!-- Who We Represent -->
-
+    <!-- 2. Interactive Who We Represent -->
     <section id="who-we-represent" class="section">
-      <div class="container text-center">
-        <h2 class="section-heading">Global Giants We Represent</h2>
-        <p class="section-subheading">Bringing world-class quality and innovation to the Indian market.</p>
+      <div class="container">
+        <div class="text-center reveal">
+          <h2 class="section-heading">Global Giants We Represent</h2>
+          <p class="section-subheading">Bringing world-class quality and innovation to the Indian market.</p>
+        </div>
         
-        <div class="principals-grid mt-lg">
-        <a href="schattdecor-ag-germany.html" class="principal-item card p-md" style="text-decoration:none; color:inherit; display:block;">
-          <img src="themes/agatha/img/logos/schattdecor.jpg" alt="Schattdecor" style="max-height:40px; margin:0 auto 15px auto;">
-          <p><strong style="color: var(--color-brand-red);">Germany</strong><br>The world market leader in the printed décor paper industry, integrating creativity, technology, and science since 1985.</p>
-        </a>
-        <a href="kingdecor-zhejiang-co-ltd-china.html" class="principal-item card p-md" style="text-decoration:none; color:inherit; display:block;">
-          <img src="themes/agatha/img/logos/kingdecor.jpg" alt="Kingdecor" style="max-height:40px; margin:0 auto 15px auto;">
-          <p><strong style="color: var(--color-brand-red);">China</strong><br>Asia's largest producer of base paper, manufacturing eco-friendly solid base and print base paper for flawless impregnation.</p>
-        </a>
-        <a href="deurowood-gmbh-austria.html" class="principal-item card p-md" style="text-decoration:none; color:inherit; display:block;">
-          <img src="themes/agatha/img/logos/log2.jpg" alt="Deurowood" style="max-height:40px; margin:0 auto 15px auto;">
-          <p><strong style="color: var(--color-brand-red);">Austria</strong><br>Global leaders in ecological chemical additives and hardeners, contributing to a healthy environment and perfect surface finishing.</p>
-        </a>
-        <a href="hueck-rheinische-gmbh-germany.html" class="principal-item card p-md" style="text-decoration:none; color:inherit; display:block;">
-          <img src="themes/agatha/img/logos/log1.jpg" alt="Hueck Rheinische" style="max-height:40px; margin:0 auto 15px auto;">
-          <p><strong style="color: var(--color-brand-red);">Germany</strong><br>Pioneers of high-quality press pads that ensure optimal heat transfer and pressure distribution for laminate manufacturing.</p>
-        </a>
-        <a href="arcolor.html" class="principal-item card p-md" style="text-decoration:none; color:inherit; display:block;">
-          <h3 style="color:var(--color-primary); margin: 0 auto 15px auto; font-size: 1.5rem; text-transform:uppercase;">Arcolor</h3>
-          <p><strong style="color: var(--color-brand-red);">Switzerland</strong><br>Leading suppliers of innovative, sustainable, water-based, and VOC-free printing inks for the decorative paper industry.</p>
-        </a>
-        <a href="pyrus-panels-germany.html" class="principal-item card p-md" style="text-decoration:none; color:inherit; display:block;">
-          <h3 style="color:var(--color-primary); margin: 0 auto 15px auto; font-size: 1.5rem; text-transform:uppercase;">Pyrus Panels</h3>
-          <p><strong style="color: var(--color-brand-red);">Germany</strong><br>Engineering and producing company of lisocore®, a highly efficient, sustainable, state-of-the-art lightweight material.</p>
-        </a>
-        <a href="mitsubishi-chemical-corporation.html" class="principal-item card p-md" style="text-decoration:none; color:inherit; display:block;">
-          <h3 style="color:var(--color-primary); margin: 0 auto 15px auto; font-size: 1.5rem; text-transform:uppercase;">Mitsubishi</h3>
-          <p><strong style="color: var(--color-brand-red);">Japan</strong><br>Providing innovative solutions in chemistry, specializing in ACRYPLENT acrylic (PMMA) films for exterior UV protection.</p>
-        </a>
-      </div>
+        <div class="principals-masonry">
+          <a href="schattdecor-ag-germany.html" class="principal-tile reveal">
+            
+            <div class="principal-tile-content">
+              <img src="themes/agatha/img/logos/schattdecor.jpg" class="principal-tile-logo" alt="Schattdecor">
+              <h3>Germany</h3>
+              <p>The world market leader in the printed décor paper industry, integrating creativity, technology, and science since 1985.</p>
+            </div>
+          </a>
+          <a href="kingdecor-zhejiang-co-ltd-china.html" class="principal-tile reveal reveal-delay-1">
+            
+            <div class="principal-tile-content">
+              <img src="themes/agatha/img/logos/kingdecor.jpg" class="principal-tile-logo" alt="Kingdecor">
+              <h3>China</h3>
+              <p>Asia's largest producer of base paper, manufacturing eco-friendly solid base and print base paper for flawless impregnation.</p>
+            </div>
+          </a>
+          <a href="deurowood-gmbh-austria.html" class="principal-tile reveal reveal-delay-2">
+            
+            <div class="principal-tile-content">
+              <img src="themes/agatha/img/logos/log2.jpg" class="principal-tile-logo" alt="Deurowood">
+              <h3>Austria</h3>
+              <p>Global leaders in ecological chemical additives and hardeners, contributing to a healthy environment and perfect surface finishing.</p>
+            </div>
+          </a>
+          <a href="hueck-rheinische-gmbh-germany.html" class="principal-tile reveal">
+            
+            <div class="principal-tile-content">
+              <img src="themes/agatha/img/logos/log1.jpg" class="principal-tile-logo" alt="Hueck Rheinische">
+              <h3>Germany</h3>
+              <p>Pioneers of high-quality press pads that ensure optimal heat transfer and pressure distribution for laminate manufacturing.</p>
+            </div>
+          </a>
+          <a href="arcolor.html" class="principal-tile reveal reveal-delay-1">
+            
+            <div class="principal-tile-content">
+              <h2 style="font-family:'Playfair Display',serif; font-size: 2.5rem; margin-bottom:1.5rem; transition: transform 0.4s ease; color: #fff;">Arcolor</h2>
+              <h3>Switzerland</h3>
+              <p>Leading suppliers of innovative, sustainable, water-based, and VOC-free printing inks for the decorative paper industry.</p>
+            </div>
+          </a>
+          <a href="pyrus-panels-germany.html" class="principal-tile reveal reveal-delay-2">
+            
+            <div class="principal-tile-content">
+              <h2 style="font-family:'Playfair Display',serif; font-size: 2.5rem; margin-bottom:1.5rem; transition: transform 0.4s ease; color: #fff;">Pyrus Panels</h2>
+              <h3>Germany</h3>
+              <p>Engineering and producing company of lisocore®, a highly efficient, sustainable, state-of-the-art lightweight material.</p>
+            </div>
+          </a>
+          <a href="mitsubishi-chemical-corporation.html" class="principal-tile reveal">
+            
+            <div class="principal-tile-content">
+              <h2 style="font-family:'Playfair Display',serif; font-size: 2.5rem; margin-bottom:1.5rem; transition: transform 0.4s ease; color: #fff;">Mitsubishi</h2>
+              <h3>Japan</h3>
+              <p>Providing innovative solutions in chemistry, specializing in ACRYPLENT acrylic (PMMA) films for exterior UV protection.</p>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
-
-
-
-    <section id="whom-we-sell" class="marquee-section text-center" style="background-color: var(--color-brand-red);">
-      <h2 class="section-heading" style="color: #fff;">Whom We Sell To</h2>
+    <!-- 4. Marquee Hover Bloom -->
+    <section id="whom-we-sell" class="marquee-section text-center" style="background-color: var(--color-brand-red); padding: 6rem 0;">
+      <div class="reveal">
+        <h2 class="section-heading" style="color: #fff;">Whom We Sell To</h2>
+      </div>
       
-      <div class="marquee-container">
+      <div class="marquee-container" style="margin-top: 3rem;">
         <!-- First set of logos -->
         <div class="marquee-item"><img src="sites/default/files/2019-06/greenlam_1.png" alt="Greenlam"></div>
         <div class="marquee-item"><img src="sites/default/files/2019-06/Merino Group_0.png" alt="Merino"></div>
@@ -142,16 +174,29 @@
         <div class="marquee-item"><img src="sites/default/files/2019-06/godrej_0.png" alt="Godrej"></div>
       </div>
       
-      <p class="text-muted mb-md" style="margin-top: 3rem; font-size: clamp(1rem, 3vw, 1.25rem); font-style: italic; color: #fff;">
-        ...and many more. <a href="Our-Clients.html" style="color: #fff; text-decoration: underline; text-underline-offset: 4px; text-transform: uppercase; font-weight: 600; font-style: normal; font-size: 0.95rem; letter-spacing: 1px; margin-left: 10px;">View Our Clients</a>
-      </p>
+      <div class="reveal">
+        <p style="margin-top: 4rem; font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.8);">
+          ...and many more. <a href="Our-Clients.html" style="color: #fff; text-decoration: none; border-bottom: 1px solid #fff; text-transform: uppercase; font-weight: 600; font-style: normal; font-size: 0.95rem; letter-spacing: 1px; margin-left: 15px; padding-bottom: 2px;">View Our Clients</a>
+        </p>
+      </div>
     </section>
-    <div class="marquee-bottom-bar"></div>
   </main>
   
   <div id="shared-footer"></div>
   
-  <script src="includes.js"></script>
-  <script src="scroll-animations.js"></script>
+  <script src="includes.js?v=4"></script>
+  <script>
+    // Hero Cross-Fading Logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('#hero-slider .slide');
+      if(slides.length === 0) return;
+      let currentSlide = 0;
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 5000); // Change image every 5 seconds
+    });
+  </script>
 </body>
 </html>

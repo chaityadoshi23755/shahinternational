@@ -7,29 +7,146 @@
   <title>Schattdecor AG, Germany | Shah International</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=115">
+<style>
+
+    /* ========== CORPORATE GIANTS GRID (WITH TABS) ========== */
+    .corporate-hero {
+      background-color: #fff;
+      padding: 6rem 2rem 4rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid #eaeaea;
+    }
+    .corporate-plaque {
+      display: inline-block;
+      padding: 3rem 4rem;
+      background: #fff;
+      border: 1px solid var(--color-text);
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      max-width: 100%;
+    }
+    .corporate-plaque img {
+      max-width: 300px;
+      height: auto;
+    }
+    .corporate-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--color-text);
+      margin-top: 2rem;
+    }
+    
+    .competency-matrix-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 991px) {
+      .competency-matrix-2col {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* FIX FOR JS TABS BLEEDING */
+    .tab-panel.competency-matrix-2col {
+      display: none !important;
+    }
+    .tab-panel.competency-matrix-2col.active {
+      display: grid !important;
+    }
+    
+    .competency-card {
+      background: #fff;
+      border: 1px solid var(--color-text);
+      padding: 3rem 2.5rem;
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .competency-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px);
+      border-color: var(--color-brand-red);
+    }
+    .competency-card h4, .competency-card h3 {
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-brand-red);
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--color-text);
+      padding-bottom: 1rem;
+    }
+    .competency-card p, .competency-card ul {
+      color: var(--color-text-light);
+      line-height: 1.8;
+    }
+    
+    .global-reach-footer {
+      background: var(--color-brand-red);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+      font-family: 'Playfair Display', serif;
+      margin-top: 4rem;
+    }
+    .global-reach-footer a {
+      color: #fff;
+      text-decoration: underline;
+      font-size: 1.5rem;
+    }
+    
+    /* Make tabs look more corporate */
+    .tab-nav {
+      justify-content: center;
+      border-bottom: 2px solid var(--color-text);
+      margin-bottom: 3rem;
+    }
+    .tab-btn {
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      padding: 1rem 2rem;
+      border-bottom: 3px solid transparent;
+    }
+    .tab-btn.active {
+      background: transparent;
+      color: var(--color-brand-red);
+      border-bottom: 3px solid var(--color-brand-red);
+    }
+
+
+    /* FIX FOR SINGLE CARD SPANNING FULL WIDTH */
+    .competency-matrix-2col > .competency-card:first-of-type:last-of-type {
+      grid-column: 1 / -1;
+    }
+
+</style>
 </head>
 <body>
   <div id="shared-header"></div>
 
-  <section class="page-banner">
-    <img src="sites/default/files/2018-12/s1.jpg" alt="Schattdecor AG" class="page-banner-bg">
-    <div class="page-banner-overlay"></div>
-    <div class="page-banner-content">
-      <h1>Schattdecor AG, Germany</h1>
-      <ol class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li>Schattdecor AG, Germany</li>
-      </ol>
+  
+    <div class="corporate-hero reveal">
+      <div class="corporate-plaque">
+        <img src="themes/agatha/img/logos/schattdecor.jpg" alt="Schattdecor AG, Germany Logo">
+      </div>
+      <h1 class="corporate-title">Schattdecor AG, Germany</h1>
     </div>
-  </section>
+    
 
   <section class="page-content">
     <div class="container">
       
-      <div class="principal-logo">
-        <img src="themes/agatha/img/logos/schattdecor.jpg" alt="Schattdecor Logo">
-      </div>
+      
 
       <div class="tabs">
         <div class="tab-nav">
@@ -39,11 +156,11 @@
           <button class="tab-btn" data-tab="diversity">Operational Diversity</button>
         </div>
 
-        <div class="tab-panel active" id="tab-home">
-          <div class="content-block">
+        <div class="tab-panel active competency-matrix-2col" id="tab-home">
+          <div class="competency-card">
             <p><strong>Schattdecor</strong> is the name that defines dependability and trust all over the world in the printed decor industry. A company driven by the vision to provide world-class printed décor to its clients. It was founded in 1985 by Mr. Walter Schatt in Thansau, near Rosenheim in southern Germany. Today, the company operates state-of-the-art production facilities in Germany, Poland, Italy, Russia, China, Brazil, USA and Turkey. Schattdecor is the world market leader in the printed décor paper industry. Schattdecor continues to integrate creativity, technology and science to produce marvels in this field.</p>
           </div>
-          <div class="content-block">
+          <div class="competency-card">
             <h4>From the desk:</h4>
             <hr class="section-divider">
             <p>"Since Schattdecor's establishment in 1985, we have developed into a high-powered décor printing group that provides the highest possible quality while leading the way in creativity and flexibility. We are still evolving and developing today, and it fills us with pride that employees and customers alike regard us as a special and particularly welcoming company. Along with our globe-spanning subsidiaries, we will remain a reliable partner in future and continue to guarantee, 'Made by Schattdecor' quality throughout the world."</p>
@@ -52,8 +169,8 @@
           </div>
         </div>
 
-        <div class="tab-panel" id="tab-products">
-          <div class="content-block">
+        <div class="tab-panel competency-matrix-2col" id="tab-products">
+          <div class="competency-card">
             <h4>1. Décor Printed Paper</h4>
             <hr class="section-divider">
             <p>Decor printing is a process involved in the production of decor paper; i.e. paper printed to resemble wood or other materials and then laminated to a rigid substrate for use as the surface of worktops, cabinet fronts, furniture carcases, wall panels, windowsills and laminate floors. Decor paper designs can be divided into the following three categories:</p>
@@ -64,13 +181,13 @@
             </ol>
             <p>Decor printing is a particular form of rotogravure printing. Within the Schattdecor group it involves use of white or tinted base paper that fulfils special further processing requirements. For environmental reasons, Schattdecor has solely used water-based inks incorporating heavy-metal-free, organic pigments since its foundation in 1985. Printed decor paper is sold to companies in the timber products industry, where it is saturated with resin and laminated to chipboard and medium-density fibreboard (MDF) for use in flooring and furniture.</p>
           </div>
-          <div class="content-block">
+          <div class="competency-card">
             <h4>2. Digital Visions</h4>
             <hr class="section-divider">
             <p>Taking inspiration from the idea that 'success comes from being different', Schattdecor presents fascinating design possibilities for use in interior and shop design, booth construction and architecture.</p>
             <p>DIGITAL VISIONS provides unique designs for an individual furniture front or a supersize project which pass on creative potential, flexibility and extensive decor printing experience with a quality status and looks that are sure to be noticed.</p>
           </div>
-          <div class="content-block">
+          <div class="competency-card">
             <h4>3. Unique Colours by Schattdecor</h4>
             <hr class="section-divider">
             <p>The perfect match for our wood decors:</p>
@@ -83,8 +200,8 @@
           </div>
         </div>
 
-        <div class="tab-panel" id="tab-quality">
-          <div class="content-block">
+        <div class="tab-panel competency-matrix-2col" id="tab-quality">
+          <div class="competency-card">
             <p><strong>Continuity</strong></p>
             <p>At Schattdecor, every production step is documented in a systematic manner and subjected to stringent inspection routines. This is how they achieve consistent high quality in keeping with ISO 9001, from the first to last reel.</p>
             <p><strong>Consistent quality all over the world</strong></p>
@@ -97,8 +214,8 @@
           </div>
         </div>
 
-        <div class="tab-panel" id="tab-diversity">
-          <div class="content-block">
+        <div class="tab-panel competency-matrix-2col" id="tab-diversity">
+          <div class="competency-card">
             <p><strong>Full-process decor development</strong></p>
             <p>The Schattdecor group's decors are developed at one central place – the headquarters in Thansau, Germany – to ensure high design quality. Created by the Design department, the decors are digitally mastered by repro specialists and engraved onto printing cylinders in in-house processes.</p>
             <p><strong>Design</strong></p>
@@ -118,10 +235,16 @@
         </div>
       </div>
     </div>
-  </section>
+  
+    <div class="global-reach-footer reveal">
+      <h2>Experience Schattdecor AG Global</h2>
+      <p style="margin-top: 1rem;"><a href="#" style="color: #fff;">Visit Official Website &rarr;</a></p>
+    </div>
+    
+</section>
 
   <div id="shared-footer"></div>
-  <script src="includes.js"></script>
+  <script src="includes.js?v=2"></script>
   <script src="tabs.js"></script>
 </body>
 </html>

@@ -7,167 +7,263 @@
   <title>About Us | Shah International</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=99">
+  <style>
+    .story-img {
+      border-radius: 0;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .story-img:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    .quick-links-pill a {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--color-brand-red);
+      color: var(--color-brand-red);
+      margin: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+    .quick-links-pill a:hover {
+      background-color: var(--color-brand-red);
+      color: #fff;
+    }
+    .editorial-heading {
+      font-family: 'Playfair Display', serif; 
+      color: var(--color-text);
+      margin-bottom: 2rem;
+    }
+    
+    /* ========== S-CURVE CONTINUOUS PATH ========== */
+    .s-path-container {
+      max-width: 1100px;
+      margin: 4rem auto 8rem auto;
+      padding: 0;
+    }
+    .s-path-row {
+      position: relative;
+      padding: 5rem 6rem;
+      margin-top: -3px; /* perfectly overlap the 3px borders */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    /* Start Dot */
+    .s-path-row.start-node::before {
+      content: '';
+      position: absolute;
+      top: -9px;
+      left: -20px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-brand-red);
+      border-radius: 50%;
+    }
+
+    /* Odd Rows: Go Right */
+    .s-path-row:nth-child(odd) {
+      border-top: 3px solid var(--color-brand-red);
+      border-right: 3px solid var(--color-brand-red);
+      border-bottom: 3px solid var(--color-brand-red);
+      border-left: 3px solid transparent;
+      border-radius: 0 100px 100px 0;
+    }
+    /* Even Rows: Go Left */
+    .s-path-row:nth-child(even) {
+      border-top: 3px solid transparent;
+      border-left: 3px solid var(--color-brand-red);
+      border-bottom: 3px solid var(--color-brand-red);
+      border-right: 3px solid transparent;
+      border-radius: 100px 0 0 100px;
+    }
+
+    /* Inner Layouts to align text with the curve direction */
+    .s-path-row:nth-child(odd) .row-content {
+      text-align: left;
+    }
+    .s-path-row:nth-child(even) .row-content {
+      text-align: right;
+    }
+    
+    .path-title {
+      font-family: 'Inter', sans-serif; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      color: var(--color-brand-red); 
+      margin-bottom: 1rem;
+    }
+    
+    /* Mobile adjustments for the curve */
+    @media (max-width: 768px) {
+      .s-path-row {
+        padding: 3rem 2rem;
+        border-radius: 0 !important;
+        border-right: none !important;
+        border-left: 3px solid var(--color-brand-red) !important;
+        border-top: none !important;
+        border-bottom: none !important;
+        margin-top: 0;
+      }
+      .s-path-row:nth-child(even) .row-content {
+        text-align: left;
+      }
+      .s-path-row.start-node::before {
+        left: -11px;
+      }
+    }
+  </style>
 </head>
-<body>
+<body style="background-color: var(--color-bg);">
   <div id="shared-header"></div>
 
   <!-- Page Banner -->
-  <section class="page-banner">
-    <img src="sites/default/files/2018-12/about.jpg" alt="About Shah International" class="page-banner-bg">
-    <div class="page-banner-overlay"></div>
-    <div class="page-banner-content">
-      <h1>About Us</h1>
-      <ol class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li>About Us</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <section class="page-content">
+    <section class="tech-directory-header reveal">
     <div class="container">
-      
-      <!-- Quick Links -->
-      <div class="quick-links">
-        <a href="#vision-mission" class="quick-link"><i class="fa-solid fa-leaf"></i> Vision & Mission</a>
-        <a href="#we-grow" class="quick-link"><i class="fa-solid fa-leaf"></i> Together We Grow</a>
-        <a href="#services-customers" class="quick-link"><i class="fa-solid fa-leaf"></i> Our Services to Customers</a>
-        <a href="#services-principals" class="quick-link"><i class="fa-solid fa-leaf"></i> Our Services to Principals</a>
-        <a href="#values" class="quick-link"><i class="fa-solid fa-leaf"></i> Values</a>
-      </div>
-
-      <!-- Intro -->
-      <div class="content-block">
-        <p>At Shah International, it has always been our endeavor to be a world-class service oriented company and provide an excellent service to our principals and customers. And in years to come, we shall further integrate businesses across countries and build ties that go beyond mere business relations.</p>
-      </div>
-
-      <!-- Image Grid -->
-      <div class="image-grid image-grid-2">
-        <img src="themes/agatha/img/gallery/1.jpg" alt="Shah International office">
-        <img src="themes/agatha/img/gallery/4.jpg" alt="Shah International team">
-      </div>
-      <div class="image-grid" style="grid-template-columns: 1fr;">
-        <img src="themes/agatha/img/gallery/8-1.jpg" alt="Shah International exhibition" class="image-grid-full">
-      </div>
-
-      <!-- Vision & Mission -->
-      <div class="content-block" id="vision-mission">
-        <h4><strong>Our Vision</strong></h4>
-        <hr class="section-divider">
-        <p>To be a leading Indenting house providing high quality service to our valued customers and esteemed principals in the laminate and wood based panel industry.</p>
-      </div>
-
-      <div class="content-block" id="we-grow">
-        <h4><strong>Our Mission</strong></h4>
-        <hr class="section-divider">
-        <p>To maximize customer satisfaction and our principals value through best management practices and continually striving for excellence in the services we provide.</p>
-      </div>
-
-      <div class="content-block">
-        <h4><strong>Truly said "Together we grow"</strong></h4>
-        <hr class="section-divider">
-        <p>We feel proud to share with you that we have completed more than 25 years in the industry. We want to share this success with our valued customers whose objective constantly helped us to nourish the seed of aspiration and inspiration within us. Understanding and feeling the customers desire is always been our top priority which leads us to sail in right direction. Visualizing the desired objective of customers and putting efforts to fulfill it is always our prime focus. And it is well said "Narrower the focus, broader the vision".</p>
-        <p>The company was founded by the grand vision of one man, Mr. Kirti Shah in 1993, is today a highly reputed company in the industry. Mr. Kirti Shah has spent more than 35 years in the industry and no need to say he shares his experience working with even 3rd generations of our customers. Since then we have grown by leaps and bounds at Shah International. Today, we represent several world renowned companies in the Indian subcontinent as an indenting company. We build commercial relations between our principals and our Indian clients by supplying raw materials to the manufacturers of High Pressure Laminate (HPL) and Pre-laminated particle boards used in the readymade furniture industry.</p>
-        <p>At Shah International, it has always been our endeavor to be a world-class service oriented company and provide an excellent service to our principals and customers. And in years to come, we shall further integrate businesses across countries and build ties that go beyond mere business relations. We provide one stop solution to the manufactures of HPL and MFC by representing the following world renowned companies for India and subcontinent.</p>
-      </div>
-
-      <!-- Image Grid -->
-      <div class="image-grid image-grid-2">
-        <img src="themes/agatha/img/gallery/6.jpg" alt="Shah International products">
-        <img src="themes/agatha/img/gallery/12.jpg" alt="Shah International warehouse">
-      </div>
-      <div class="image-grid" style="grid-template-columns: 1fr;">
-        <img src="themes/agatha/img/gallery/11-1.jpg" alt="Shah International facility">
-      </div>
-
-      <!-- Services to Customers -->
-      <div class="content-block" id="services-customers">
-        <h4><strong>Our Services to Customers</strong></h4>
-        <hr class="section-divider">
-        <p><strong>We provide highly efficient, dedicated and convenient service to our customers by:</strong></p>
-        <ul>
-          <li>Understanding the challenges and demands of our customers.</li>
-          <li>Providing logistics solutions that are efficient and reliable.</li>
-          <li>Getting timely shipments and also ensuring shipment on priority in case of urgency.</li>
-          <li>Enabling prompt sampling services.</li>
-          <li>Offering flexible payment terms.</li>
-        </ul>
-      </div>
-
-      <!-- Services to Principals -->
-      <div class="content-block" id="services-principals">
-        <h4><strong>Our Services to Principals</strong></h4>
-        <hr class="section-divider">
-        <p><strong>We support our principals by:</strong></p>
-        <ul>
-          <li>Providing Market research and analysis.</li>
-          <li>Marketing of our principals.</li>
-          <li>Providing excellent customer relationship.</li>
-          <li>Prompt action in case of urgency.</li>
-        </ul>
-      </div>
-
-      <!-- Image Grid -->
-      <div class="image-grid image-grid-3">
-        <img src="themes/agatha/img/gallery/7.jpg" alt="Shah International services">
-        <img src="themes/agatha/img/gallery/9.jpg" alt="Shah International quality">
-        <img src="themes/agatha/img/gallery/10.jpg" alt="Shah International team">
-      </div>
-
-      <!-- Values -->
-      <div class="content-block" id="values">
-        <h4><strong>Values of Integration, Honesty and Teamwork</strong></h4>
-        <hr class="section-divider">
-        <p>At Shah International, we have fostered a culture of complete integration, honesty and teamwork. All our employees are professionals who are well-trained and possess knowledge about the industry. The philosophy of understanding satisfying clients needs go deep down in the hearts of the workforce. For us, these are not just words that form our vision statement. These are values and ways of life that we adhere to at Shah International.</p>
-      </div>
+      <h1>About Us</h1>
+      <ol class="breadcrumb" style="padding-left: 0;"><li><a href="index.html">Home</a></li><li>About Us</li></ol>
     </div>
   </section>
 
-  <!-- Company Journey Timeline -->
-  <section class="section bg-light">
-    <div class="container reveal">
-      <h2 class="section-heading text-center" style="font-family: 'Playfair Display', serif;">Our Journey</h2>
-      <p class="text-center text-muted" style="margin-bottom: 3rem;">A legacy of excellence since 1993.</p>
-      
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-year">1993</div>
-          <div class="timeline-content">
-            <h3>The Beginning</h3>
-            <p>Founded by Mr. Kirti Shah with a vision to bridge the gap between global innovations and the Indian market.</p>
-          </div>
-        </div>
+  <!-- Quick Links -->
+  <div class="container text-center reveal" style="margin-top: 4rem; margin-bottom: 2rem;">
+    <div class="quick-links-pill">
+      <a href="#the-journey">The Journey</a>
+    </div>
+  </div>
+
+  <!-- S-CURVE MASTER CONTAINER -->
+  <div class="s-path-container" id="the-journey">
+    
+    <!-- NODE 1: Intro (Odd - Goes Right) -->
+    <div class="s-path-row start-node reveal">
+      <div class="row-content">
+        <h2 class="editorial-heading" style="font-size: 3rem;">A Legacy of Excellence</h2>
+        <p style="font-size: 1.25rem; line-height: 2; color: var(--color-text-light); text-align: left;"><span style="float: left; font-size: 5rem; line-height: 0.7; margin-right: 1rem; font-family: 'Playfair Display', serif; color: var(--color-brand-red);">A</span>t Shah International, it has always been our endeavor to be a world-class service oriented company and provide an excellent service to our principals and customers. And in years to come, we shall further integrate businesses across countries and build ties that go beyond mere business relations.</p>
         
-        <div class="timeline-item reveal">
-          <div class="timeline-year">2005</div>
-          <div class="timeline-content">
-            <h3>Global Expansion</h3>
-            <p>Forged strategic partnerships with top-tier European principals like Schattdecor, bringing world-class decors to India.</p>
-          </div>
+        <div class="image-grid image-grid-2" style="margin-top: 3rem;">
+          <img src="themes/agatha/img/gallery/1.jpg" alt="Shah International office" class="story-img">
+          <img src="themes/agatha/img/gallery/4.jpg" alt="Shah International team" class="story-img">
         </div>
-        
-        <div class="timeline-item reveal">
-          <div class="timeline-year">2015</div>
-          <div class="timeline-content">
-            <h3>Industry Leadership</h3>
-            <p>Solidified our position as the leading indenting house for the laminate and wood-based panel industry across the subcontinent.</p>
+      </div>
+    </div>
+
+    <!-- NODE 2: Vision & Mission (Even - Goes Left) -->
+    <div class="s-path-row reveal">
+      <div class="row-content">
+        <h3 class="editorial-heading" style="font-size: 2.5rem;">Our Vision & Mission</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left; margin-top: 2rem;">
+          <div style="background: var(--color-bg); padding: 2rem; border-left: 2px solid var(--color-brand-red); box-shadow: var(--shadow-sm);">
+            <h4 class="path-title">Our Vision</h4>
+            <p style="color: var(--color-text-light); line-height: 1.8;">To be a leading Indenting house providing high quality service to our valued customers and esteemed principals in the laminate and wood based panel industry.</p>
           </div>
-        </div>
-        
-        <div class="timeline-item reveal">
-          <div class="timeline-year">Today</div>
-          <div class="timeline-content">
-            <h3>The Next Generation</h3>
-            <p>Driven by the next generation of leadership, continuing our legacy of integrity, quality, and long-term partnerships.</p>
+          <div style="background: var(--color-bg); padding: 2rem; border-left: 2px solid var(--color-brand-red); box-shadow: var(--shadow-sm);">
+            <h4 class="path-title">Our Mission</h4>
+            <p style="color: var(--color-text-light); line-height: 1.8;">To maximize customer satisfaction and our principals value through best management practices and continually striving for excellence in the services we provide.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- NODE 3: Together We Grow (Odd - Goes Right) -->
+    <div class="s-path-row reveal">
+      <div class="row-content">
+        <h3 class="editorial-heading" style="font-size: 2.5rem;">Truly said "Together we grow"</h3>
+        <img src="themes/agatha/img/gallery/8-1.jpg" alt="Shah International exhibition" class="story-img" style="max-height: 400px; margin-bottom: 2rem;">
+        
+        <p style="margin-bottom: 1.5rem; color: var(--color-text-light); line-height: 1.9;">We feel proud to share with you that we have completed more than 25 years in the industry. We want to share this success with our valued customers whose objective constantly helped us to nourish the seed of aspiration and inspiration within us.</p>
+        <p style="margin-bottom: 1.5rem; color: var(--color-text-light); line-height: 1.9;">The company was founded by the grand vision of one man, Mr. Kirti Shah in 1993, is today a highly reputed company in the industry. Mr. Kirti Shah has spent more than 35 years in the industry and no need to say he shares his experience working with even 3rd generations of our customers.</p>
+        <p style="color: var(--color-text-light); line-height: 1.9;">Today, we represent several world renowned companies in the Indian subcontinent as an indenting company. We provide one stop solution to the manufactures of HPL and MFC by representing the following world renowned companies for India and subcontinent.</p>
+      </div>
+    </div>
+
+    <!-- NODE 4: Services (Even - Goes Left) -->
+    <div class="s-path-row reveal">
+      <div class="row-content">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left;">
+          <div>
+            <h3 class="editorial-heading" style="text-align: left; margin-bottom: 1rem;">Services to Customers</h3>
+            <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--color-text-light); line-height: 2;">
+              <li>Understanding the challenges and demands.</li>
+              <li>Providing efficient and reliable logistics solutions.</li>
+              <li>Timely shipments and priority in urgency.</li>
+              <li>Enabling prompt sampling services.</li>
+              <li>Offering flexible payment terms.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="editorial-heading" style="text-align: left; margin-bottom: 1rem;">Services to Principals</h3>
+            <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--color-text-light); line-height: 2;">
+              <li>Providing Market research and analysis.</li>
+              <li>Marketing of our principals.</li>
+              <li>Providing excellent customer relationship.</li>
+              <li>Prompt action in case of urgency.</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="image-grid image-grid-2" style="margin-top: 3rem;">
+          <img src="themes/agatha/img/gallery/6.jpg" alt="Shah International products" class="story-img">
+          <img src="themes/agatha/img/gallery/12.jpg" alt="Shah International warehouse" class="story-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- NODE 5: Values & Legacy (Odd - Goes Right) -->
+    <div class="s-path-row reveal">
+      <div class="row-content">
+        <h3 class="editorial-heading" style="font-size: 2.5rem;">Values of Integration, Honesty and Teamwork</h3>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-text-light); margin-bottom: 3rem;">At Shah International, we have fostered a culture of complete integration, honesty and teamwork. All our employees are professionals who are well-trained and possess knowledge about the industry. The philosophy of understanding satisfying clients needs go deep down in the hearts of the workforce. For us, these are not just words that form our vision statement. These are values and ways of life that we adhere to.</p>
+        
+        <div class="image-grid image-grid-3">
+          <img src="themes/agatha/img/gallery/7.jpg" alt="Shah International services" class="story-img">
+          <img src="themes/agatha/img/gallery/9.jpg" alt="Shah International quality" class="story-img">
+          <img src="themes/agatha/img/gallery/10.jpg" alt="Shah International team" class="story-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- NODE 6: Timeline Conclusion (Even - Goes Left and Ends) -->
+    <div class="s-path-row reveal" style="border-bottom: none; border-radius: 100px 0 0 0; padding-bottom: 0;">
+      <div class="row-content" style="text-align: left;">
+        <h3 class="editorial-heading" style="font-size: 2.5rem; text-align: left;">The Timeline</h3>
+        
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+          <div style="flex: 1; min-width: 200px;">
+            <h4 class="path-title">1993</h4>
+            <p style="color: var(--color-text-light);">Founded by Mr. Kirti Shah.</p>
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <h4 class="path-title">2005</h4>
+            <p style="color: var(--color-text-light);">Global Expansion & Partnerships.</p>
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <h4 class="path-title">2015</h4>
+            <p style="color: var(--color-text-light);">Industry Leadership.</p>
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <h4 class="path-title">Today</h4>
+            <p style="color: var(--color-text-light);">Driven by the next generation.</p>
+          </div>
+        </div>
+        
+        <!-- End Node Dot -->
+        <div style="width: 20px; height: 20px; background-color: var(--color-brand-red); border-radius: 50%; margin-top: 3rem;"></div>
+        
+      </div>
+    </div>
+
+  </div> <!-- End S-Curve Container -->
 
   <div id="shared-footer"></div>
-  <script src="includes.js"></script>
+  <script src="includes.js?v=99"></script>
 </body>
 </html>

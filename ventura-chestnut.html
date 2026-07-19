@@ -4,47 +4,63 @@
   <title>ventura chestnut | Shah International</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <div id="shared-header"></div>
-  <section class="page-banner"><img src="sites/default/files/2021-04/14-12089-001%20Ventura_Chestnut.jpg" class="page-banner-bg" alt="Product Banner">
-    <div class="page-banner-overlay" style="background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(26,26,26,0.7));"></div>
-    <div class="page-banner-content">
-      <h1>ventura chestnut</h1>
-      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>ventura chestnut</li></ol>
+  
+  <section class="tech-directory-header reveal">
+    <div class="container">
+      <h1 style="font-size: 2rem;">ventura chestnut</h1>
+      <ol class="breadcrumb" style="padding-left: 0;"><li><a href="index.html">Home</a></li><li>ventura chestnut</li></ol>
     </div>
   </section>
+        
   <section class="page-content">
     <div class="container">
-      <div class="product-detail-layout">
-        <div class="product-info content-block">
+      
+      <div class="pdp-grid-55-45 reveal">
+        <div class="pdp-info">
           <h3>ventura chestnut</h3>
-          
-          <div class="product-description" style="margin-bottom: var(--space-lg);">
-            
-                                  <p>With its slight touches of movement, tiny knots and balanced fine details, this closely-grained decor is ideal for a wide range of purposes in the furniture field. The elegant and natural look of the material meets the current wish for harmonious decor compositions suited for a universality of uses.</p>
+          <div class="pdp-desc">
+            <p>With its slight touches of movement, tiny knots and balanced fine details, this closely-grained decor is ideal for a wide range of purposes in the furniture field. The elegant and natural look of the material meets the current wish for harmonious decor compositions suited for a universality of uses.</p>
                                   <p><strong>Decor No : 14-12389-101</strong></p>
                                   <p><strong>Decor No : 14-12389-002</strong></p>
                                   <p><strong>Decor No : 14-12389-004</strong></p>
                                   <p><strong>Decor available in 4 ft only</strong></p>
-                                
           </div>
-          <div class="product-actions" style="display: flex; gap: 15px; font-size: 24px; color: var(--color-primary);">
-            <a href="javascript:history.back()" style="color: inherit; transition: color 0.3s;"><i class="fa-solid fa-circle-arrow-left"></i></a>
-            <a href="javascript:window.print()" style="color: inherit; transition: color 0.3s;"><i class="fa-solid fa-print"></i></a>
+          <div class="pdp-actions">
+            <a href="#" class="pdp-btn pdp-btn-red"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
+            <a href="#" class="pdp-btn pdp-btn-outline"><i class="fa-solid fa-swatchbook"></i> Request Sample</a>
+            <button class="pdp-btn pdp-btn-outline" onclick="openDecorRepeat(document.getElementById('main-product-image').src)"><i class="fa-solid fa-maximize"></i> Whole Decor Repeat</button>
           </div>
         </div>
-        <div class="product-image-container">
-          <div class="product-thumbnails"><img src="sites/default/files/2021-04/14-12089-001%20Ventura_Chestnut.jpg" class="gallery-thumb" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); border: 2px solid transparent;" onclick="document.getElementById('main-product-image').src='sites/default/files/2021-04/14-12089-001%20Ventura_Chestnut.jpg'; document.querySelectorAll('.gallery-thumb').forEach(el=>el.style.borderColor='transparent'); this.style.borderColor='var(--color-primary)';"><img src="sites/default/files/2021-04/14-12089-002%20Ventura_Chestnut.jpg" class="gallery-thumb" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); border: 2px solid transparent;" onclick="document.getElementById('main-product-image').src='sites/default/files/2021-04/14-12089-002%20Ventura_Chestnut.jpg'; document.querySelectorAll('.gallery-thumb').forEach(el=>el.style.borderColor='transparent'); this.style.borderColor='var(--color-primary)';"><img src="sites/default/files/2021-04/14-12089-004%20%20_Ventura_Chestnut.jpg" class="gallery-thumb" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); border: 2px solid transparent;" onclick="document.getElementById('main-product-image').src='sites/default/files/2021-04/14-12089-004%20%20_Ventura_Chestnut.jpg'; document.querySelectorAll('.gallery-thumb').forEach(el=>el.style.borderColor='transparent'); this.style.borderColor='var(--color-primary)';"></div>
-          <div class="product-image" style="flex: 1;">
-            <img id="main-product-image" src="sites/default/files/2021-04/14-12089-001%20Ventura_Chestnut.jpg" alt="ventura chestnut" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
+        
+        <div class="pdp-image-col">
+          <img id="main-product-image" src="sites/default/files/2021-04/14-12089-001%20Ventura_Chestnut.jpg" class="pdp-main-img" alt="ventura chestnut" onclick="openDecorRepeat(this.src)">
+          <div class="pdp-thumbnails">
+            <img src="sites/default/files/2021-04/14-12089-001%20Ventura_Chestnut.jpg" class="pdp-thumb" onclick="updateMainImage('sites/default/files/2021-04/14-12089-001%20Ventura_Chestnut.jpg', this)">
+<img src="sites/default/files/2021-04/14-12089-002%20Ventura_Chestnut.jpg" class="pdp-thumb" onclick="updateMainImage('sites/default/files/2021-04/14-12089-002%20Ventura_Chestnut.jpg', this)">
+<img src="sites/default/files/2021-04/14-12089-004%20%20_Ventura_Chestnut.jpg" class="pdp-thumb" onclick="updateMainImage('sites/default/files/2021-04/14-12089-004%20%20_Ventura_Chestnut.jpg', this)">
+
           </div>
         </div>
       </div>
+      
+      
+
+      <script>
+        function updateMainImage(src, el) {
+          document.getElementById('main-product-image').src = src;
+          
+          document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+          if(el) el.classList.add('active');
+        }
+      </script>
+        
     </div>
   </section>
   <div id="shared-footer"></div>
-  <script src="includes.js"></script>
+  <script src="includes.js?v=2"></script>
 
 </body></html>

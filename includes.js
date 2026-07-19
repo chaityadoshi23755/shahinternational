@@ -37,11 +37,23 @@
     loadInclude('shared-header', 'header.html', highlightActiveNav);
     loadInclude('shared-footer', 'footer.html');
 
+  });
+
+
     // Image Magnifier logic for Product Detail Pages
     var mainImg = document.getElementById('main-product-image');
-    if (mainImg) {
-      var container = mainImg.parentElement;
-      container.style.position = 'relative';
+    if (mainImg && !document.querySelector('.pdp-main-img-wrapper')) {
+      // Dynamically wrap the image so the magnifier doesn't overlap thumbnails
+      var wrapper = document.createElement('div');
+      wrapper.className = 'pdp-main-img-wrapper';
+      wrapper.style.position = 'relative';
+      
+      wrapper.style.display = 'inline-block';
+      
+      mainImg.parentNode.insertBefore(wrapper, mainImg);
+      wrapper.appendChild(mainImg);
+      
+      var container = wrapper;
 
       var glass = document.createElement('DIV');
       glass.setAttribute('class', 'img-magnifier-glass');
@@ -61,7 +73,7 @@
       }
 
       function moveGlass(e) {
-        if (e.cancelable) e.preventDefault(); // Prevent scrolling on touch
+        if (e.cancelable) e.preventDefault();
         
         var bgUrl = 'url("' + mainImg.src + '")';
         if (glass.style.backgroundImage !== bgUrl) {
@@ -109,24 +121,28 @@
       container.addEventListener('mousemove', moveGlass);
       container.addEventListener('touchmove', moveGlass, {passive: false});
     }
-  });
 
-  // Auto lazy-scroll to main content for Product and Category pages
+    // Auto lazy-scroll to main content for Product and Category pages
   window.addEventListener('load', function() {
     var mainImage = document.getElementById('main-product-image');
     var cardGrid = document.querySelector('.card-grid');
-    var pageContent = document.querySelector('.page-content');
+    var pageContent = document.querySelector('.page-content') || document.querySelector('.editorial-container') || document.querySelector('.s-path-container');
+    var editorialContainer = document.querySelector('.editorial-container');
     
-    // If it's a PDP, Category page, or About Us, and we have a content section
+    // If it's a PDP, Category page, Editorial page, or About Us, and we have a content section
     var isAboutUs = window.location.pathname.toLowerCase().indexOf('about-us') !== -1;
-    if ((mainImage || cardGrid || isAboutUs) && pageContent) {
+    if ((mainImage || cardGrid || editorialContainer || isAboutUs) && pageContent) {
       setTimeout(function() {
         // Only auto-scroll if the user hasn't already scrolled down manually
         if (window.scrollY < 50) {
           var headerEl = document.getElementById('header');
           var headerOffset = headerEl ? headerEl.offsetHeight : 80;
-          var elementPosition = pageContent.getBoundingClientRect().top;
-          var offsetPosition = elementPosition + window.scrollY - headerOffset;
+          var targetEl = pageContent;
+          if (mainImage && document.querySelector('.pdp-grid-55-45')) {
+            targetEl = document.querySelector('.pdp-grid-55-45');
+          }
+          var elementPosition = targetEl.getBoundingClientRect().top;
+          var offsetPosition = elementPosition + window.scrollY - headerOffset - 20;
           
           window.scrollTo({
              top: offsetPosition,

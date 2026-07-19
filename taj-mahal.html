@@ -4,45 +4,59 @@
   <title>taj mahal | Shah International</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <div id="shared-header"></div>
-  <section class="page-banner"><img src="placeholder.png" class="page-banner-bg" alt="Product Banner">
-    <div class="page-banner-overlay" style="background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(26,26,26,0.7));"></div>
-    <div class="page-banner-content">
-      <h1>taj mahal</h1>
-      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>taj mahal</li></ol>
+  
+  <section class="tech-directory-header reveal">
+    <div class="container">
+      <h1 style="font-size: 2rem;">taj mahal</h1>
+      <ol class="breadcrumb" style="padding-left: 0;"><li><a href="index.html">Home</a></li><li>taj mahal</li></ol>
     </div>
   </section>
+        
   <section class="page-content">
     <div class="container">
-      <div class="product-detail-layout">
-        <div class="product-info content-block">
+      
+      <div class="pdp-grid-55-45 reveal">
+        <div class="pdp-info">
           <h3>taj mahal</h3>
-          
-          <div class="product-description" style="margin-bottom: var(--space-lg);">
-            
-                                  <p>Because of its harmonious proportions, the World Heritage Site of the same name is considered one of the most beautiful buildings in the world. The stone decor of the Taj Mahal is no less harmonious, elegant and unique. A stone decor with a very special depth effect that looks deceptively real thanks to its veining and crystalline structure. Depending on the color of the collection, the stone veins appear almost golden, which gives the decor even more elegance. The love is also in the detail here and is impressive. The Taj Mahal decor has an expressive effect and is a hit for use in all areas of life. A modern all-rounder that meets the demands of the times when it comes to durable design.</p>
+          <div class="pdp-desc">
+            <p>Because of its harmonious proportions, the World Heritage Site of the same name is considered one of the most beautiful buildings in the world. The stone decor of the Taj Mahal is no less harmonious, elegant and unique. A stone decor with a very special depth effect that looks deceptively real thanks to its veining and crystalline structure. Depending on the color of the collection, the stone veins appear almost golden, which gives the decor even more elegance. The love is also in the detail here and is impressive. The Taj Mahal decor has an expressive effect and is a hit for use in all areas of life. A modern all-rounder that meets the demands of the times when it comes to durable design.</p>
                                   <p><strong>Decor No : 14-54234-002</strong></p>
                                   <p><strong>Decor available in 4 ft only</strong></p>
-                                
           </div>
-          <div class="product-actions" style="display: flex; gap: 15px; font-size: 24px; color: var(--color-primary);">
-            <a href="javascript:history.back()" style="color: inherit; transition: color 0.3s;"><i class="fa-solid fa-circle-arrow-left"></i></a>
-            <a href="javascript:window.print()" style="color: inherit; transition: color 0.3s;"><i class="fa-solid fa-print"></i></a>
+          <div class="pdp-actions">
+            <a href="#" class="pdp-btn pdp-btn-red"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
+            <a href="#" class="pdp-btn pdp-btn-outline"><i class="fa-solid fa-swatchbook"></i> Request Sample</a>
+            <button class="pdp-btn pdp-btn-outline" onclick="openDecorRepeat(document.getElementById('main-product-image').src)"><i class="fa-solid fa-maximize"></i> Whole Decor Repeat</button>
           </div>
         </div>
-        <div class="product-image-container">
-          <div class="product-thumbnails"><img src="placeholder.png" class="gallery-thumb" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); border: 2px solid transparent;" onclick="document.getElementById('main-product-image').src='sites/default/files/2023-07/Taj%20Mahal%2014-54234-002.jpg'; document.querySelectorAll('.gallery-thumb').forEach(el=>el.style.borderColor='transparent'); this.style.borderColor='var(--color-primary)';"></div>
-          <div class="product-image" style="flex: 1;">
-            <img id="main-product-image" src="placeholder.png" alt="taj mahal" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
+        
+        <div class="pdp-image-col">
+          <img id="main-product-image" src="placeholder.png" class="pdp-main-img" alt="taj mahal" onclick="openDecorRepeat(this.src)">
+          <div class="pdp-thumbnails">
+            <img src="placeholder.png" class="pdp-thumb" onclick="updateMainImage('placeholder.png', this)">
+
           </div>
         </div>
       </div>
+      
+      
+
+      <script>
+        function updateMainImage(src, el) {
+          document.getElementById('main-product-image').src = src;
+          
+          document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+          if(el) el.classList.add('active');
+        }
+      </script>
+        
     </div>
   </section>
   <div id="shared-footer"></div>
-  <script src="includes.js"></script>
+  <script src="includes.js?v=2"></script>
 
 </body></html>

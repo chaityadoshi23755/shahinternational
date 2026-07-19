@@ -17,15 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
-        <div class="card-image">
-          <img src="${decor.image}" alt="${decor.name}" class="card-img" style="aspect-ratio:1; object-fit:cover; border-radius: 4px;">
+        <div class="card-img-wrap">
+          <img src="${decor.image}" alt="${decor.name}" class="card-img">
         </div>
-        <div class="card-content" style="padding: 15px 0;">
-          <h4 style="margin:0 0 5px 0; font-size:1.1rem; color: var(--color-primary);">${decor.name}</h4>
-          <p style="margin:0 0 15px 0; font-size:0.85rem; color: var(--color-text-muted); text-transform: capitalize;">
-            ${decor.principal} • ${decor.color} • ${decor.application}
+        <div class="card-body">
+          <h3 class="card-title">${decor.name}</h3>
+          <p style="margin: 0.5rem 0 1rem 0; font-size: 0.85rem; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 1px;">
+            ${decor.principal} &bull; ${decor.color} &bull; ${decor.application}
           </p>
-          <a href="#" class="btn btn-secondary" style="font-size:0.8rem; padding: 5px 10px;">Request Sample</a>
+          <a href="#" class="btn btn-secondary" style="font-size:0.8rem; padding: 5px 10px; border-radius: 0; border: 1px solid var(--color-text);">Request Sample</a>
         </div>
       `;
       grid.appendChild(card);
