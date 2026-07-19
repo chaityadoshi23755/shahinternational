@@ -1152,6 +1152,7 @@ strong { font-weight: 600; color: var(--color-text); }
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    order: 2;
   }
   
   .contact-grid {
