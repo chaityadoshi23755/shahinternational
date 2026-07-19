@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Shah International</title>
-  <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="shared-header"></div>
-  
-  <section class="page-banner" style="background-color: #111;">
-    <img src="sites/default/files/2019-04/14-10347-001_Canyon-Monument-Oak-JPEG.jpg" alt="Contact Shah International" class="page-banner-bg" style="filter: brightness(0.5);">
-    <div class="page-banner-overlay" style="background: linear-gradient(135deg, rgba(10,10,10,0.8), rgba(20,20,20,0.6));"></div>
-    <div class="page-banner-content">
-      <h1>Contact Us</h1>
-      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Contact Us</li></ol>
-    </div>
-  </section>
+import re
 
-      <section class="page-content" style="background-color: #f8f9fa;">
+file_path = r'C:\Users\chait\OneDrive\Desktop\shahinternational\full_site\shahinternational.in\contact-us.html'
+
+with open(file_path, 'r', encoding='utf-8') as f:
+    content = f.read()
+
+new_content_block = """  <section class="page-content" style="background-color: #f8f9fa;">
     <div class="container reveal">
       <div style="text-align: center; margin-bottom: 4rem;">
         <h2 class="section-heading" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #111; margin-bottom: 1rem;">Contact Us</h2>
@@ -71,9 +56,14 @@
         </div>
       </div>
     </div>
-  </section>
-  
-  <div id="shared-footer"></div>
-  <script src="includes.js"></script>
-</body>
-</html>
+  </section>"""
+
+# Replace everything from <section class="page-content"> to </section> before the footer
+old_chunk_match = re.search(r'<section class="page-content".*?>.*?</section>', content, re.DOTALL)
+if old_chunk_match:
+    new_content = content[:old_chunk_match.start()] + new_content_block + content[old_chunk_match.end():]
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print("Success! Replaced the contact section with premium UI.")
+else:
+    print("Error finding replacement block.")
