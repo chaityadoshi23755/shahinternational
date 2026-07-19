@@ -1670,18 +1670,17 @@ p {
   .product-detail-layout {
     grid-template-columns: 55% 45%;
     gap: 3rem;
-    align-items: start;
+    align-items: center; /* Vertically center the text relative to the image */
   }
   .product-image-container {
-    order: -1; /* Move image to the left */
+    order: -1;
   }
   .product-image-container img#main-product-image {
-    max-height: 70vh;
+    max-height: 75vh;
     object-fit: contain;
   }
   .product-info {
-    position: sticky;
-    top: 120px;
+    position: static; /* Remove sticky to ensure it centers perfectly */
   }
   @media (max-width: 991px) {
     .product-detail-layout {
