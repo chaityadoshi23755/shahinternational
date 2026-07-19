@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Shah International</title>
-  <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="shared-header"></div>
-  
-  <section class="page-banner" style="background-color: var(--color-bg-dark);">
-    <div class="page-banner-overlay" style="background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(26,26,26,0.7));"></div>
-    <div class="page-banner-content">
-      <h1>Contact Us</h1>
-      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Contact Us</li></ol>
-    </div>
-  </section>
+import re
 
-    <section class="page-content" style="background-color: #f8f9fa;">
+file_path = r'C:\Users\chait\OneDrive\Desktop\shahinternational\full_site\shahinternational.in\contact-us.html'
+
+with open(file_path, 'r', encoding='utf-8') as f:
+    content = f.read()
+
+new_content_block = """  <section class="page-content" style="background-color: #f8f9fa;">
     <div class="container reveal">
       <h2 class="section-heading text-center" style="margin-bottom: 3rem; font-family: 'Playfair Display', serif;">Contact Details</h2>
       
@@ -67,9 +53,14 @@
         </div>
       </div>
     </div>
-  </section>
-  
-  <div id="shared-footer"></div>
-  <script src="includes.js"></script>
-</body>
-</html>
+  </section>"""
+
+# Replace everything from <section class="page-content"> to </section> before the footer
+old_chunk_match = re.search(r'<section class="page-content">.*?</section>', content, re.DOTALL)
+if old_chunk_match:
+    new_content = content[:old_chunk_match.start()] + new_content_block + content[old_chunk_match.end():]
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print("Success! Replaced the contact section.")
+else:
+    print("Error finding replacement block.")
