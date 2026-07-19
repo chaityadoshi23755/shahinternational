@@ -1667,27 +1667,37 @@ p {
 }
 
 /* ========== PDP 65/35 LOOKBOOK ========== */
-.product-detail-layout {
-  grid-template-columns: 65% 35%;
-}
-.product-image-container {
-  order: -1; /* Move image to the left */
-}
-.product-info {
-  position: sticky;
-  top: 120px;
-}
-@media (max-width: 991px) {
   .product-detail-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 55% 45%;
+    gap: 3rem;
+    align-items: start;
   }
   .product-image-container {
-    order: 0;
+    order: -1; /* Move image to the left */
+  }
+  .product-image-container img#main-product-image {
+    max-height: 70vh;
+    object-fit: contain;
   }
   .product-info {
-    position: static;
+    position: sticky;
+    top: 120px;
   }
-}
+  @media (max-width: 991px) {
+    .product-detail-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .product-image-container {
+      order: -1; /* Image stays ABOVE text on mobile */
+    }
+    .product-image-container img#main-product-image {
+      max-height: 50vh;
+    }
+    .product-info {
+      position: static;
+    }
+  }
 
 /* ========== COMPANY JOURNEY TIMELINE ========== */
 .timeline {
