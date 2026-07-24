@@ -7,185 +7,70 @@
   <title>Kingdecor (Zhejiang) Co. Ltd, China | Shah International</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=115">
-<style>
-
-    /* ========== CORPORATE GIANTS GRID (WITH TABS) ========== */
-    .corporate-hero {
-      background-color: #fff;
-      padding: 6rem 2rem 4rem 2rem;
-      text-align: center;
-      border-bottom: 1px solid #eaeaea;
-    }
-    .corporate-plaque {
-      display: inline-block;
-      padding: 3rem 4rem;
-      background: #fff;
-      border: 1px solid var(--color-text);
-      box-shadow: var(--shadow-lg);
-      margin-bottom: 2rem;
-      max-width: 100%;
-    }
-    .corporate-plaque img {
-      max-width: 300px;
-      height: auto;
-    }
-    .corporate-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: var(--color-text);
-      margin-top: 2rem;
-    }
-    
-    .competency-matrix-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      margin-top: 2rem;
-    }
-    @media (max-width: 991px) {
-      .competency-matrix-2col {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    /* FIX FOR JS TABS BLEEDING */
-    .tab-panel.competency-matrix-2col {
-      display: none !important;
-    }
-    .tab-panel.competency-matrix-2col.active {
-      display: grid !important;
-    }
-    
-    .competency-card {
-      background: #fff;
-      border: 1px solid var(--color-text);
-      padding: 3rem 2.5rem;
-      transition: var(--transition-normal);
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow-sm);
-    }
-    .competency-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-5px);
-      border-color: var(--color-brand-red);
-    }
-    .competency-card h4, .competency-card h3 {
-      font-family: 'Inter', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--color-brand-red);
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid var(--color-text);
-      padding-bottom: 1rem;
-    }
-    .competency-card p, .competency-card ul {
-      color: var(--color-text-light);
-      line-height: 1.8;
-    }
-    
-    .global-reach-footer {
-      background: var(--color-brand-red);
-      color: #fff;
-      text-align: center;
-      padding: 4rem 2rem;
-      font-family: 'Playfair Display', serif;
-      margin-top: 4rem;
-    }
-    .global-reach-footer a {
-      color: #fff;
-      text-decoration: underline;
-      font-size: 1.5rem;
-    }
-    
-    /* Make tabs look more corporate */
-    .tab-nav {
-      justify-content: center;
-      border-bottom: 2px solid var(--color-text);
-      margin-bottom: 3rem;
-    }
-    .tab-btn {
-      font-family: 'Inter', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
-      border: none;
-      background: transparent;
-      padding: 1rem 2rem;
-      border-bottom: 3px solid transparent;
-    }
-    .tab-btn.active {
-      background: transparent;
-      color: var(--color-brand-red);
-      border-bottom: 3px solid var(--color-brand-red);
-    }
-
-
-    /* FIX FOR SINGLE CARD SPANNING FULL WIDTH */
-    .competency-matrix-2col > .competency-card:first-of-type:last-of-type {
-      grid-column: 1 / -1;
-    }
-
-</style>
+  <link rel="stylesheet" href="style.css?v=1784915559">
 </head>
 <body>
   <div id="shared-header"></div>
 
-  
-    <div class="corporate-hero reveal">
-      <div class="corporate-plaque">
-        <img src="themes/agatha/img/logos/kingdecor.jpg" alt="Kingdecor (Zhejiang) Co. Ltd, China Logo">
-      </div>
-      <h1 class="corporate-title">Kingdecor (Zhejiang) Co. Ltd, China</h1>
+  <section class="page-banner">
+    <img src="sites/default/files/2018-12/s2_0.jpg" alt="Kingdecor" class="page-banner-bg">
+    <div class="page-banner-overlay"></div>
+    <div class="page-banner-content">
+      <h1>Kingdecor (Zhejiang) Co. Ltd, China</h1>
+      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Kingdecor, China</li></ol>
     </div>
-    
+  </section>
 
   <section class="page-content">
     <div class="container">
+      <div class="principal-logo-3d reveal" style="text-align: center; width: 100%;">
+        <a href="http://www.kingdecor.cn/" target="_blank"><img src="themes/agatha/img/logos/kingdecor.jpg" alt="Kingdecor Logo" style="max-height: 120px;"></a>
+      </div>
       
-      <div class="competency-matrix-2col">
-<div class="competency-card">
+      <!-- Animated Map SVG -->
+      <div class="reveal reveal-delay-1" style="text-align: center; margin-bottom: 3rem;">
+        <svg viewBox="0 0 800 400" width="100%" max-width="600px" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1">
+          <!-- Abstract World Map paths -->
+          <path d="M100 150 Q 200 100 300 200 T 500 150 T 700 250" stroke-width="2" stroke-dasharray="5 5"/>
+          <path d="M150 250 Q 250 300 350 200 T 550 250 T 750 150" stroke-width="2" stroke-dasharray="5 5"/>
+          <!-- China Beacon -->
+          <circle cx="600" cy="170" r="15" fill="none" stroke="var(--color-brand-red)" stroke-width="2" class="map-beacon"/>
+          <circle cx="600" cy="170" r="4" fill="var(--color-brand-red)"/>
+          <text x="620" y="175" fill="var(--color-text-light)" font-size="14" font-family="Inter, sans-serif">Zhejiang, China</text>
+        </svg>
+      </div>
+      <div class="content-block glass-card reveal">
         <h4>About Kingdecor</h4><hr class="section-divider">
         <p>Located at Qujiang Economic Development Zone of Quzhou City in Zhejiang Province, Kingdecor (Zhejiang) Co., Ltd. was established by Schattdecor AG in Germany and Zhejiang Xianhe Special Paper Co., Ltd. as a joint venture on September 13, 2004. The company is mainly engaged in the production and sale of decor base paper.</p>
         <p>Shah International introduced KINGDECOR with a range of products during late 2007 in Indian market. Within a short span of 8 years, Kingdecor has grown leaps and bounds and now have annual capacity of 120,000 MT of production capacity for base paper. They are the biggest company in Asia and world's third biggest producer of base paper.</p>
       </div>
-      <div class="competency-card">
+      <div class="content-block glass-card reveal">
         <h4>Products</h4><hr class="section-divider">
         <p><strong>1. Solid Base Paper</strong><br>Kingdecor offers wide-range of eco-friendly solid base paper shades of top-grade quality. Available from 60 gsm to 115 gsm in width varying from 123 cms to 186 cms.</p>
         <p><strong>2. Print Base Paper</strong><br>Kingdecor offers print base paper used for décor printing which is available in different gsm from 50 gsm to 150 gsm.</p>
         <p><strong>3. Tissue Paper</strong><br>Kingdecor introduces tissue paper for décor surface wear resistance available in 18 gsm. Features minimum tolerance in gsm, good whiteness and transparency.</p>
       </div>
-      <div class="competency-card">
+      <div class="content-block glass-card reveal">
         <h4>Teamwork</h4><hr class="section-divider">
         <p>In establishing the joint venture, Schattdecor AG and Zhejiang Xianhe Special Paper Co. had to overcome many geographical, linguistic and cultural barriers, resulting in the most advanced décor base paper production facility in the world.</p>
       </div>
-      <div class="competency-card">
+      <div class="content-block glass-card reveal">
         <h4>Top Rate Technology</h4><hr class="section-divider">
         <p>Kingdecor takes a stringent approach in the sourcing of raw materials and is committed to the standardization of production process. Use of quality raw materials, high-precision automatic system control equipment and superior environmental protection technology contribute to outstanding characteristics.</p>
       </div>
-      <div class="competency-card">
+      <div class="content-block glass-card reveal">
         <h4>Company Services</h4><hr class="section-divider">
         <p>The company is characterized by flexibility, punctuality and high operating efficiency, and operates modern warehousing facilities for fast and accurate logistics.</p>
       </div>
-      <div class="competency-card">
+      <div class="content-block glass-card reveal">
         <h4>Company Culture</h4><hr class="section-divider">
         <p>Kingdecor maintains long-term cooperative relations with customers and suppliers, has a full understanding of printing, impregnation, coating and other related processes, and offers professional advice and first rate service.</p>
-        <p>Visit <a href="http://www.kingdecor.cn/" target="_blank" style="color: var(--color-brand-red);">Kingdecor (Zhejiang)</a> website for more details.</p>
+        <p>Visit <a href="http://www.kingdecor.cn/" target="_blank" style="color: var(--color-accent-gold);">Kingdecor (Zhejiang)</a> website for more details.</p>
       </div>
     </div>
-  </div>
-
-    <div class="global-reach-footer reveal">
-      <h2>Experience Kingdecor (Zhejiang) Co. Ltd Global</h2>
-      <p style="margin-top: 1rem;"><a href="#" style="color: #fff;">Visit Official Website &rarr;</a></p>
-    </div>
-    
-</section>
+  </section>
 
   <div id="shared-footer"></div>
-  <script src="includes.js?v=2"></script>
+  <script src="includes.js"></script>
 </body>
 </html>

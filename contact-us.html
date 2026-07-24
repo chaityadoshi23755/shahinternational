@@ -6,7 +6,7 @@
   <title>Contact Us | Shah International</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=99">
+  <link rel="stylesheet" href="style.css?v=1784915559">
 </head>
 <body>
   <div id="shared-header"></div>
@@ -28,7 +28,14 @@
       <!-- Row 1: Office and Warehouse -->
       <div class="grid grid-cols-2 gap-lg" style="margin-bottom: 2rem; align-items: stretch;">
         <div class="premium-contact-card">
-          <h3 class="premium-contact-heading"><i class="fa-solid fa-building"></i> Our Office</h3>
+          <h3 class="premium-contact-heading">
+            <i class="fa-solid fa-building"></i> Our Office
+            <!-- Pulsing Radar Beacon SVG -->
+            <svg class="map-pulse-hq" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="10" fill="var(--color-brand-red)" />
+              <circle cx="50" cy="50" r="30" stroke="var(--color-brand-red)" stroke-width="4" class="network-node-pulse" />
+            </svg>
+          </h3>
           <p class="premium-contact-text"><strong>Shah International</strong><br>308-313, Goldcrest Business Park,<br>Behind Kailash Esplanade, Opp. Shreyas Cinema,<br>L.B.S. Marg, Ghatkopar West,<br>Mumbai - 400086, India</p>
           <div style="margin-top: 2rem;">
             <p class="premium-contact-text" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--color-brand-red); margin-right: 12px;"></i> (+91) 22 4099 0000</p>
@@ -46,7 +53,14 @@
       <!-- Row 2: Form and Map -->
       <div class="grid grid-cols-2 gap-lg" style="align-items: stretch;">
         <div class="premium-contact-card">
-          <h3 class="premium-contact-heading" style="margin-bottom: 2.5rem;">Send a Message</h3>
+          <h3 class="premium-contact-heading" style="margin-bottom: 2.5rem;">
+            Send a Message
+            <!-- Drawing Envelope SVG -->
+            <svg class="svg-draw svg-envelope reveal" viewBox="0 0 100 100" fill="none" stroke="var(--color-brand-red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 10 30 L 90 30 L 90 70 L 10 70 Z" />
+              <path d="M 10 30 L 50 60 L 90 30" />
+            </svg>
+          </h3>
           <form action="#" method="POST" class="contact-form">
             <div class="minimalist-input-group">
               <input type="text" id="name" name="name" class="minimalist-input" placeholder="Full Name *" required>
@@ -72,6 +86,6 @@
   </section>
   
   <div id="shared-footer"></div>
-  <script src="includes.js?v=99"></script>
+  <script src="includes.js?v=120"></script>
 </body>
 </html>

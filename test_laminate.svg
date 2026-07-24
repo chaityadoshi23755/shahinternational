@@ -1,0 +1,35 @@
+
+<svg viewBox="0 0 500 500" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" style="background: #e23137;">
+    <!-- Stack of wood panels (Isometric) -->
+    <!-- Bottom Panel -->
+    <path d="M 100 350 L 250 420 L 400 350 L 250 280 Z" />
+    <path d="M 100 350 L 100 370 L 250 440 L 400 370 L 400 350" />
+    
+    <!-- Middle Panel -->
+    <path d="M 100 310 L 250 380 L 400 310 L 250 240 Z" />
+    <path d="M 100 310 L 100 330 L 250 400 L 400 330 L 400 310" />
+    
+    <!-- Laminate Paper Unrolling -->
+    <!-- Paper resting on top -->
+    <path d="M 100 270 L 250 340 L 350 293" />
+    <!-- The swooping unroll -->
+    <path d="M 350 293 C 400 270 420 200 370 150 C 320 100 250 50 200 100 C 150 150 200 220 250 270 C 300 320 380 320 400 250" />
+    <!-- The swirl inside the roll -->
+    <path d="M 230 130 C 200 160 230 200 260 170" />
+    
+    <!-- Decorative geometric/artistic elements -->
+    <!-- Lines indicating wood grain / texture on panels -->
+    <path d="M 120 340 L 200 378" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6"/>
+    <path d="M 150 330 L 240 372" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6"/>
+    
+    <path d="M 120 300 L 200 338" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6"/>
+    <path d="M 150 290 L 240 332" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6"/>
+    
+    <!-- Dotted abstract accent lines (artistic flair) -->
+    <circle cx="100" cy="150" r="3" fill="#ffffff" stroke="none" />
+    <path d="M 100 150 L 150 100" stroke-width="1" stroke-dasharray="2 4" opacity="0.5" />
+    
+    <circle cx="400" cy="100" r="4" fill="none" stroke-width="1.5" opacity="0.8" />
+    <path d="M 400 100 L 350 150" stroke-width="1" stroke-dasharray="2 4" opacity="0.5" />
+    
+</svg>

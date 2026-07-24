@@ -2455,41 +2455,192 @@ p {
   to { transform: translateY(0); }
 }
 
+
+/* Global Giants Redesign */
 .principals-masonry {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   margin-top: 4rem;
 }
+
+@media (max-width: 991px) {
+  .principals-masonry {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .principals-masonry {
+    grid-template-columns: 1fr;
+  }
+}
+
 .principal-tile {
   position: relative;
-  height: 350px;
-  background-color: var(--color-bg-dark);
+  height: 360px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff;
   text-decoration: none;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 2.5rem;
+  box-sizing: border-box;
 }
-.principal-tile:hover { 
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-}
-.principal-tile-bg {
-  position: absolute; top:0; left:0; width:100%; height:100%;
-  object-fit: cover; opacity: 0; transition: opacity 0.6s ease; z-index: 0;
-  filter: brightness(0.3);
-}
-.principal-tile:hover .principal-tile-bg { opacity: 1; }
-.principal-tile-content { z-index: 1; text-align: center; padding: 2rem; width: 100%; box-sizing: border-box; }
-.principal-tile-logo { height: 60px; margin-bottom: 1.5rem; transition: transform 0.4s ease; background: #fff; padding: 10px 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-.principal-tile:hover .principal-tile-logo { transform: scale(1.1); }
-.principal-tile h3 { font-size: 1.25rem; text-transform: uppercase; letter-spacing: 2px; color: var(--color-brand-red); margin-bottom: 1rem; }
-.principal-tile p { font-size: 0.95rem; line-height: 1.6; opacity: 0.8; }
 
+.principal-tile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* Hover Sweep Interaction */
+.principal-tile-hover-sweep {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(226,49,55,0.0) 0%, rgba(226,49,55,0.03) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.principal-tile:hover .principal-tile-hover-sweep {
+  opacity: 1;
+}
+
+/* SVG Blueprint Pattern */
+.principal-tile-pattern {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(rgba(226,49,55,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(226,49,55,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.8s ease;
+  transform: scale(1.1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.principal-tile:hover .principal-tile-pattern {
+  opacity: 0.3;
+  transform: scale(1);
+}
+
+.principal-tile-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logos */
+.principal-tile-logo {
+  height: 50px;
+  margin-bottom: 2rem;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  filter: grayscale(20%);
+}
+
+.principal-text-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 2rem;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.principal-tile:hover .principal-tile-logo,
+.principal-tile:hover .principal-text-logo {
+  transform: scale(1.03);
+  filter: grayscale(0%);
+}
+
+/* Country Name */
+.principal-tile .country-name {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* Animated Red Underline */
+.principal-tile .country-name::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--color-brand-red);
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.principal-tile:hover .country-name::after {
+  width: 40px;
+}
+.principal-tile:hover .country-name {
+  color: var(--color-brand-red);
+}
+
+/* Description */
+.principal-tile .desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  max-width: 90%;
+  margin: 0 auto;
+  transition: color 0.4s ease;
+}
+
+/* Corner Marks */
+.corner-mark {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid rgba(226,49,55, 0.3);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 3;
+}
+.corner-mark.top-left {
+  top: 15px;
+  left: 15px;
+  border-right: none;
+  border-bottom: none;
+  transform: translate(-5px, -5px);
+}
+.corner-mark.bottom-right {
+  bottom: 15px;
+  right: 15px;
+  border-left: none;
+  border-top: none;
+  transform: translate(5px, 5px);
+}
+
+.principal-tile:hover .corner-mark {
+  opacity: 1;
+  transform: translate(0, 0);
+}
 .philosophy-parallax {
   background-image: url('sites/default/files/2019-04/14-10347-001_Canyon-Monument-Oak-JPEG.jpg');
   background-attachment: fixed;
@@ -2533,33 +2684,13 @@ p {
   .principals-masonry { grid-template-columns: 1fr; }
 }
 
-.principal-tile:hover { 
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-  background-color: var(--color-brand-red);
-}
 
 
 /* ========== BULLETPROOF CONTRAST FIXES ========== */
 .philosophy-parallax-content p {
   color: #fff !important;
 }
-.principal-tile {
-  color: #fff !important;
-}
-.principal-tile p {
-  color: #fff !important;
-  opacity: 0.9 !important;
-}
-.principal-tile h3 {
-  color: var(--color-brand-red) !important;
-}
-.principal-tile:hover h3,
-.principal-tile:hover p,
-.principal-tile:hover h2 {
-  color: #fff !important;
-  opacity: 1 !important;
-}
+
 /* Ensure logos in marquee are not solid white boxes */
 .marquee-section .marquee-item img {
   filter: none !important; 
@@ -2580,4 +2711,41 @@ p {
     max-width: 300px !important;
     height: auto;
   }
+}
+
+/* SVG Draw Animation for self-revealing lines */
+.reveal.active .svg-draw path,
+.reveal.active .svg-draw circle,
+.reveal.active .svg-draw line,
+.reveal.active .svg-draw polyline,
+.reveal.active .svg-draw rect,
+.reveal.active .svg-draw ellipse {
+  animation: draw-svg 4s ease forwards;
+}
+
+@keyframes draw-svg {
+  to {
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+/* Philosophy SVG Pure CSS Animation */
+.philosophy-svg-container.active .philosophy-draw path {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    animation: draw-philosophy 3s ease-out forwards;
+}
+
+/* Stagger the drawing of the paths slightly for effect */
+.philosophy-svg-container.active .philosophy-draw path:nth-child(1) { animation-delay: 0.2s; }
+.philosophy-svg-container.active .philosophy-draw path:nth-child(2) { animation-delay: 0.4s; }
+.philosophy-svg-container.active .philosophy-draw path:nth-child(3) { animation-delay: 0.6s; }
+.philosophy-svg-container.active .philosophy-draw path:nth-child(4) { animation-delay: 0.8s; }
+.philosophy-svg-container.active .philosophy-draw path:nth-child(5) { animation-delay: 1.0s; }
+.philosophy-svg-container.active .philosophy-draw path:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes draw-philosophy {
+    to {
+        stroke-dashoffset: 0;
+    }
 }

@@ -7,166 +7,56 @@
   <title>Hueck Rheinische GmbH, Germany | Shah International</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=115">
-<style>
-
-    /* ========== CORPORATE GIANTS GRID (WITH TABS) ========== */
-    .corporate-hero {
-      background-color: #fff;
-      padding: 6rem 2rem 4rem 2rem;
-      text-align: center;
-      border-bottom: 1px solid #eaeaea;
-    }
-    .corporate-plaque {
-      display: inline-block;
-      padding: 3rem 4rem;
-      background: #fff;
-      border: 1px solid var(--color-text);
-      box-shadow: var(--shadow-lg);
-      margin-bottom: 2rem;
-      max-width: 100%;
-    }
-    .corporate-plaque img {
-      max-width: 300px;
-      height: auto;
-    }
-    .corporate-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: var(--color-text);
-      margin-top: 2rem;
-    }
-    
-    .competency-matrix-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      margin-top: 2rem;
-    }
-    @media (max-width: 991px) {
-      .competency-matrix-2col {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    /* FIX FOR JS TABS BLEEDING */
-    .tab-panel.competency-matrix-2col {
-      display: none !important;
-    }
-    .tab-panel.competency-matrix-2col.active {
-      display: grid !important;
-    }
-    
-    .competency-card {
-      background: #fff;
-      border: 1px solid var(--color-text);
-      padding: 3rem 2.5rem;
-      transition: var(--transition-normal);
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow-sm);
-    }
-    .competency-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-5px);
-      border-color: var(--color-brand-red);
-    }
-    .competency-card h4, .competency-card h3 {
-      font-family: 'Inter', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--color-brand-red);
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid var(--color-text);
-      padding-bottom: 1rem;
-    }
-    .competency-card p, .competency-card ul {
-      color: var(--color-text-light);
-      line-height: 1.8;
-    }
-    
-    .global-reach-footer {
-      background: var(--color-brand-red);
-      color: #fff;
-      text-align: center;
-      padding: 4rem 2rem;
-      font-family: 'Playfair Display', serif;
-      margin-top: 4rem;
-    }
-    .global-reach-footer a {
-      color: #fff;
-      text-decoration: underline;
-      font-size: 1.5rem;
-    }
-    
-    /* Make tabs look more corporate */
-    .tab-nav {
-      justify-content: center;
-      border-bottom: 2px solid var(--color-text);
-      margin-bottom: 3rem;
-    }
-    .tab-btn {
-      font-family: 'Inter', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
-      border: none;
-      background: transparent;
-      padding: 1rem 2rem;
-      border-bottom: 3px solid transparent;
-    }
-    .tab-btn.active {
-      background: transparent;
-      color: var(--color-brand-red);
-      border-bottom: 3px solid var(--color-brand-red);
-    }
-
-
-    /* FIX FOR SINGLE CARD SPANNING FULL WIDTH */
-    .competency-matrix-2col > .competency-card:first-of-type:last-of-type {
-      grid-column: 1 / -1;
-    }
-
-</style>
+  <link rel="stylesheet" href="style.css?v=1784915559">
 </head>
 <body>
   <div id="shared-header"></div>
-  
-    <div class="corporate-hero reveal">
-      <div class="corporate-plaque">
-        <img src="themes/agatha/img/logos/log1.jpg" alt="Hueck Rheinische GmbH, Germany Logo">
-      </div>
-      <h1 class="corporate-title">Hueck Rheinische GmbH, Germany</h1>
+  <section class="page-banner">
+    <img src="sites/default/files/2019-03/s3.jpg" alt="Hueck Rheinische" class="page-banner-bg">
+    <div class="page-banner-overlay"></div>
+    <div class="page-banner-content">
+      <h1>Hueck Rheinische GmbH, Germany</h1>
+      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Hueck Rheinische, Germany</li></ol>
     </div>
-    
+  </section>
   <section class="page-content">
     <div class="container">
+      <div class="principal-logo-3d reveal" style="text-align: center; width: 100%;">
+        <a href="http://www.hueck-rheinische.com/" target="_blank"><img src="themes/agatha/img/logos/log1.jpg" alt="Hueck Rheinische Logo" style="max-height: 120px;"></a>
+      </div>
       
-      <div class="competency-matrix-2col">
-<div class="competency-card">
+      <!-- Animated Map SVG -->
+      <div class="reveal reveal-delay-1" style="text-align: center; margin-bottom: 3rem;">
+        <svg viewBox="0 0 800 400" width="100%" max-width="600px" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1">
+          <path d="M100 150 Q 200 100 300 200 T 500 150 T 700 250" stroke-width="2" stroke-dasharray="5 5"/>
+          <path d="M150 250 Q 250 300 350 200 T 550 250 T 750 150" stroke-width="2" stroke-dasharray="5 5"/>
+          <!-- Germany Beacon -->
+          <circle cx="400" cy="110" r="15" fill="none" stroke="var(--color-brand-red)" stroke-width="2" class="map-beacon"/>
+          <circle cx="400" cy="110" r="4" fill="var(--color-brand-red)"/>
+          <text x="420" y="115" fill="var(--color-text-light)" font-size="14" font-family="Inter, sans-serif">Viersen, Germany</text>
+        </svg>
+      </div>
+      <div class="content-block glass-card reveal">
         <p>The origin of <strong>HUECK Rheinische GmbH</strong> goes back to the merger of <strong>HUECK</strong> and <strong>Rheinische Press Pad GmbH</strong>. HUECK, founded by Eduard HUECK in 1814, has a long tradition in metal forming and surface finishing technology.</p>
         <p>The newly founded company HUECK Rheinische GmbH is focused on the production of press pads and the design development of surfaces, research and development of new materials and surfaces.</p>
       </div>
-      <div class="competency-card">
+      <div class="content-block glass-card reveal">
         <h4>Products</h4><hr class="section-divider">
         <p><strong>Press Plates</strong> — Textured, smooth, hard-chromed press plates. HUECK Rheinische GmbH is a leading company in the manufacture of laminated panels and decorative laminates.</p>
         <p><strong>Press Pads</strong> — For short cycle and multi day light presses. For very different circumstances a standardized press pad cannot be the optimal solution. HUECK Rheinische therefore offers customized solutions.</p>
       </div>
-      <div class="competency-card">
+      <div class="content-block glass-card reveal">
         <h4>Patents</h4><hr class="section-divider">
         <p>HUECK Rheinische GmbH is heavily involved in research and development of new materials and surfaces to always offer new and innovative ideas to the industry.</p>
       </div>
-      <div class="competency-card">
+      <div class="content-block glass-card reveal">
         <h4>Services</h4><hr class="section-divider">
         <p>HUECK Rheinische GmbH offers well-rounded services due to their decades of experience and technologies around surface development and press pad manufacturing.</p>
-        <p>Visit <a href="http://www.hueck-rheinische.com/" target="_blank" style="color: var(--color-brand-red);">Hueck Rheinische</a> website for more details.</p>
+        <p>Visit <a href="http://www.hueck-rheinische.com/" target="_blank" style="color: var(--color-accent-gold);">Hueck Rheinische</a> website for more details.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   <div id="shared-footer"></div>
-  <script src="includes.js?v=2"></script>
+  <script src="includes.js"></script>
 </body>
 </html>

@@ -1,0 +1,68 @@
+
+/* ========== WORLD MAP MARKERS ========== */
+.map-marker {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+.map-marker:hover {
+  transform: translate(-50%, -100%) scale(1.15);
+  z-index: 10;
+}
+.map-marker img {
+  width: 24px;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.8);
+}
+.map-marker span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--color-text-base);
+  background: rgba(255,255,255,0.92);
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  letter-spacing: 0.02em;
+}
+.map-marker::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--color-brand-red);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(226,49,55,0.2);
+  animation: marker-pulse 2s infinite ease-out;
+}
+@keyframes marker-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(226,49,55,0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(226,49,55,0); }
+  100% { box-shadow: 0 0 0 0 rgba(226,49,55,0); }
+}
+
+/* Who We Are responsive layout */
+@media (max-width: 768px) {
+  .who-we-are-container {
+    flex-direction: column !important;
+  }
+  .map-marker span {
+    font-size: 0.55rem;
+    padding: 1px 4px;
+  }
+  .map-marker img {
+    width: 18px;
+  }
+}

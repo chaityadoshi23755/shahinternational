@@ -213,7 +213,8 @@
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.remove('active');
           }
         });
       }, {
@@ -423,5 +424,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     lastScroll = currentScroll;
+  });
+});
+
+// ==========================================
+// V3 ROLLING COUNTER LOGIC
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+  var counters = document.querySelectorAll('.rolling-counter');
+  var speed = 200; // The lower the slower
+
+  if (window.IntersectionObserver) {
+    var counterObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var target = entry.target;
+          var endValue = parseInt(target.getAttribute('data-target'));
+          var updateCount = function() {
+            var current = parseInt(target.innerText);
+            var inc = endValue / speed;
+            if(inc < 1) inc = 1;
+            
+            if (current < endValue) {
+              target.innerText = Math.ceil(current + inc);
+              setTimeout(updateCount, 15);
+            } else {
+              target.innerText = endValue;
+            }
+          };
+          updateCount();
+          observer.unobserve(target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(function(counter) {
+      counterObserver.observe(counter);
+    });
+  }
+});
+
+// Attach IntersectionObserver to crazy-line-draw elements
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.IntersectionObserver) {
+    var lineObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    document.querySelectorAll('.crazy-line-draw').forEach(function(el) {
+      lineObserver.observe(el);
+    });
+  }
+});
+
+// Dynamically calculate exact path lengths for SVG draw animations
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.svg-draw path, .svg-draw circle, .svg-draw line, .svg-draw polyline, .svg-draw rect, .svg-draw ellipse').forEach(function(el) {
+    var length = 1000;
+    if (el.getTotalLength) {
+      length = el.getTotalLength();
+    } else if (el.tagName.toLowerCase() === 'circle') {
+      var r = el.getAttribute('r') || 0;
+      length = 2 * Math.PI * parseFloat(r);
+    } else if (el.tagName.toLowerCase() === 'line') {
+      var x1 = parseFloat(el.getAttribute('x1') || 0);
+      var y1 = parseFloat(el.getAttribute('y1') || 0);
+      var x2 = parseFloat(el.getAttribute('x2') || 0);
+      var y2 = parseFloat(el.getAttribute('y2') || 0);
+      length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    }
+    // Set exact length so the 4s CSS animation takes exactly 4s regardless of shape size
+    el.style.strokeDasharray = length;
+    el.style.strokeDashoffset = length;
   });
 });
