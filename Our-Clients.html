@@ -20,37 +20,111 @@
     <div class="container">
 
       
-      <div class="marquee-container reveal">
-        <div class="marquee-content">
-          <!-- First Set of Logos -->
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/greenlam_1.png" alt="Greenlam"></div>
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/Merino Group_0.png" alt="Merino"></div>
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/CenturyLaminates_MDMS_v1_1.png" alt="CenturyPly"></div>
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/Action Tesa Logo WITH DOORS.png" alt="Action TESA"></div>
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/AIROLAM logo_0.png" alt="AIROLAM"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/godrej_0.png" alt="Godrej"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Stylam_0.png" alt="Stylam"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Virgo Laminate Logo_0.png" alt="Virgo"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Rushil Decor Ltd logo_0.png" alt="Rushil"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Spacewood Logo Side_0.png" alt="Heritage"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Durian logo.png" alt="Durian"></div>
-          
-          <!-- Duplicated Set for Infinite Scroll Effect -->
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/greenlam_1.png" alt="Greenlam"></div>
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/Merino Group_0.png" alt="Merino"></div>
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/CenturyLaminates_MDMS_v1_1.png" alt="CenturyPly"></div>
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/Action Tesa Logo WITH DOORS.png" alt="Action TESA"></div>
-          <div class="v3-client-logo"><img src="sites/default/files/2019-06/AIROLAM logo_0.png" alt="AIROLAM"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/godrej_0.png" alt="Godrej"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Stylam_0.png" alt="Stylam"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Virgo Laminate Logo_0.png" alt="Virgo"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Rushil Decor Ltd logo_0.png" alt="Rushil"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Spacewood Logo Side_0.png" alt="Heritage"></div>
-          <div class="v3-client-logo-sm"><img src="sites/default/files/2019-06/Durian logo.png" alt="Durian"></div>
+      
+      <style>
+        .clients-grid {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 1.5rem;
+          margin-top: 3rem;
+          margin-bottom: 5rem;
+        }
+        @media (max-width: 1024px) { .clients-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { .clients-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .clients-grid { grid-template-columns: repeat(1, 1fr); } }
+
+        .client-tile-container {
+          position: relative;
+          height: 180px;
+          background-color: #ffffff;
+          border: 1px solid rgba(0,0,0,0.05);
+          border-radius: 16px;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .client-tile-container:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(226,49,55,0.1);
+          border-color: rgba(226,49,55,0.2);
+        }
+        .client-tile-logo {
+          max-width: 130px;
+          max-height: 60px;
+          object-fit: contain;
+          margin: 0 auto;
+          filter: grayscale(100%) opacity(0.7);
+          transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+          position: relative;
+          z-index: 5;
+        }
+        .client-tile-container:hover .client-tile-logo {
+          filter: grayscale(0%) opacity(1);
+          transform: scale(1.05);
+        }
+      </style>
+      
+      <div class="clients-grid">
+
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/greenlam_1.png" class="client-tile-logo" alt="Greenlam">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/Merino Group_0.png" class="client-tile-logo" alt="Merino">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/CenturyLaminates_MDMS_v1_1.png" class="client-tile-logo" alt="CenturyPly">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/Action Tesa Logo WITH DOORS.png" class="client-tile-logo" alt="Action TESA">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/AIROLAM logo_0.png" class="client-tile-logo" alt="AIROLAM">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/godrej_0.png" class="client-tile-logo" alt="Godrej">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/Stylam_0.png" class="client-tile-logo" alt="Stylam">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/Virgo Laminate Logo_0.png" class="client-tile-logo" alt="Virgo">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/Rushil Decor Ltd logo_0.png" class="client-tile-logo" alt="Rushil">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/Spacewood Logo Side_0.png" class="client-tile-logo" alt="Spacewood">
+        </div>
+        <div class="client-tile-container reveal">
+          <div class="principal-tile-hover-sweep"></div>
+          <div class="principal-tile-pattern"></div>
+          <img src="sites/default/files/2019-06/Durian logo.png" class="client-tile-logo" alt="Durian">
         </div>
       </div>
-
-      <div class="testimonials-slider reveal reveal-delay-1" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); padding: 4rem 3rem; border-radius: 12px; max-width: 800px; margin: 0 auto 5rem auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.5); text-align: center;">
+<div class="testimonials-slider reveal reveal-delay-1" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); padding: 4rem 3rem; border-radius: 12px; max-width: 800px; margin: 0 auto 5rem auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.5); text-align: center;">
         
         <!-- Animated SVG Quote Drawing -->
         <svg class="svg-draw svg-quote" viewBox="0 0 100 100" fill="none" stroke="var(--color-brand-red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
