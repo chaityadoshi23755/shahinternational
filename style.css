@@ -2714,6 +2714,15 @@ p {
 }
 
 /* SVG Draw Animation for self-revealing lines */
+.reveal .svg-draw path,
+.reveal .svg-draw circle,
+.reveal .svg-draw line,
+.reveal .svg-draw polyline,
+.reveal .svg-draw rect,
+.reveal .svg-draw ellipse {
+  stroke-dasharray: 2500;
+  stroke-dashoffset: 2500;
+}
 .reveal.active .svg-draw path,
 .reveal.active .svg-draw circle,
 .reveal.active .svg-draw line,

@@ -38,7 +38,7 @@
 
 .world-map-svg .continent-path {
     fill: #f9f9fb;
-    stroke: #c8ced6;
+    stroke: var(--color-brand-red);
     stroke-width: 1.2;
     transition: fill 0.4s ease;
 }
