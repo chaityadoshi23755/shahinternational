@@ -498,8 +498,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var y2 = parseFloat(el.getAttribute('y2') || 0);
       length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
-    // Set exact length so the 4s CSS animation takes exactly 4s regardless of shape size
-    el.style.strokeDasharray = length;
-    el.style.strokeDashoffset = length;
+    // Set exact length as a CSS variable for animations
+    el.style.setProperty('--path-length', length);
   });
 });

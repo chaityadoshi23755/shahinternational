@@ -2720,8 +2720,8 @@ p {
 .reveal .svg-draw polyline,
 .reveal .svg-draw rect,
 .reveal .svg-draw ellipse {
-  stroke-dasharray: 2500;
-  stroke-dashoffset: 2500;
+  stroke-dasharray: var(--path-length, 2500);
+  stroke-dashoffset: var(--path-length, 2500);
 }
 .reveal.active .svg-draw path,
 .reveal.active .svg-draw circle,
@@ -2734,7 +2734,7 @@ p {
 
 @keyframes draw-svg {
   to {
-    stroke-dashoffset: 0 !important;
+    stroke-dashoffset: 0;
   }
 }
 
