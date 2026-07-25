@@ -1,47 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about Shah International — a world-class indenting house providing high quality service in the laminate and wood based panel industry since 1993.">
-  <title>About Us | Shah International</title>
-  <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=1784915559">
-  <style>
-    .story-img {
-      border-radius: 0;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition-normal);
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-    .story-img:hover {
-      box-shadow: var(--shadow-lg);
-    }
-    .quick-links-pill a {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      border: 1px solid var(--color-brand-red);
-      color: var(--color-brand-red);
-      margin: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: var(--transition-fast);
-    }
-    .quick-links-pill a:hover {
-      background-color: var(--color-brand-red);
-      color: #fff;
-    }
-    .editorial-heading {
-      font-family: 'Playfair Display', serif; 
-      color: var(--color-text);
-      margin-bottom: 2rem;
-    }
-    
-    /* ========== VERTICAL SVG TIMELINE ========== */
+import re
+
+with open('about-us.html', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# Replace the style block
+style_start = content.find('/* ========== S-CURVE CONTINUOUS PATH ========== */')
+style_end = content.find('  </style>', style_start)
+
+new_styles = """/* ========== VERTICAL SVG TIMELINE ========== */
     .timeline-container {
       position: relative;
       max-width: 1000px;
@@ -131,28 +97,15 @@
         top: 20px;
         transform: translateX(-50%);
       }
-    }
-  </style>
-</head>
-<body style="background-color: var(--color-bg);">
-  <div id="shared-header"></div>
+    }"""
 
-  <!-- Page Banner -->
-    <section class="tech-directory-header reveal">
-    <div class="container">
-      <h1>About Us</h1>
-      <ol class="breadcrumb" style="padding-left: 0;"><li><a href="index.html">Home</a></li><li>About Us</li></ol>
-    </div>
-  </section>
+content = content[:style_start] + new_styles + "\n" + content[style_end:]
 
-  <!-- Quick Links -->
-  <div class="container text-center reveal" style="margin-top: 4rem; margin-bottom: 2rem;">
-    <div class="quick-links-pill">
-      <a href="#the-journey">The Journey</a>
-    </div>
-  </div>
+# Replace the HTML container
+html_start = content.find('<!-- S-CURVE MASTER CONTAINER -->')
+html_end = content.find('</div> <!-- End S-Curve Container -->') + 37
 
-  <!-- VERTICAL SVG TIMELINE CONTAINER -->
+new_html = """<!-- VERTICAL SVG TIMELINE CONTAINER -->
   <div class="timeline-container" id="the-journey">
     
     <!-- Background SVG animated line -->
@@ -216,34 +169,11 @@
     <div class="timeline-row reveal">
       <div class="timeline-node pulse-node"></div>
       <div class="timeline-content-left">
-        <!-- Factory & Growth SVG -->
-        <div style="text-align: right; margin-top: -2rem;">
-          <svg class="svg-draw" viewBox="0 0 400 200" fill="none" stroke="var(--color-brand-red)" stroke-width="2" style="width: 100%; max-width: 300px;">
-            <!-- Factory Base -->
-            <path d="M 50 180 L 350 180" />
-            <!-- Buildings -->
-            <path d="M 80 180 L 80 100 L 140 60 L 140 180" stroke-linejoin="round" />
-            <path d="M 140 120 L 200 80 L 200 180" stroke-linejoin="round" />
-            <path d="M 200 140 L 280 90 L 280 180" stroke-linejoin="round" />
-            <path d="M 280 110 L 320 110 L 320 180" stroke-linejoin="round" />
-            <!-- Smoke stacks -->
-            <path d="M 100 85 L 100 40" stroke-width="4" stroke-linecap="round"/>
-            <path d="M 120 70 L 120 30" stroke-width="4" stroke-linecap="round"/>
-            <path d="M 220 120 L 220 50" stroke-width="4" stroke-linecap="round"/>
-            <!-- Smoke circles animating -->
-            <circle cx="100" cy="20" r="5" class="pulse-node" style="transform-origin: 100px 20px;" fill="var(--color-brand-red)" stroke="none" />
-            <circle cx="220" cy="30" r="8" class="pulse-node" style="transform-origin: 220px 30px;" fill="var(--color-brand-red)" stroke="none" />
-            
-            <!-- Growth Chart overlaid -->
-            <path d="M 60 160 L 120 120 L 180 130 L 250 80 L 330 40" stroke="#111" stroke-width="3" stroke-dasharray="5 5" class="svg-flow" />
-            <circle cx="330" cy="40" r="4" fill="#111" stroke="none" />
-          </svg>
-          <div style="display: flex; justify-content: flex-end; gap: 2rem; margin-top: 1rem;">
-            <div style="text-align: right;"><h4 class="path-title">1993</h4><p style="color: var(--color-text-light);">Founded</p></div>
-            <div style="text-align: right;"><h4 class="path-title">2005</h4><p style="color: var(--color-text-light);">Expansion</p></div>
-            <div style="text-align: right;"><h4 class="path-title">Today</h4><p style="color: var(--color-text-light);">Next Gen</p></div>
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: flex-end;">
+          <div style="text-align: right;">
+            <h4 class="path-title">1993</h4>
+            <p style="color: var(--color-text-light);">Founded</p>
           </div>
-        </div>
           <div style="text-align: right;">
             <h4 class="path-title">2005</h4>
             <p style="color: var(--color-text-light);">Expansion</p>
@@ -260,9 +190,11 @@
       </div>
     </div>
 
-  </div> <!-- End Timeline Container -->
+  </div> <!-- End Timeline Container -->"""
 
-  <div id="shared-footer"></div>
-  <script src="includes.js?v=120"></script>
-</body>
-</html>
+new_content = content[:html_start] + new_html + content[html_end:]
+
+with open('about-us.html', 'w', encoding='utf-8') as f:
+    f.write(new_content)
+
+print("Updated about-us.html successfully.")

@@ -111,7 +111,39 @@
               <circle cx="420" cy="330" r="5" fill="var(--color-brand-red)"/>
               <text x="435" y="335" fill="var(--color-text)" font-family="Inter" font-size="12" font-weight="bold">Kolkata</text>
             </g>
-          </svg>
+          
+  <!-- Logistics Routes (Animated Flow) -->
+  <g stroke="var(--color-brand-red)" stroke-width="2" fill="none" class="svg-flow" stroke-dasharray="10 10">
+    <!-- Mumbai to Delhi -->
+    <path d="M 155 365 Q 180 250, 210 180" opacity="0.6"/>
+    <!-- Mumbai to Kolkata -->
+    <path d="M 155 365 Q 300 350, 480 300" opacity="0.6"/>
+    <!-- Mumbai to Bangalore -->
+    <path d="M 155 365 Q 200 450, 210 500" opacity="0.6"/>
+    <!-- Mumbai to Ahmedabad -->
+    <path d="M 155 365 Q 150 300, 130 280" opacity="0.6"/>
+    <!-- Mumbai to Chennai -->
+    <path d="M 155 365 Q 250 450, 260 480" opacity="0.6"/>
+  </g>
+  <!-- City Nodes -->
+  <g fill="var(--color-brand-red)">
+    <!-- Mumbai (HQ) -->
+    <circle cx="155" cy="365" r="8" class="pulse-node" style="transform-origin: 155px 365px;" />
+    <circle cx="155" cy="365" r="4" />
+    <text x="140" y="370" font-family="Inter, sans-serif" font-size="12" text-anchor="end" font-weight="bold">Mumbai</text>
+    
+    <!-- Delhi -->
+    <circle cx="210" cy="180" r="3" />
+    <!-- Kolkata -->
+    <circle cx="480" cy="300" r="3" />
+    <!-- Bangalore -->
+    <circle cx="210" cy="500" r="3" />
+    <!-- Ahmedabad -->
+    <circle cx="130" cy="280" r="3" />
+    <!-- Chennai -->
+    <circle cx="260" cy="480" r="3" />
+  </g>
+</svg>
         </div>
 
         <!-- Right: Rolling Numbers Stats -->

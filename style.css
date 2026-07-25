@@ -2758,3 +2758,22 @@ p {
         stroke-dashoffset: 0;
     }
 }
+
+/* --- New SVG Animation Utilities --- */
+@keyframes flow {
+  from { stroke-dashoffset: 20; }
+  to { stroke-dashoffset: 0; }
+}
+.svg-flow {
+  animation: flow 1s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+.pulse-node {
+  transform-origin: center;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
