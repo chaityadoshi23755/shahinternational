@@ -1,0 +1,320 @@
+/* Interactive World Map Styles */
+.interactive-world-map-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.interactive-world-map-container.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.map-background-details {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.world-map-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.world-map-svg .continent-path {
+    fill: #f9f9fb;
+    stroke: #c8ced6;
+    stroke-width: 1.2;
+    transition: fill 0.4s ease;
+}
+
+/* Routes */
+.trade-route {
+    fill: none;
+    stroke: var(--color-brand-red);
+    stroke-width: 3.5;
+    opacity: 0;
+    stroke-linecap: round;
+    transition: opacity 0.5s ease, stroke-width 0.3s ease;
+}
+
+/* The draw animation for initialization */
+.trade-route.draw {
+    opacity: 0.15;
+    animation: drawRoute 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes drawRoute {
+    from { stroke-dashoffset: var(--path-length); }
+    to { stroke-dashoffset: 0; }
+}
+
+/* Hover States for Routes */
+.trade-route.active {
+    opacity: 0.8;
+    stroke-width: 5;
+    filter: drop-shadow(0 0 8px rgba(226,49,55,0.4));
+}
+
+.trade-route.dimmed {
+    opacity: 0.03 !important;
+}
+
+/* Particles */
+#trade-particles-group {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+#trade-particles-group.visible {
+    opacity: 1;
+}
+
+.trade-particle circle {
+    transition: r 0.3s ease, filter 0.3s ease;
+}
+.trade-particle.dimmed {
+    opacity: 0.1;
+}
+.trade-particle.active circle {
+    r: 10;
+    filter: drop-shadow(0 0 12px rgba(226,49,55,1));
+}
+
+
+/* Markers Layer */
+#map-markers-layer {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2;
+    pointer-events: none; /* Let clicks pass to SVG if needed, but markers will have pointer-events: auto */
+}
+
+.map-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+}
+
+/* Supplier Marker */
+.supplier-marker {
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 10;
+}
+.supplier-marker.hidden-anim {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+}
+
+.sup-dot {
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-brand-red);
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(226,49,55,0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.supplier-marker:hover {
+    z-index: 20;
+}
+.supplier-marker:hover .sup-dot {
+    transform: scale(1.5);
+    box-shadow: 0 6px 15px rgba(226,49,55,0.6);
+}
+
+/* Tooltip (Apple-style) */
+.sup-tooltip {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    min-width: 140px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    pointer-events: none;
+}
+
+/* Tooltip arrow */
+.sup-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    border-right: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.supplier-marker:hover .sup-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.sup-country {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-brand-red);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.sup-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.sup-meta {
+    font-size: 0.8rem;
+    color: #777;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 0.5rem;
+}
+
+
+/* India HQ Marker */
+.hq-marker {
+    z-index: 5;
+}
+
+.hq-dot {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-brand-red);
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 20px rgba(226,49,55,0.3);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hq-dot::after {
+    content: '';
+    position: absolute;
+    top: -7px; left: -7px; right: -7px; bottom: -7px;
+    border: 1px solid rgba(226,49,55,0.4);
+    border-radius: 50%;
+    animation: hqRingBreathing 3s infinite ease-in-out;
+}
+
+@keyframes hqRingBreathing {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 0.3; }
+}
+
+.hq-pulse {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: rgba(226,49,55,0.4);
+    border-radius: 50%;
+    z-index: 1;
+    animation: hqPulseAnim 2.5s infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hq-pulse.delay {
+    animation-delay: 1.25s;
+}
+
+@keyframes hqPulseAnim {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(4.5); opacity: 0; }
+}
+
+.hq-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: #222;
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.hq-badge::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-right: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.hq-marker.highlighted .hq-dot {
+    transform: scale(1.3);
+    box-shadow: 0 0 30px rgba(226,49,55,0.9);
+}
+
+
+/* Responsive */
+@media (max-width: 991px) {
+    .sup-tooltip {
+        transform: translateX(-50%) translateY(5px);
+        padding: 0.75rem 1rem;
+    }
+    .sup-name {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 767px) {
+    .interactive-world-map-container {
+        margin: 2rem auto;
+        padding: 1rem 0;
+        overflow: visible; /* tooltips might bleed */
+    }
+    .sup-tooltip {
+        /* Mobile tap cards */
+        min-width: 120px;
+        padding: 0.5rem;
+    }
+    .sup-name { font-size: 0.9rem; margin-bottom: 0; }
+    .sup-meta { display: none; }
+}

@@ -6,21 +6,33 @@
   <title>Contact Us | Shah International</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=99">
+  <link rel="stylesheet" href="style.css?v=1784915559">
 </head>
 <body>
   <div id="shared-header"></div>
   
-    <section class="tech-directory-header reveal">
-    <div class="container">
+    <section class="page-banner">
+    <img src="sites/default/files/2018-12/about.jpg" alt="Contact Us" class="page-banner-bg">
+    <div class="page-banner-overlay"></div>
+    <div class="page-banner-content">
       <h1>Contact Us</h1>
-      <ol class="breadcrumb" style="padding-left: 0;"><li><a href="index.html">Home</a></li><li>Contact Us</li></ol>
+      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Contact Us</li></ol>
     </div>
+    
   </section>
 
       <section class="page-content" style="background-color: #f8f9fa;">
     <div class="container reveal">
       <div style="text-align: center; margin-bottom: 4rem;">
+        <div class="text-center reveal" style="margin-bottom: 6rem;">
+          <svg class="svg-draw" viewBox="0 0 100 100" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 80px; height: 80px; margin: 0 auto 1.5rem auto; display: block;">
+            <polygon points="50,10 90,50 50,90 10,50" stroke="var(--color-brand-red)" />
+            <polygon points="50,25 75,50 50,75 25,50" stroke="var(--color-brand-red)" />
+            <path d="M 10 50 L 90 50" stroke="var(--color-brand-red)" />
+            <path d="M 50 10 L 50 90" stroke="var(--color-brand-red)" />
+            <circle cx="50" cy="50" r="3" fill="var(--color-brand-red)" stroke="none" class="pulse-node" style="animation-duration: 3s;" />
+          </svg>
+        </div>
         <h2 class="section-heading" style="font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 5vw, 2.5rem); color: #111; margin-bottom: 1rem;">Contact Us</h2>
         <div style="width: 40px; height: 2px; background-color: var(--color-brand-red); margin: 0 auto;"></div>
       </div>
@@ -28,7 +40,14 @@
       <!-- Row 1: Office and Warehouse -->
       <div class="grid grid-cols-2 gap-lg" style="margin-bottom: 2rem; align-items: stretch;">
         <div class="premium-contact-card">
-          <h3 class="premium-contact-heading"><i class="fa-solid fa-building"></i> Our Office</h3>
+          <h3 class="premium-contact-heading">
+            <i class="fa-solid fa-building"></i> Our Office
+            <!-- Pulsing Radar Beacon SVG -->
+            <svg class="map-pulse-hq" viewBox="0 0 100 100" fill="none" style="width: 32px; height: 32px; margin-left: auto; display: inline-block; vertical-align: middle;">
+              <circle cx="50" cy="50" r="15" fill="var(--color-brand-red)" />
+              <circle cx="50" cy="50" r="30" stroke="var(--color-brand-red)" stroke-width="6" class="network-node-pulse" />
+            </svg>
+          </h3>
           <p class="premium-contact-text"><strong>Shah International</strong><br>308-313, Goldcrest Business Park,<br>Behind Kailash Esplanade, Opp. Shreyas Cinema,<br>L.B.S. Marg, Ghatkopar West,<br>Mumbai - 400086, India</p>
           <div style="margin-top: 2rem;">
             <p class="premium-contact-text" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--color-brand-red); margin-right: 12px;"></i> (+91) 22 4099 0000</p>
@@ -46,7 +65,14 @@
       <!-- Row 2: Form and Map -->
       <div class="grid grid-cols-2 gap-lg" style="align-items: stretch;">
         <div class="premium-contact-card">
-          <h3 class="premium-contact-heading" style="margin-bottom: 2.5rem;">Send a Message</h3>
+          <h3 class="premium-contact-heading" style="margin-bottom: 2.5rem;">
+            Send a Message
+            <!-- Drawing Envelope SVG -->
+            <svg class="svg-draw svg-envelope reveal" viewBox="0 0 100 100" fill="none" stroke="var(--color-brand-red)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; margin-left: auto; display: inline-block; vertical-align: middle;">
+              <path d="M 10 30 L 90 30 L 90 70 L 10 70 Z" />
+              <path d="M 10 30 L 50 60 L 90 30" />
+            </svg>
+          </h3>
           <form action="#" method="POST" class="contact-form">
             <div class="minimalist-input-group">
               <input type="text" id="name" name="name" class="minimalist-input" placeholder="Full Name *" required>
@@ -72,6 +98,6 @@
   </section>
   
   <div id="shared-footer"></div>
-  <script src="includes.js?v=99"></script>
+  <script src="includes.js?v=120"></script>
 </body>
 </html>

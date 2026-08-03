@@ -7,7 +7,7 @@
   <title>About Us | Shah International</title>
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=99">
+  <link rel="stylesheet" href="style.css?v=1784915559">
   <style>
     .story-img {
       border-radius: 0;
@@ -41,56 +41,62 @@
       margin-bottom: 2rem;
     }
     
-    /* ========== S-CURVE CONTINUOUS PATH ========== */
-    .s-path-container {
-      max-width: 1100px;
-      margin: 4rem auto 8rem auto;
-      padding: 0;
-    }
-    .s-path-row {
+    /* ========== VERTICAL SVG TIMELINE ========== */
+    .timeline-container {
       position: relative;
-      padding: 5rem 6rem;
-      margin-top: -3px; /* perfectly overlap the 3px borders */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      max-width: 1000px;
+      margin: 4rem auto 8rem auto;
+      padding: 2rem 0;
     }
     
-    /* Start Dot */
-    .s-path-row.start-node::before {
-      content: '';
+    .timeline-svg-bg {
       position: absolute;
-      top: -9px;
-      left: -20px;
-      width: 20px;
-      height: 20px;
-      background-color: var(--color-brand-red);
-      border-radius: 50%;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 100%;
+      z-index: -1;
     }
-
-    /* Odd Rows: Go Right */
-    .s-path-row:nth-child(odd) {
-      border-top: 3px solid var(--color-brand-red);
-      border-right: 3px solid var(--color-brand-red);
-      border-bottom: 3px solid var(--color-brand-red);
-      border-left: 3px solid transparent;
-      border-radius: 0 100px 100px 0;
+    
+    .timeline-row {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6rem;
+      width: 100%;
     }
-    /* Even Rows: Go Left */
-    .s-path-row:nth-child(even) {
-      border-top: 3px solid transparent;
-      border-left: 3px solid var(--color-brand-red);
-      border-bottom: 3px solid var(--color-brand-red);
-      border-right: 3px solid transparent;
-      border-radius: 100px 0 0 100px;
+    .timeline-row:last-child {
+      margin-bottom: 0;
     }
-
-    /* Inner Layouts to align text with the curve direction */
-    .s-path-row:nth-child(odd) .row-content {
-      text-align: left;
+    
+    .timeline-content-left, .timeline-content-right {
+      width: 45%;
     }
-    .s-path-row:nth-child(even) .row-content {
+    
+    .timeline-content-left {
       text-align: right;
+      padding-right: 3rem;
+    }
+    .timeline-content-right {
+      text-align: left;
+      padding-left: 3rem;
+    }
+    
+    .timeline-node {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 24px;
+      background-color: var(--color-brand-red);
+      border: 4px solid #fff;
+      border-radius: 50%;
+      z-index: 10;
+      box-shadow: 0 0 10px rgba(226,49,55,0.4);
     }
     
     .path-title {
@@ -102,168 +108,758 @@
       margin-bottom: 1rem;
     }
     
-    /* Mobile adjustments for the curve */
     @media (max-width: 768px) {
-      .s-path-row {
-        padding: 3rem 2rem;
-        border-radius: 0 !important;
-        border-right: none !important;
-        border-left: 3px solid var(--color-brand-red) !important;
-        border-top: none !important;
-        border-bottom: none !important;
-        margin-top: 0;
+      .timeline-svg-bg {
+        left: 20px;
+        transform: none;
       }
-      .s-path-row:nth-child(even) .row-content {
+      .timeline-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .timeline-content-left, .timeline-content-right {
+        width: 100%;
         text-align: left;
+        padding-left: 60px;
+        padding-right: 0;
       }
-      .s-path-row.start-node::before {
-        left: -11px;
+      .timeline-content-left {
+        margin-bottom: 2rem;
+      }
+      .timeline-node {
+        left: 20px;
+        top: 20px;
+        transform: translateX(-50%);
       }
     }
   </style>
 </head>
 <body style="background-color: var(--color-bg);">
   <div id="shared-header"></div>
+<style>
+    .story-img {
+      border-radius: 0;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .story-img:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    .quick-links-pill a {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--color-brand-red);
+      color: var(--color-brand-red);
+      margin: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+    .quick-links-pill a:hover {
+      background-color: var(--color-brand-red);
+      color: #fff;
+    }
+    .editorial-heading {
+      font-family: 'Playfair Display', serif; 
+      color: var(--color-text);
+      margin-bottom: 2rem;
+    }
+    
+        /* ========== ABOUT US REVAMP CSS ========== */
+    .about-section {
+      padding: 6rem 0;
+      position: relative;
+    }
+    .about-section.bg-light {
+      background-color: var(--color-bg);
+    }
+    
+    /* Editorial Layout */
+    .editorial-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .editorial-text h2 {
+      font-size: 3.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1.5rem;
+      color: var(--color-text);
+      line-height: 1.1;
+    }
+    .editorial-text p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: var(--color-text-light);
+    }
+    
+    /* Bento Image Grid */
+    .bento-image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+    .bento-image-wrapper {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: translateY(0);
+      transition: transform 0.4s ease;
+    }
+    .bento-image-wrapper:hover {
+      transform: translateY(-10px);
+    }
+    .bento-image-wrapper:nth-child(2) {
+      transform: translateY(3rem);
+    }
+    .bento-image-wrapper:nth-child(2):hover {
+      transform: translateY(calc(3rem - 10px));
+    }
+    .bento-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4/5;
+    }
+
+    /* Hover Cards Grid (Vision & Mission) */
+    .hover-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .hover-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      z-index: 1;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .hover-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, var(--color-brand-red), #b91a21);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .hover-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(226,49,55,0.2);
+    }
+    .hover-card:hover::before {
+      opacity: 1;
+    }
+    .hc-icon {
+      font-size: 3rem;
+      color: var(--color-brand-red);
+      margin-bottom: 1.5rem;
+      transition: color 0.4s ease, transform 0.4s ease;
+    }
+    .hover-card:hover .hc-icon {
+      color: #fff;
+      transform: scale(1.1);
+    }
+    .hc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      transition: color 0.4s ease;
+    }
+    .hover-card:hover .hc-title {
+      color: #fff;
+    }
+    .hc-text {
+      color: var(--color-text-light);
+      line-height: 1.8;
+      transition: color 0.4s ease;
+    }
+    .hover-card:hover .hc-text {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Why Choose Us - Icon Grid */
+    .icon-tiles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .icon-tile {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+    .icon-tile:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      border-left-color: var(--color-brand-red);
+    }
+    .it-icon {
+      font-size: 2rem;
+      color: var(--color-brand-red);
+      margin-bottom: 1rem;
+    }
+    .it-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Cinematic Break */
+    .cinematic-break {
+      background-color: #111;
+      background-image: radial-gradient(circle at center, #220505 0%, #111 100%);
+      padding: 8rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cinematic-break::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.05"/></svg>');
+      pointer-events: none;
+    }
+    .cinematic-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .cinematic-text {
+      font-size: 1.25rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.7);
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .cinematic-glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: rgba(226,49,55,0.15);
+      filter: blur(100px);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      animation: pulseGlow 4s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      from { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .editorial-layout, .hover-cards-grid, .icon-tiles-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-image-wrapper:nth-child(2) {
+        transform: translateY(0);
+      }
+      .cinematic-title {
+        font-size: 2.5rem;
+      }
+    }
+    /* ========== HORIZONTAL INTERACTIVE TIMELINE ========== */
+    .timeline-section-wrapper {
+      background-color: var(--color-bg); /* Use theme background */
+      padding: 6rem 0 8rem 0;
+      overflow: hidden;
+      position: relative;
+      color: var(--color-text);
+      margin-top: 4rem;
+    }
+    
+    .timeline-section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 5rem;
+      color: var(--color-text);
+      font-weight: 400;
+    }
+    
+    .timeline-interactive-container {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Sliding Track */
+    .timeline-track-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      transform: translateY(-50%);
+    }
+    
+    .timeline-track {
+      position: absolute;
+      top: 0;
+      left: 50%; /* Center start point */
+      display: flex;
+      align-items: center;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      left: -5000px;
+      right: -5000px;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(226,49,55,0.4) 50%, transparent 50%);
+      background-size: 8px 1px;
+      background-repeat: repeat-x;
+      z-index: 1;
+    }
+    
+    /* Timeline Nodes */
+    .timeline-node-item {
+      position: absolute;
+      top: 0;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: opacity 0.3s;
+    }
+    
+    .timeline-node-item.is-active {
+      opacity: 0; /* Hide node dot when it's under the active card */
+      pointer-events: none;
+    }
+    
+    .node-circle {
+      width: 12px;
+      height: 12px;
+      background-color: var(--color-brand-red);
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 0 0 rgba(226,49,55,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .timeline-node-item:hover .node-circle {
+      transform: scale(1.3);
+      box-shadow: 0 0 0 6px rgba(226,49,55,0.2);
+    }
+    
+    .node-year {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: var(--color-text);
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    
+    /* Active Card Overlay (Fixed in center) */
+    .timeline-active-card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      overflow: hidden;
+      z-index: 10;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .timeline-active-card.visible {
+      opacity: 1;
+    }
+    
+    .active-card-top {
+      background: linear-gradient(135deg, var(--color-brand-red), #b91a21); /* Theme Red */
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .active-card-icon {
+      width: 76px;
+      height: 76px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--color-brand-red);
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    
+    /* Chevron Bar inside Top Half */
+    .active-card-nav {
+      width: 100%;
+      background: rgba(0,0,0,0.12);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+    }
+    
+    .nav-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 0.5rem;
+      transition: opacity 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-btn:hover:not(:disabled) {
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    
+    .active-card-year {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    
+    .active-card-bottom {
+      padding: 2rem;
+      background: #fff;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .active-card-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #444;
+      margin: 0;
+    }
+    
+    @media (max-width: 600px) {
+      .timeline-active-card {
+        width: 280px;
+      }
+    }
+  </style>
 
   <!-- Page Banner -->
-    <section class="tech-directory-header reveal">
-    <div class="container">
+    <section class="page-banner">
+    <img src="sites/default/files/2018-12/about.jpg" alt="About Us" class="page-banner-bg">
+    <div class="page-banner-overlay"></div>
+    <div class="page-banner-content">
       <h1>About Us</h1>
-      <ol class="breadcrumb" style="padding-left: 0;"><li><a href="index.html">Home</a></li><li>About Us</li></ol>
+      <ol class="breadcrumb"><li><a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.9em;"></i></a></li><li>About Us</li></ol>
     </div>
+    
   </section>
 
-  <!-- Quick Links -->
-  <div class="container text-center reveal" style="margin-top: 4rem; margin-bottom: 2rem;">
+  
+  <section class="page-content" style="padding-bottom: 0;">
+    <div class="container">
+      
+    </div>
+  </section>
+<!-- Quick Links -->
+  <div class="container text-center reveal" style="margin-top: 4rem;">
     <div class="quick-links-pill">
       <a href="#the-journey">The Journey</a>
     </div>
   </div>
 
-  <!-- S-CURVE MASTER CONTAINER -->
-  <div class="s-path-container" id="the-journey">
+  <!-- SECTION 1: A Legacy of Excellence -->
+  <section class="about-section" id="the-journey">
+    <div class="container">
+      <div class="editorial-layout">
+        <div class="editorial-text reveal reveal-left">
+          <h2>A Legacy of<br>Excellence</h2>
+          <p>At Shah International, it has always been our endeavor to be a world-class service oriented company and provide an excellent service to our principals and customers.</p>
+        </div>
+        <div class="bento-image-grid reveal reveal-right">
+          <div class="bento-image-wrapper">
+            <img src="themes/agatha/img/gallery/1.jpg" alt="Shah International office" class="bento-img">
+          </div>
+          <div class="bento-image-wrapper">
+            <img src="themes/agatha/img/gallery/4.jpg" alt="Shah International team" class="bento-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Vision & Mission -->
+  <section class="about-section bg-light">
+    <div class="container">
+      <div class="text-center reveal">
+        <h3 class="editorial-heading" style="font-size: 2.5rem; margin-bottom: 1rem;">Our Vision & Mission</h3>
+        <p style="color: var(--color-text-light); max-width: 600px; margin: 0 auto;">Driving the future of the laminate and wood-based panel industry through unparalleled service and continuous innovation.</p>
+      </div>
+      <div class="hover-cards-grid reveal reveal-bottom">
+        <!-- Vision -->
+        <div class="hover-card">
+          <i class="fa-regular fa-compass hc-icon"></i>
+          <h4 class="hc-title">Our Vision</h4>
+          <p class="hc-text">To be a leading Indenting house providing high quality service to our valued customers and esteemed principals in the laminate and wood based panel industry.</p>
+        </div>
+        <!-- Mission -->
+        <div class="hover-card">
+          <i class="fa-solid fa-bullseye hc-icon"></i>
+          <h4 class="hc-title">Our Mission</h4>
+          <p class="hc-text">To maximize customer satisfaction and our principals value through best management practices and continually striving for excellence in the services we provide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Why Choose Us -->
+  <section class="about-section">
+    <div class="container">
+      <div class="editorial-layout">
+        <div class="reveal reveal-left">
+          <img src="themes/agatha/img/gallery/8-1.jpg" alt="Shah International exhibition" class="story-img" style="border-radius: 16px;">
+        </div>
+        <div class="reveal reveal-right">
+          <h3 class="editorial-heading" style="font-size: 2.5rem;">Why Choose Us?</h3>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-text-light); margin-bottom: 2.5rem;">We offer technical backing to ensure you can utilize our products to their fullest potential. With global principals, we bring worldwide expertise to your local operations.</p>
+          
+          <div class="icon-tiles-grid">
+            <div class="icon-tile">
+              <i class="fa-solid fa-layer-group it-icon"></i>
+              <h5 class="it-title">Comprehensive Range</h5>
+            </div>
+            <div class="icon-tile">
+              <i class="fa-solid fa-link it-icon"></i>
+              <h5 class="it-title">Reliable Supply Chain</h5>
+            </div>
+            <div class="icon-tile">
+              <i class="fa-solid fa-headset it-icon"></i>
+              <h5 class="it-title">Local Technical Support</h5>
+            </div>
+            <div class="icon-tile">
+              <i class="fa-solid fa-medal it-icon"></i>
+              <h5 class="it-title">30+ Years Experience</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Values of Integration (Cinematic Break) -->
+  <section class="cinematic-break reveal">
+    <div class="cinematic-glow"></div>
+    <div class="container">
+      <h2 class="cinematic-title">Values of Integration</h2>
+      <p class="cinematic-text">At Shah International, we have fostered a culture of complete integration, honesty and teamwork. For us, these are not just words that form our vision statement. These are values and ways of life that we adhere to.</p>
+    </div>
+  </section>
+  <!-- HORIZONTAL INTERACTIVE TIMELINE CONTAINER -->
+  <div class="timeline-section-wrapper" id="interactive-timeline">
+    <div class="container">
+      <h2 class="timeline-section-title">Timeline</h2>
+    </div>
     
-    <!-- NODE 1: Intro (Odd - Goes Right) -->
-    <div class="s-path-row start-node reveal">
-      <div class="row-content">
-        <h2 class="editorial-heading" style="font-size: 3rem;">A Legacy of Excellence</h2>
-        <p style="font-size: 1.25rem; line-height: 2; color: var(--color-text-light); text-align: left;"><span style="float: left; font-size: 5rem; line-height: 0.7; margin-right: 1rem; font-family: 'Playfair Display', serif; color: var(--color-brand-red);">A</span>t Shah International, it has always been our endeavor to be a world-class service oriented company and provide an excellent service to our principals and customers. And in years to come, we shall further integrate businesses across countries and build ties that go beyond mere business relations.</p>
-        
-        <div class="image-grid image-grid-2" style="margin-top: 3rem;">
-          <img src="themes/agatha/img/gallery/1.jpg" alt="Shah International office" class="story-img">
-          <img src="themes/agatha/img/gallery/4.jpg" alt="Shah International team" class="story-img">
+    <div class="timeline-interactive-container">
+      <!-- The sliding track that holds the nodes -->
+      <div class="timeline-track-wrapper">
+        <div class="timeline-line"></div>
+        <div class="timeline-track" id="timeline-track">
+          <!-- Nodes injected via JS -->
+        </div>
+      </div>
+      
+      <!-- The fixed active card in the center -->
+      <div class="timeline-active-card" id="timeline-active-card">
+        <div class="active-card-top">
+          <div class="active-card-icon" id="active-icon">
+            <i class="fa-solid fa-building"></i>
+          </div>
+          <div class="active-card-nav">
+            <button class="nav-btn" id="nav-prev" aria-label="Previous Year"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="active-card-year" id="active-year">1993</div>
+            <button class="nav-btn" id="nav-next" aria-label="Next Year"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div class="active-card-bottom">
+          <p class="active-card-text" id="active-text">
+            Text goes here
+          </p>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- NODE 2: Vision & Mission (Even - Goes Left) -->
-    <div class="s-path-row reveal">
-      <div class="row-content">
-        <h3 class="editorial-heading" style="font-size: 2.5rem;">Our Vision & Mission</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left; margin-top: 2rem;">
-          <div style="background: var(--color-bg); padding: 2rem; border-left: 2px solid var(--color-brand-red); box-shadow: var(--shadow-sm);">
-            <h4 class="path-title">Our Vision</h4>
-            <p style="color: var(--color-text-light); line-height: 1.8;">To be a leading Indenting house providing high quality service to our valued customers and esteemed principals in the laminate and wood based panel industry.</p>
-          </div>
-          <div style="background: var(--color-bg); padding: 2rem; border-left: 2px solid var(--color-brand-red); box-shadow: var(--shadow-sm);">
-            <h4 class="path-title">Our Mission</h4>
-            <p style="color: var(--color-text-light); line-height: 1.8;">To maximize customer satisfaction and our principals value through best management practices and continually striving for excellence in the services we provide.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const timelineData = [
+        { year: '1993', icon: 'fa-building', text: 'The firm was established by Mr. Kirti Shah as a premier indenting house.' },
+        { year: '1998', icon: 'fa-handshake', text: 'Secured first major international principal partnership in the wood based panel industry.' },
+        { year: '2005', icon: 'fa-chart-line', text: 'Expanded our operations and distribution network across the subcontinent.' },
+        { year: '2012', icon: 'fa-globe', text: 'Reached a milestone of representing multiple world-renowned companies globally.' },
+        { year: '2024', icon: 'fa-users', text: 'Driven by the next generation of leadership, continuing the legacy of excellence and trust.' }
+      ];
 
-    <!-- NODE 3: Together We Grow (Odd - Goes Right) -->
-    <div class="s-path-row reveal">
-      <div class="row-content">
-        <h3 class="editorial-heading" style="font-size: 2.5rem;">Truly said "Together we grow"</h3>
-        <img src="themes/agatha/img/gallery/8-1.jpg" alt="Shah International exhibition" class="story-img" style="max-height: 400px; margin-bottom: 2rem;">
+      const track = document.getElementById('timeline-track');
+      const activeCard = document.getElementById('timeline-active-card');
+      const activeIcon = document.getElementById('active-icon');
+      const activeYear = document.getElementById('active-year');
+      const activeText = document.getElementById('active-text');
+      const btnPrev = document.getElementById('nav-prev');
+      const btnNext = document.getElementById('nav-next');
+      
+      let currentIndex = 0;
+      
+      // Calculate node spacing responsive to screen width
+      let nodeSpacing = window.innerWidth < 600 ? 180 : 250; 
+      
+      // Initialize nodes
+      timelineData.forEach((item, index) => {
+        const node = document.createElement('div');
+        node.className = 'timeline-node-item';
+        node.style.left = (index * nodeSpacing) + 'px';
+        node.innerHTML = `
+          <div class="node-circle"></div>
+          <div class="node-year">${item.year}</div>
+        `;
         
-        <p style="margin-bottom: 1.5rem; color: var(--color-text-light); line-height: 1.9;">We feel proud to share with you that we have completed more than 25 years in the industry. We want to share this success with our valued customers whose objective constantly helped us to nourish the seed of aspiration and inspiration within us.</p>
-        <p style="margin-bottom: 1.5rem; color: var(--color-text-light); line-height: 1.9;">The company was founded by the grand vision of one man, Mr. Kirti Shah in 1993, is today a highly reputed company in the industry. Mr. Kirti Shah has spent more than 35 years in the industry and no need to say he shares his experience working with even 3rd generations of our customers.</p>
-        <p style="color: var(--color-text-light); line-height: 1.9;">Today, we represent several world renowned companies in the Indian subcontinent as an indenting company. We provide one stop solution to the manufactures of HPL and MFC by representing the following world renowned companies for India and subcontinent.</p>
-      </div>
-    </div>
-
-    <!-- NODE 4: Services (Even - Goes Left) -->
-    <div class="s-path-row reveal">
-      <div class="row-content">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left;">
-          <div>
-            <h3 class="editorial-heading" style="text-align: left; margin-bottom: 1rem;">Services to Customers</h3>
-            <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--color-text-light); line-height: 2;">
-              <li>Understanding the challenges and demands.</li>
-              <li>Providing efficient and reliable logistics solutions.</li>
-              <li>Timely shipments and priority in urgency.</li>
-              <li>Enabling prompt sampling services.</li>
-              <li>Offering flexible payment terms.</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="editorial-heading" style="text-align: left; margin-bottom: 1rem;">Services to Principals</h3>
-            <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--color-text-light); line-height: 2;">
-              <li>Providing Market research and analysis.</li>
-              <li>Marketing of our principals.</li>
-              <li>Providing excellent customer relationship.</li>
-              <li>Prompt action in case of urgency.</li>
-            </ul>
-          </div>
-        </div>
+        node.addEventListener('click', () => {
+          goToNode(index);
+        });
         
-        <div class="image-grid image-grid-2" style="margin-top: 3rem;">
-          <img src="themes/agatha/img/gallery/6.jpg" alt="Shah International products" class="story-img">
-          <img src="themes/agatha/img/gallery/12.jpg" alt="Shah International warehouse" class="story-img">
-        </div>
-      </div>
-    </div>
-
-    <!-- NODE 5: Values & Legacy (Odd - Goes Right) -->
-    <div class="s-path-row reveal">
-      <div class="row-content">
-        <h3 class="editorial-heading" style="font-size: 2.5rem;">Values of Integration, Honesty and Teamwork</h3>
-        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-text-light); margin-bottom: 3rem;">At Shah International, we have fostered a culture of complete integration, honesty and teamwork. All our employees are professionals who are well-trained and possess knowledge about the industry. The philosophy of understanding satisfying clients needs go deep down in the hearts of the workforce. For us, these are not just words that form our vision statement. These are values and ways of life that we adhere to.</p>
+        track.appendChild(node);
+      });
+      
+      function updateCard() {
+        const data = timelineData[currentIndex];
         
-        <div class="image-grid image-grid-3">
-          <img src="themes/agatha/img/gallery/7.jpg" alt="Shah International services" class="story-img">
-          <img src="themes/agatha/img/gallery/9.jpg" alt="Shah International quality" class="story-img">
-          <img src="themes/agatha/img/gallery/10.jpg" alt="Shah International team" class="story-img">
-        </div>
-      </div>
-    </div>
-
-    <!-- NODE 6: Timeline Conclusion (Even - Goes Left and Ends) -->
-    <div class="s-path-row reveal" style="border-bottom: none; border-radius: 100px 0 0 0; padding-bottom: 0;">
-      <div class="row-content" style="text-align: left;">
-        <h3 class="editorial-heading" style="font-size: 2.5rem; text-align: left;">The Timeline</h3>
+        // Hide card briefly to fade content
+        activeCard.classList.remove('visible');
         
-        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
-          <div style="flex: 1; min-width: 200px;">
-            <h4 class="path-title">1993</h4>
-            <p style="color: var(--color-text-light);">Founded by Mr. Kirti Shah.</p>
-          </div>
-          <div style="flex: 1; min-width: 200px;">
-            <h4 class="path-title">2005</h4>
-            <p style="color: var(--color-text-light);">Global Expansion & Partnerships.</p>
-          </div>
-          <div style="flex: 1; min-width: 200px;">
-            <h4 class="path-title">2015</h4>
-            <p style="color: var(--color-text-light);">Industry Leadership.</p>
-          </div>
-          <div style="flex: 1; min-width: 200px;">
-            <h4 class="path-title">Today</h4>
-            <p style="color: var(--color-text-light);">Driven by the next generation.</p>
-          </div>
-        </div>
+        setTimeout(() => {
+          activeIcon.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+          activeYear.innerText = data.year;
+          activeText.innerText = data.text;
+          activeCard.classList.add('visible');
+        }, 150);
         
-        <!-- End Node Dot -->
-        <div style="width: 20px; height: 20px; background-color: var(--color-brand-red); border-radius: 50%; margin-top: 3rem;"></div>
+        // Update track position
+        const offset = -(currentIndex * nodeSpacing);
+        track.style.transform = `translateX(${offset}px)`;
         
-      </div>
-    </div>
-
-  </div> <!-- End S-Curve Container -->
-
-  <div id="shared-footer"></div>
-  <script src="includes.js?v=99"></script>
+        // Update nodes active state
+        const allNodes = document.querySelectorAll('.timeline-node-item');
+        allNodes.forEach((node, idx) => {
+          if (idx === currentIndex) {
+            node.classList.add('is-active');
+          } else {
+            node.classList.remove('is-active');
+          }
+        });
+        
+        // Update buttons
+        btnPrev.disabled = currentIndex === 0;
+        btnNext.disabled = currentIndex === timelineData.length - 1;
+      }
+      
+      function goToNode(index) {
+        if (index < 0 || index >= timelineData.length) return;
+        currentIndex = index;
+        updateCard();
+      }
+      
+      btnPrev.addEventListener('click', () => goToNode(currentIndex - 1));
+      btnNext.addEventListener('click', () => goToNode(currentIndex + 1));
+      
+      // Re-calculate spacing on resize
+      window.addEventListener('resize', () => {
+        const newSpacing = window.innerWidth < 600 ? 180 : 250;
+        if (newSpacing !== nodeSpacing) {
+          nodeSpacing = newSpacing;
+          const allNodes = document.querySelectorAll('.timeline-node-item');
+          allNodes.forEach((node, index) => {
+            node.style.left = (index * nodeSpacing) + 'px';
+          });
+          // Fix track position
+          const offset = -(currentIndex * nodeSpacing);
+          track.style.transform = `translateX(${offset}px)`;
+        }
+      });
+      
+      // Init
+      setTimeout(() => {
+        updateCard();
+      }, 100);
+      
+      // Parallax effect for story images
+      const storyImages = document.querySelectorAll('.story-img');
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        storyImages.forEach(img => {
+          const rect = img.getBoundingClientRect();
+          // Only animate if in viewport
+          if(rect.top < window.innerHeight && rect.bottom > 0) {
+            const speed = 0.15;
+            const yPos = -(scrolled * speed);
+            img.style.transform = `translateY(${yPos}px)`;
+          }
+        });
+      });
+    });
+  </script>
+<div id="shared-footer"></div>
+  <script src="includes.js?v=120"></script>
 </body>
 </html>
