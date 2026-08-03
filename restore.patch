@@ -1,0 +1,290 @@
+diff --git a/index.html b/index.html
+index c398b32..1ce3eec 100644
+--- a/index.html
++++ b/index.html
+@@ -7,7 +7,7 @@
+   <title>Shah International | Premium HPL & MFC Solutions</title>
+   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+-  <link rel="stylesheet" href="style.css?v=110">
++  <link rel="stylesheet" href="style.css?v=1784911065">
+ </head>
+ <body>
+   
+@@ -45,39 +45,247 @@
+ 
+     <!-- Who We Are -->
+     <section id="who-we-are" class="section bg-light">
++
+       <div class="container reveal">
++
+         <h2 class="section-heading" style="text-align: center;">Who We Are</h2>
++
+         <p class="section-subheading" style="text-align: center; margin-bottom: 4rem;">A Legacy of Excellence Since 1993</p>
+-        
++
+         <div class="flex gap-lg who-we-are-container" style="align-items: center; margin-bottom: 3rem;">
+-          <div class="who-we-are-img reveal reveal-delay-1" style="flex: 0 0 40%; border-radius: 4px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+-            <img src="themes/agatha/img/gallery/1.jpg" alt="Shah International Founders" style="width: 100%; height: auto; object-fit: cover;">
+-          </div>
+-          <div class="flex-1 reveal reveal-delay-2" style="display: flex; flex-direction: column; justify-content: center;">
+-            <p style="font-family: 'Inter', sans-serif; font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; color: #444;">
+-              Founded by <strong style="color: var(--color-brand-red);">Mr. Kirti Shah</strong>, Shah International has built a legacy of <strong style="color: var(--color-brand-red);">over 30 years</strong> as a leading indenting house in the laminate and wood-based panel industry. Today, driven by the next generation of leadership, we proudly represent world-renowned global companies across the Indian subcontinent.
+-            </p>
+-            <p style="font-family: 'Inter', sans-serif; font-size: 1.15rem; line-height: 1.8; margin-bottom: 0; color: #444;">
+-              We are more than just suppliers; we are a reliable bridge connecting global manufacturing giants with India's booming interior infrastructure market. Our commitment to integrity, high-quality service, and long-term partnerships ensures that we continually deliver world-class innovation right to your doorstep.
+-            </p>
++
++          <!-- Text Content -->
++          <div class="who-we-are-text reveal reveal-delay-1" style="flex: 1;">
++            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-text-base); margin-bottom: 1.5rem;">Founded by <strong style="color: var(--color-brand-red);">Mr. Kirti Shah</strong>, Shah International has built a legacy of <strong style="color: var(--color-brand-red);">over 30 years</strong> as a leading indenting house in the laminate and wood-based panel industry. Today, driven by the next generation of leadership, we proudly represent world-renowned global companies across the Indian subcontinent.</p>
++            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-text-base);">We are more than just suppliers; we are a reliable bridge connecting global manufacturing giants with India&#8217;s booming interior infrastructure market. Our commitment to integrity, high-quality service, and long-term partnerships ensures that we continually deliver world-class innovation right to your doorstep.</p>
+           </div>
++
++        </div>
++
++        <!-- World Map with Partner Markers -->
++        <div class="reveal reveal-delay-2" style="position: relative; max-width: 1000px; margin: 0 auto 3rem auto; padding: 2rem 0;">
++            <!-- R
++    <!-- Clip Paths for Circular Flags -->
++    <defs>
++        <clipPath id="circle-clip-de"><circle cx="0" cy="-35" r="18" /></clipPath>
++        <clipPath id="circle-clip-ch"><circle cx="0" cy="-35" r="18" /></clipPath>
++        <clipPath id="circle-clip-cn"><circle cx="0" cy="-35" r="18" /></clipPath>
++        <clipPath id="circle-clip-jp"><circle cx="0" cy="-35" r="18" /></clipPath>
++    </defs>
++
++    <!-- Animated Trade Routes to India (3000, 1100) -->
++    <g class="trade-routes">
++        <!-- Germany to India -->
++        <path d="M 2100 420 Q 2600 300 3000 1100" fill="none" stroke="var(--color-brand-red)" stroke-width="6" stroke-dasharray="20 20" opacity="0.5">
++            <animate attributeName="stroke-dashoffset" from="40" to="0" dur="1s" repeatCount="indefinite" />
++        </path>
++        <!-- Switzerland to India -->
++        <path d="M 2050 470 Q 2500 400 3000 1100" fill="none" stroke="var(--color-brand-red)" stroke-width="6" stroke-dasharray="20 20" opacity="0.5">
++            <animate attributeName="stroke-dashoffset" from="40" to="0" dur="1s" repeatCount="indefinite" />
++        </path>
++        <!-- China to India -->
++        <path d="M 3580 840 Q 3300 700 3000 1100" fill="none" stroke="var(--color-brand-red)" stroke-width="6" stroke-dasharray="20 20" opacity="0.5">
++            <animate attributeName="stroke-dashoffset" from="40" to="0" dur="1s" repeatCount="indefinite" />
++        </path>
++        <!-- Japan to India -->
++        <path d="M 3800 740 Q 3400 600 3000 1100" fill="none" stroke="var(--color-brand-red)" stroke-width="6" stroke-dasharray="20 20" opacity="0.5">
++            <animate attributeName="stroke-dashoffset" from="40" to="0" dur="1s" repeatCount="indefinite" />
++        </path>
++    </g>
++
++    <!-- India HQ Destination Marker -->
++    <g class="map-marker-group" transform="translate(3000, 1100)">
++        <circle cx="0" cy="0" r="15" fill="var(--color-brand-red)" />
++        <circle cx="0" cy="0" r="40" fill="none" stroke="var(--color-brand-red)" stroke-width="4">
++            <animate attributeName="r" values="20; 60; 20" dur="2.5s" repeatCount="indefinite" />
++            <animate attributeName="opacity" values="0.8; 0; 0.8" dur="2.5s" repeatCount="indefinite" />
++        </circle>
++        <circle cx="0" cy="0" r="80" fill="none" stroke="var(--color-brand-red)" stroke-width="2">
++            <animate attributeName="r" values="60; 120; 60" dur="2.5s" repeatCount="indefinite" />
++            <animate attributeName="opacity" values="0.4; 0; 0.4" dur="2.5s" repeatCount="indefinite" />
++        </circle>
++        <text x="0" y="70" fill="var(--color-brand-red)" font-size="40" font-family="Inter, sans-serif" font-weight="800" text-anchor="middle">India HQ</text>
++    </g>
++
++    <!-- Refined Partner Markers -->
++    <g class="map-marker-group" transform="translate(2100, 420)">
++        <!-- Elegant connecting line -->
++        <line x1="0" y1="0" x2="0" y2="-35" stroke="var(--color-brand-red)" stroke-width="2" />
++        <circle cx="0" cy="0" r="10" fill="var(--color-brand-red)" />
++        <!-- Circular Flag Avatar -->
++        <circle cx="0" cy="-35" r="20" fill="#ffffff" filter="drop-shadow(0 5px 10px rgba(0,0,0,0.15))" />
++        <image href="https://flagcdn.com/w40/de.png" x="-20" y="-55" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#circle-clip-de)" />
++        <text x="35" y="-25" fill="#333333" font-size="32" font-family="Inter, sans-serif" font-weight="700" text-anchor="start">Schattdecor</text>
++    </g>
++    <g class="map-marker-group" transform="translate(2050, 470)">
++        <line x1="0" y1="0" x2="-45" y2="-35" stroke="var(--color-brand-red)" stroke-width="2" />
++        <circle cx="0" cy="0" r="10" fill="var(--color-brand-red)" />
++        <circle cx="-45" cy="-35" r="20" fill="#ffffff" filter="drop-shadow(0 5px 10px rgba(0,0,0,0.15))" />
++        <image href="https://flagcdn.com/w40/ch.png" x="-65" y="-55" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#circle-clip-ch)" />
++        <text x="-75" y="-25" fill="#333333" font-size="32" font-family="Inter, sans-serif" font-weight="700" text-anchor="end">Arcolor</text>
++    </g>
++    <g class="map-marker-group" transform="translate(3580, 840)">
++        <line x1="0" y1="0" x2="0" y2="-35" stroke="var(--color-brand-red)" stroke-width="2" />
++        <circle cx="0" cy="0" r="10" fill="var(--color-brand-red)" />
++        <circle cx="0" cy="-35" r="20" fill="#ffffff" filter="drop-shadow(0 5px 10px rgba(0,0,0,0.15))" />
++        <image href="https://flagcdn.com/w40/cn.png" x="-20" y="-55" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#circle-clip-cn)" />
++        <text x="35" y="-25" fill="#333333" font-size="32" font-family="Inter, sans-serif" font-weight="700" text-anchor="start">Kingdecor</text>
++    </g>
++    <g class="map-marker-group" transform="translate(3800, 740)">
++        <line x1="0" y1="0" x2="0" y2="-35" stroke="var(--color-brand-red)" stroke-width="2" />
++        <circle cx="0" cy="0" r="10" fill="var(--color-brand-red)" />
++        <circle cx="0" cy="-35" r="20" fill="#ffffff" filter="drop-shadow(0 5px 10px rgba(0,0,0,0.15))" />
++        <image href="https://flagcdn.com/w40/jp.png" x="-20" y="-55" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#circle-clip-jp)" />
++        <text x="35" y="-25" fill="#333333" font-size="32" font-family="Inter, sans-serif" font-weight="700" text-anchor="start">Mitsubishi</text>
++    </g>
++
++</svg>
++
+         </div>
+         
+         <div style="text-align: center;" class="reveal reveal-delay-3">
+           <a href="about-us.html" class="btn btn-outline" style="border-color: var(--color-brand-red); color: var(--color-brand-red);">READ OUR STORY</a>
+         </div>
++
+       </div>
++
+     </section>
+ 
+-    <!-- 3. Parallax Philosophy Section -->
+-    <section class="philosophy-parallax">
+-      <div class="philosophy-parallax-overlay"></div>
+-      <div class="philosophy-parallax-content reveal">
+-        <h2>Our Philosophy</h2>
+-        <div style="width: 80px; height: 3px; background-color: var(--color-brand-red); margin: 0 auto 3rem auto;"></div>
+-        <p>
+-          "Beyond Business. We build ties that bridge global innovation with Indian excellence. Our commitment is not just to supply materials, but to elevate the very foundation of interior architecture."
+-        </p>
++    <!-- 3. Redesigned Philosophy Section -->
++    <section class="section" style="background-color: var(--color-brand-red); padding: 8rem 0; position: relative; overflow: hidden;">
++      <!-- Subtle background pattern -->
++      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.03; background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
++      
++      <div class="container relative z-10">
++        <div class="flex gap-xl" style="align-items: center; flex-wrap: wrap;">
++          
++          <!-- Left side: The self-revealing artistic laminate SVG -->
++          <div class="philosophy-svg-container reveal reveal-delay-1" style="flex: 1; min-width: 300px; display: flex; justify-content: center; position: relative;">
++            <svg class="philosophy-draw" viewBox="0 0 1000 600" fill="none" stroke="#ffffff" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 650px; display: block; margin: 0 auto; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));">
++    <path d="M 500.00 150.00 L 66.99 400.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 500.00 150.00 L 933.01 400.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 543.30 175.00 L 110.29 425.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 456.70 175.00 L 889.71 425.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 586.60 200.00 L 153.59 450.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 413.40 200.00 L 846.41 450.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 629.90 225.00 L 196.89 475.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 370.10 225.00 L 803.11 475.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 673.21 250.00 L 240.19 500.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 326.79 250.00 L 759.81 500.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 716.51 275.00 L 283.49 525.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 283.49 275.00 L 716.51 525.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 759.81 300.00 L 326.79 550.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 240.19 300.00 L 673.21 550.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 803.11 325.00 L 370.10 575.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 196.89 325.00 L 629.90 575.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 846.41 350.00 L 413.40 600.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 153.59 350.00 L 586.60 600.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 889.71 375.00 L 456.70 625.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 110.29 375.00 L 543.30 625.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 933.01 400.00 L 500.00 650.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 66.99 400.00 L 500.00 650.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4" />
++    <path d="M 495.0 150.00000000000003 L 505.0 150.00000000000003 M 500.0 145.00000000000003 L 500.0 155.00000000000003" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 495.0 650.0 L 505.0 650.0 M 500.0 645.0 L 500.0 655.0" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 61.987298107780646 400.0 L 71.98729810778065 400.0 M 66.98729810778065 395.0 L 66.98729810778065 405.0" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 928.0127018922194 400.0 L 938.0127018922194 400.0 M 933.0127018922194 395.0 L 933.0127018922194 405.0" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 495.0 400.0 L 505.0 400.0 M 500.0 395.0 L 500.0 405.0" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 270.50 447.50 L 267.72 448.82 L 264.54 449.80 L 261.10 450.40 L 257.51 450.61 L 253.93 450.40 L 250.48 449.80 L 247.31 448.82 L 244.52 447.50 L 242.24 445.89 L 240.54 444.06 L 239.49 442.07 L 239.14 440.00 L 239.49 437.93 L 240.54 435.94 L 242.24 434.11 L 244.52 432.50 L 247.31 431.18 L 250.48 430.20 L 253.93 429.60 L 257.51 429.39 L 261.10 429.60 L 264.54 430.20 L 267.72 431.18 L 270.50 432.50 L 272.79 434.11 L 274.49 435.94 L 275.53 437.93 L 275.88 440.00 L 275.53 442.07 L 274.49 444.06 L 272.79 445.89 L 270.50 447.50" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 270.50 327.50 L 267.72 328.82 L 264.54 329.80 L 261.10 330.40 L 257.51 330.61 L 253.93 330.40 L 250.48 329.80 L 247.31 328.82 L 244.52 327.50 L 242.24 325.89 L 240.54 324.06 L 239.49 322.07 L 239.14 320.00 L 239.49 317.93 L 240.54 315.94 L 242.24 314.11 L 244.52 312.50 L 247.31 311.18 L 250.48 310.20 L 253.93 309.60 L 257.51 309.39 L 261.10 309.60 L 264.54 310.20 L 267.72 311.18 L 270.50 312.50 L 272.79 314.11 L 274.49 315.94 L 275.53 317.93 L 275.88 320.00 L 275.53 322.07 L 274.49 324.06 L 272.79 325.89 L 270.50 327.50" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 275.88 440.00 L 275.88 320.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 239.14 440.00 L 239.14 320.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 264.44 414.00 L 261.10 415.58 L 257.29 416.76 L 253.15 417.48 L 248.85 417.73 L 244.55 417.48 L 240.42 416.76 L 236.60 415.58 L 233.26 414.00 L 230.52 412.07 L 228.49 409.87 L 227.23 407.48 L 226.81 405.00 L 227.23 402.52 L 228.49 400.13 L 230.52 397.93 L 233.26 396.00 L 236.60 394.42 L 240.42 393.24 L 244.55 392.52 L 248.85 392.27 L 253.15 392.52 L 257.29 393.24 L 261.10 394.42 L 264.44 396.00 L 267.18 397.93 L 269.22 400.13 L 270.47 402.52 L 270.90 405.00 L 270.47 407.48 L 269.22 409.87 L 267.18 412.07 L 264.44 414.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 264.44 274.00 L 261.10 275.58 L 257.29 276.76 L 253.15 277.48 L 248.85 277.73 L 244.55 277.48 L 240.42 276.76 L 236.60 275.58 L 233.26 274.00 L 230.52 272.07 L 228.49 269.87 L 227.23 267.48 L 226.81 265.00 L 227.23 262.52 L 228.49 260.13 L 230.52 257.93 L 233.26 256.00 L 236.60 254.42 L 240.42 253.24 L 244.55 252.52 L 248.85 252.27 L 253.15 252.52 L 257.29 253.24 L 261.10 254.42 L 264.44 256.00 L 267.18 257.93 L 269.22 260.13 L 270.47 262.52 L 270.90 265.00 L 270.47 267.48 L 269.22 269.87 L 267.18 272.07 L 264.44 274.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 270.90 405.00 L 270.90 265.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 226.81 405.00 L 226.81 265.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 250.58 376.00 L 248.36 377.06 L 245.82 377.84 L 243.06 378.32 L 240.19 378.49 L 237.33 378.32 L 234.57 377.84 L 232.03 377.06 L 229.80 376.00 L 227.97 374.71 L 226.61 373.25 L 225.78 371.66 L 225.50 370.00 L 225.78 368.34 L 226.61 366.75 L 227.97 365.29 L 229.80 364.00 L 232.03 362.94 L 234.57 362.16 L 237.33 361.68 L 240.19 361.51 L 243.06 361.68 L 245.82 362.16 L 248.36 362.94 L 250.58 364.00 L 252.41 365.29 L 253.77 366.75 L 254.61 368.34 L 254.89 370.00 L 254.61 371.66 L 253.77 373.25 L 252.41 374.71 L 250.58 376.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 250.58 276.00 L 248.36 277.06 L 245.82 277.84 L 243.06 278.32 L 240.19 278.49 L 237.33 278.32 L 234.57 277.84 L 232.03 277.06 L 229.80 276.00 L 227.97 274.71 L 226.61 273.25 L 225.78 271.66 L 225.50 270.00 L 225.78 268.34 L 226.61 266.75 L 227.97 265.29 L 229.80 264.00 L 232.03 262.94 L 234.57 262.16 L 237.33 261.68 L 240.19 261.51 L 243.06 261.68 L 245.82 262.16 L 248.36 262.94 L 250.58 264.00 L 252.41 265.29 L 253.77 266.75 L 254.61 268.34 L 254.89 270.00 L 254.61 271.66 L 253.77 273.25 L 252.41 274.71 L 250.58 276.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 254.89 370.00 L 254.89 270.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 225.50 370.00 L 225.50 270.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 248.85263290251277 370.0 C 348.85263290251277 220.0, 350.0 355.0, 500.0 305.0" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 248.85263290251277 376.0 C 348.85263290251277 226.0, 350.0 361.0, 500.0 311.0" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 248.85263290251277 382.0 C 348.85263290251277 232.0, 350.0 367.0, 500.0 317.0" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 248.85263290251277 388.0 C 348.85263290251277 238.0, 350.0 373.0, 500.0 323.0" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 248.85263290251277 394.0 C 348.85263290251277 244.0, 350.0 379.0, 500.0 329.0" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 248.85263290251277 400.0 C 348.85263290251277 250.0, 350.0 385.0, 500.0 335.0" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 257.51288694035713 390.0 C 377.51288694035713 290.0, 400.0 300.0, 500.0 320.0" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3" />
++    <path d="M 257.51288694035713 396.6666666666667 C 377.51288694035713 296.6666666666667, 400.0 306.6666666666667, 500.0 326.6666666666667" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3" />
++    <path d="M 257.51288694035713 403.3333333333333 C 377.51288694035713 303.3333333333333, 400.0 313.3333333333333, 500.0 333.3333333333333" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3" />
++    <path d="M 257.51288694035713 410.0 C 377.51288694035713 310.0, 400.0 320.0, 500.0 340.0" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3" />
++    <path d="M 491.34 355.00 L 543.30 385.00 L 508.66 405.00 L 456.70 375.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 491.34 353.00 L 543.30 383.00 L 508.66 403.00 L 456.70 373.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 491.34 355.00 L 491.34 353.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 543.30 385.00 L 543.30 383.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 508.66 405.00 L 508.66 403.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 456.70 375.00 L 456.70 373.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 491.34 335.00 L 543.30 365.00 L 508.66 385.00 L 456.70 355.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 491.34 327.00 L 543.30 357.00 L 508.66 377.00 L 456.70 347.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 491.34 335.00 L 491.34 327.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 543.30 365.00 L 543.30 357.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 508.66 385.00 L 508.66 377.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 456.70 355.00 L 456.70 347.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 491.34 310.00 L 543.30 340.00 L 508.66 360.00 L 456.70 330.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2" />
++    <path d="M 491.34 309.00 L 543.30 339.00 L 508.66 359.00 L 456.70 329.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2" />
++    <path d="M 491.34 310.00 L 491.34 309.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2" />
++    <path d="M 543.30 340.00 L 543.30 339.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2" />
++    <path d="M 508.66 360.00 L 508.66 359.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2" />
++    <path d="M 456.70 330.00 L 456.70 329.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2" />
++    <path d="M 491.34 295.00 L 543.30 325.00 L 508.66 345.00 L 456.70 315.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 491.34 294.00 L 543.30 324.00 L 508.66 344.00 L 456.70 314.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 491.34 295.00 L 491.34 294.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 543.30 325.00 L 543.30 324.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 508.66 345.00 L 508.66 344.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 456.70 315.00 L 456.70 314.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 491.34 355.00 L 491.34 295.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 2" />
++    <path d="M 543.30 385.00 L 543.30 325.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 2" />
++    <path d="M 508.66 405.00 L 508.66 345.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 2" />
++    <path d="M 456.70 375.00 L 456.70 315.00" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 2" />
++    <path d="M 759.81 350.00 L 811.77 380.00 L 777.13 400.00 L 725.17 370.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 759.81 200.00 L 811.77 230.00 L 777.13 250.00 L 725.17 220.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 759.81 350.00 L 759.81 200.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 811.77 380.00 L 811.77 230.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 777.13 400.00 L 777.13 250.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 725.17 370.00 L 725.17 220.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 785.79 365.00 L 785.79 215.00" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 742.49 360.00 L 742.49 210.00" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 673.21 400.00 L 742.49 440.00 L 699.19 465.00 L 629.90 425.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 673.21 340.00 L 742.49 380.00 L 699.19 405.00 L 629.90 365.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 673.21 400.00 L 673.21 340.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 742.49 440.00 L 742.49 380.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 699.19 465.00 L 699.19 405.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 629.90 425.00 L 629.90 365.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 673.21 335.00 L 751.15 380.00 L 699.19 410.00 L 621.24 365.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="1.0" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 673.21 331.00 L 751.15 376.00 L 699.19 406.00 L 621.24 361.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="1.0" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 673.21 335.00 L 673.21 331.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="1.0" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 751.15 380.00 L 751.15 376.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="1.0" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 699.19 410.00 L 699.19 406.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="1.0" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 621.24 365.00 L 621.24 361.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="1.0" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 651.55 412.50 L 651.55 352.50" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 803.11 345.00 L 837.75 365.00 L 768.47 405.00 L 733.83 385.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 803.11 305.00 L 837.75 325.00 L 768.47 365.00 L 733.83 345.00 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 803.11 345.00 L 803.11 305.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 837.75 365.00 L 837.75 325.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 768.47 405.00 L 768.47 365.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 733.83 385.00 L 733.83 345.00" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 803.11 330.00 L 733.83 370.00" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 803.11 320.00 L 733.83 360.00" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
++    <path d="M 543.3012701892219 325.0 Q 643.3012701892219 275.0 759.8076211353316 250.0" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4" />
++    <path d="M 543.3012701892219 325.0 Q 623.3012701892219 345.0 673.2050807568878 340.0" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4" />
++</svg>
++          </div>
++
++          <!-- Right side: The Philosophy Text -->
++          <div class="philosophy-text-container reveal reveal-delay-2" style="flex: 1; min-width: 300px; padding: 2rem;">
++            <h2 style="color: #ffffff; font-size: 3.5rem; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Our Philosophy</h2>
++            <div style="width: 80px; height: 3px; background-color: #ffffff; margin-bottom: 2.5rem;"></div>
++            <p style="color: rgba(255,255,255,0.95); font-size: 1.65rem; line-height: 1.8; font-style: italic; font-family: 'Playfair Display', serif; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
++              "Beyond Business. We build ties that bridge global innovation with Indian excellence. Our commitment is not just to supply materials, but to elevate the very foundation of interior architecture."
++            </p>
++            <div style="margin-top: 3rem;">
++              <a href="about-us.html" class="btn btn-outline" style="border-color: #ffffff; color: #ffffff;">DISCOVER MORE</a>
++            </div>
++          </div>
++
++        </div>
+       </div>
+     </section>
+   
+@@ -184,7 +392,7 @@
+   
+   <div id="shared-footer"></div>
+   
+-  <script src="includes.js?v=4"></script>
++  <script src="includes.js?v=120"></script>
+   <script>
+     // Hero Cross-Fading Logic
+     document.addEventListener('DOMContentLoaded', function() {
