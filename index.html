@@ -180,70 +180,85 @@
           <div class="philosophy-svg-container reveal reveal-delay-1" style="flex: 1; min-width: 300px; display: flex; justify-content: center; position: relative;">
   <svg class="svg-draw philosophy-network" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 800px; display: block; margin: 0 auto; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.2));">
     <defs>
-      <!-- Gradients for World -> Shah International -->
-      <linearGradient id="bridgeGrad1" x1="100" y1="150" x2="450" y2="300" gradientUnits="userSpaceOnUse">
+      <linearGradient id="bridgeGrad1" x1="100" y1="100" x2="450" y2="300" gradientUnits="userSpaceOnUse">
         <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2" />
         <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
       </linearGradient>
-      <linearGradient id="bridgeGrad2" x1="100" y1="300" x2="450" y2="300" gradientUnits="userSpaceOnUse">
+      <linearGradient id="bridgeGrad2" x1="100" y1="200" x2="450" y2="300" gradientUnits="userSpaceOnUse">
         <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2" />
         <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
       </linearGradient>
-      <linearGradient id="bridgeGrad3" x1="100" y1="450" x2="450" y2="300" gradientUnits="userSpaceOnUse">
+      <linearGradient id="bridgeGrad3" x1="100" y1="300" x2="450" y2="300" gradientUnits="userSpaceOnUse">
         <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2" />
         <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
       </linearGradient>
-      <!-- Gradient for Shah International -> India -->
-      <linearGradient id="bridgeGradIndia" x1="450" y1="300" x2="800" y2="300" gradientUnits="userSpaceOnUse">
+      <linearGradient id="bridgeGrad4" x1="100" y1="400" x2="450" y2="300" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
+      </linearGradient>
+      <linearGradient id="bridgeGrad5" x1="100" y1="500" x2="450" y2="300" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
+      </linearGradient>
+
+      <linearGradient id="bridgeGradIndia" x1="450" y1="300" x2="750" y2="300" gradientUnits="userSpaceOnUse">
         <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
         <stop offset="100%" stop-color="#ffffff" stop-opacity="0.2" />
       </linearGradient>
-
-      <!-- Glows -->
+      
       <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
-        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
       </radialGradient>
       <radialGradient id="indiaGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
-        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
       </radialGradient>
     </defs>
     
-    <!-- Paths from World to Shah -->
-    <path class="svg-draw" d="M 150 150 C 250 150, 300 300, 450 300" stroke="url(#bridgeGrad1)" stroke-width="4" stroke-linecap="round"/>
-    <path class="svg-draw" d="M 150 300 C 250 300, 300 300, 450 300" stroke="url(#bridgeGrad2)" stroke-width="4" stroke-linecap="round"/>
-    <path class="svg-draw" d="M 150 450 C 250 450, 300 300, 450 300" stroke="url(#bridgeGrad3)" stroke-width="4" stroke-linecap="round"/>
+    <path class="svg-draw" d="M 150 100 C 250 100, 300 300, 450 300" stroke="url(#bridgeGrad1)" stroke-width="4" stroke-linecap="round"/>
+    <path class="svg-draw" d="M 150 200 C 250 200, 300 300, 450 300" stroke="url(#bridgeGrad2)" stroke-width="4" stroke-linecap="round"/>
+    <path class="svg-draw" d="M 150 300 C 250 300, 300 300, 450 300" stroke="url(#bridgeGrad3)" stroke-width="4" stroke-linecap="round"/>
+    <path class="svg-draw" d="M 150 400 C 250 400, 300 300, 450 300" stroke="url(#bridgeGrad4)" stroke-width="4" stroke-linecap="round"/>
+    <path class="svg-draw" d="M 150 500 C 250 500, 300 300, 450 300" stroke="url(#bridgeGrad5)" stroke-width="4" stroke-linecap="round"/>
 
-    <!-- Path from Shah to India -->
     <path class="svg-draw" d="M 450 300 C 600 300, 650 300, 750 300" stroke="url(#bridgeGradIndia)" stroke-width="4" stroke-linecap="round"/>
 
-    <!-- Decorative Dash Lines (World to Shah) -->
-    <path d="M 150 150 C 250 200, 300 450, 150 450" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" stroke-dasharray="4 4" />
-    <path d="M 150 150 L 150 300 L 150 450" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" stroke-dasharray="4 4" />
+    <path d="M 150 100 C 250 200, 250 400, 150 500" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" stroke-dasharray="4 4" />
+    <path d="M 150 100 L 150 500" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" stroke-dasharray="4 4" />
 
-    <!-- Decorative Dash Lines (Shah to India) -->
     <path d="M 450 250 C 600 200, 750 250, 750 300" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="6 6" />
     <path d="M 450 350 C 600 400, 750 350, 750 300" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="6 6" />
     
-    <!-- Left Nodes: World -->
     <!-- Germany -->
-    <circle cx="150" cy="150" r="15" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
-    <circle cx="150" cy="150" r="4" fill="#ffffff" />
-    <image href="https://flagcdn.com/de.svg" x="91" y="132" width="24" height="18" />
-    <text x="115" y="165" fill="#ffffff" fill-opacity="0.8" font-family="Inter, sans-serif" font-size="11" text-anchor="end" letter-spacing="2">GERMANY</text>
+    <circle cx="150" cy="100" r="15" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
+    <circle cx="150" cy="100" r="4" fill="#ffffff" />
+    <image href="https://flagcdn.com/de.svg" x="95" y="85" width="40" height="30" />
+    <text x="85" y="104" fill="#ffffff" fill-opacity="0.9" font-family="Inter, sans-serif" font-size="11" text-anchor="end" letter-spacing="2">GERMANY</text>
 
     <!-- China -->
-    <circle cx="150" cy="300" r="20" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
-    <circle cx="150" cy="300" r="6" fill="#ffffff" />
-    <image href="https://flagcdn.com/cn.svg" x="91" y="282" width="24" height="18" />
-    <text x="115" y="315" fill="#ffffff" fill-opacity="0.8" font-family="Inter, sans-serif" font-size="11" text-anchor="end" letter-spacing="2">CHINA</text>
+    <circle cx="150" cy="200" r="15" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
+    <circle cx="150" cy="200" r="4" fill="#ffffff" />
+    <image href="https://flagcdn.com/cn.svg" x="95" y="185" width="40" height="30" />
+    <text x="85" y="204" fill="#ffffff" fill-opacity="0.9" font-family="Inter, sans-serif" font-size="11" text-anchor="end" letter-spacing="2">CHINA</text>
     
     <!-- Austria -->
-    <circle cx="150" cy="450" r="15" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
-    <circle cx="150" cy="450" r="4" fill="#ffffff" />
-    <image href="https://flagcdn.com/at.svg" x="91" y="432" width="24" height="18" />
-    <text x="115" y="465" fill="#ffffff" fill-opacity="0.8" font-family="Inter, sans-serif" font-size="11" text-anchor="end" letter-spacing="2">AUSTRIA</text>
+    <circle cx="150" cy="300" r="15" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
+    <circle cx="150" cy="300" r="4" fill="#ffffff" />
+    <image href="https://flagcdn.com/at.svg" x="95" y="285" width="40" height="30" />
+    <text x="85" y="304" fill="#ffffff" fill-opacity="0.9" font-family="Inter, sans-serif" font-size="11" text-anchor="end" letter-spacing="2">AUSTRIA</text>
+
+    <!-- Switzerland -->
+    <circle cx="150" cy="400" r="15" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
+    <circle cx="150" cy="400" r="4" fill="#ffffff" />
+    <image href="https://flagcdn.com/ch.svg" x="95" y="385" width="40" height="30" />
+    <text x="85" y="404" fill="#ffffff" fill-opacity="0.9" font-family="Inter, sans-serif" font-size="11" text-anchor="end" letter-spacing="2">SWITZERLAND</text>
+
+    <!-- Japan -->
+    <circle cx="150" cy="500" r="15" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>
+    <circle cx="150" cy="500" r="4" fill="#ffffff" />
+    <image href="https://flagcdn.com/jp.svg" x="95" y="485" width="40" height="30" />
+    <text x="85" y="504" fill="#ffffff" fill-opacity="0.9" font-family="Inter, sans-serif" font-size="11" text-anchor="end" letter-spacing="2">JAPAN</text>
 
     <!-- Center Node: Shah International -->
     <circle cx="450" cy="300" r="60" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" class="pulse-node" style="transform-origin: 450px 300px;"/>
@@ -257,8 +272,8 @@
     <circle cx="750" cy="300" r="35" fill="none" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2"/>
     <circle cx="750" cy="300" r="20" fill="url(#indiaGlow)"/>
     <circle cx="750" cy="300" r="8" fill="#ffffff" />
-    <image href="https://flagcdn.com/in.svg" x="730" y="335" width="40" height="30" />
-    <text x="750" y="385" fill="#ffffff" font-family="'Playfair Display', serif" font-size="20" text-anchor="middle" font-weight="700" letter-spacing="2">INDIA</text>
+    <image href="https://flagcdn.com/in.svg" x="725" y="335" width="50" height="35" />
+    <text x="750" y="395" fill="#ffffff" font-family="'Playfair Display', serif" font-size="20" text-anchor="middle" font-weight="700" letter-spacing="2">INDIA</text>
   </svg>
 </div>
 
@@ -557,6 +572,7 @@
     </section>
 
   </main>
+
 
 
 
