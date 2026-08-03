@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="style.css?v=1784915559">
 </head>
 <body>
-
   <!-- Shared Header -->
   <div id="shared-header"></div>
+
+  
 
   <!-- Page Banner -->
   <section class="page-banner">
@@ -21,101 +22,187 @@
     <div class="page-banner-content">
       <h1>Our Team</h1>
       <ol class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.9em;"></i></a></li>
         <li><span style="color: rgba(255,255,255,0.7); margin: 0 10px;">/</span> Company</li>
         <li><span style="color: rgba(255,255,255,0.7); margin: 0 10px;">/</span> Our Team</li>
       </ol>
     </div>
   </section>
 
-  <!-- Team Content -->
-  <section class="section bg-light" style="padding: 4rem 0;">
+  
+
+  <!-- Team Carousel Section (TrueNorth Style) -->
+  <section class="section team-carousel-section" style="background-color: var(--color-bg); padding: 5rem 0; overflow: hidden; position: relative;">
     <div class="container">
       
       <div class="text-center mb-xl reveal">
-        
-        <div class="text-center reveal" style="margin-bottom: 1.5rem;">
-          <svg class="svg-draw" viewBox="0 0 100 100" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 80px; height: 80px; margin: 0 auto; display: block;">
-            <polygon points="50,10 90,50 50,90 10,50" stroke="var(--color-brand-red)" />
-            <polygon points="50,25 75,50 50,75 25,50" stroke="var(--color-brand-red)" />
-            <path d="M 10 50 L 90 50" stroke="var(--color-brand-red)" />
-            <path d="M 50 10 L 50 90" stroke="var(--color-brand-red)" />
-            <circle cx="50" cy="50" r="3" fill="var(--color-brand-red)" stroke="none" class="pulse-node" style="animation-duration: 3s;" />
-          </svg>
-        </div>
-<h2 class="section-heading" style="color: var(--color-brand-red);">The Pillars of Our Success</h2>
+        <h2 class="section-heading" style="color: var(--color-brand-red);">The Pillars of Our Success</h2>
         <p class="section-subheading" style="max-width: 800px; margin: 0 auto;">Dedicated experts delivering a one-to-one touch, anywhere in the country.</p>
       </div>
 
-      <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: center; justify-content: space-between; flex-direction: row-reverse;">
+      <div class="people-carousel-container reveal reveal-delay-1">
         
-        <!-- Right: SVG Animated Connections/Handshake -->
-        <div style="flex: 1; min-width: 300px; display: flex; justify-content: center; position: relative;" class="reveal reveal-delay-1">
-          <svg class="svg-draw" viewBox="0 0 400 400" fill="none" stroke="var(--color-brand-red)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" style="width: 100%; max-width: 350px; filter: drop-shadow(0 10px 15px rgba(226,49,55,0.15));">
-            
-            <!-- Abstract "One-to-One" Connection / Handshake lines -->
-            <path d="M 50 250 C 100 280 150 250 200 200 C 250 150 300 120 350 150" stroke-width="4" opacity="0.8"/>
-            <path d="M 50 150 C 100 120 150 150 200 200 C 250 250 300 280 350 250" stroke-width="4" stroke="var(--color-brand-red)" opacity="0.8"/>
-            
-            <circle cx="200" cy="200" r="15" fill="#fff" stroke="var(--color-brand-red)" stroke-width="4"/>
-            <circle cx="50" cy="250" r="8" fill="var(--color-brand-red)" stroke="none" class="network-node-pulse" style="animation-delay: 0.5s;" />
-            <circle cx="350" cy="150" r="8" fill="var(--color-brand-red)" stroke="none" class="network-node-pulse" style="animation-delay: 1.2s;" />
-            <circle cx="50" cy="150" r="8" fill="var(--color-brand-red)" stroke="none" class="network-node-pulse" style="animation-delay: 1.9s;" />
-            <circle cx="350" cy="250" r="8" fill="var(--color-brand-red)" stroke="none" class="network-node-pulse" style="animation-delay: 0.2s;" />
-
-            <!-- Subtle radiating network rings -->
-            <circle cx="200" cy="200" r="50" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"/>
-            <circle cx="200" cy="200" r="100" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
-            <circle cx="200" cy="200" r="150" stroke-width="1" stroke-dasharray="4 4" opacity="0.2"/>
-            
-            <!-- Floating connection nodes -->
-            <path d="M 200 200 L 250 100" stroke-width="1" opacity="0.5"/>
-            <circle cx="250" cy="100" r="4" fill="var(--color-brand-red)" stroke="none"/>
-            
-            <path d="M 200 200 L 120 320" stroke-width="1" opacity="0.5"/>
-            <circle cx="120" cy="320" r="4" fill="var(--color-brand-red)" stroke="none"/>
-            
-            <path d="M 200 200 L 320 280" stroke-width="1" opacity="0.5"/>
-            <circle cx="320" cy="280" r="4" fill="var(--color-brand-red)" stroke="none"/>
-
-            <path d="M 200 200 L 100 100" stroke-width="1" opacity="0.5"/>
-            <circle cx="100" cy="100" r="4" fill="var(--color-brand-red)" stroke="none"/>
-
-          </svg>
+        <!-- Left: Active Member (Large) -->
+        <div class="people-active-card">
+          <div class="people-active-photo-wrapper">
+             <!-- SVG Animated rotating dashed circle -->
+             <svg class="active-photo-ring" viewBox="0 0 100 100">
+               <circle cx="50" cy="50" r="49" fill="none" stroke="var(--color-brand-red)" stroke-width="0.5" stroke-dasharray="2 4" />
+             </svg>
+             <!-- The connector line -->
+             <svg class="active-photo-connector" viewBox="0 0 150 20" preserveAspectRatio="none">
+               <path d="M 0 10 L 150 10" fill="none" stroke="var(--color-brand-red)" stroke-width="1" stroke-dasharray="4 4" class="draw-line-anim" />
+               <circle cx="150" cy="10" r="3" fill="var(--color-brand-red)" class="pulse-node" />
+             </svg>
+             
+             <div class="people-active-photo" id="active-person-photo">
+                <!-- Image or Initial Placeholder -->
+             </div>
+          </div>
+          <div class="people-active-info" id="active-person-info">
+             <h3 class="active-name">Kirti Shah</h3>
+             <p class="active-title">Founder & Managing Director</p>
+          </div>
         </div>
 
-        <!-- Left: Content -->
-        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 2rem;" class="reveal reveal-delay-2">
+        <!-- Right: Inactive Members List (Small) -->
+        <div class="people-inactive-list">
+          <div class="people-track-wrapper">
+              <div class="people-track" id="people-track">
+                 
+                 <div class="people-thumbnail " data-index="" onclick="selectTeamMember()">
+                     <div class="avatar-placeholder" style="background-color: #f8f9fa; color: var(--color-brand-red);">
+                         
+                     </div>
+                 </div>
+                 
+              </div>
+          </div>
           
-          <div>
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--color-text); margin-bottom: 1rem;">Loyal & Expert Professionals</h3>
-            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--color-text-light);">
-              At the core of Shah International is our highly skilled team of professionals. Through extensive training and decades of combined experience, our experts intimately understand the technical and creative demands of the wood-based panel and laminate industry.
-            </p>
+          <div class="people-navigation">
+             <div class="pagination-pill">
+               <button onclick="prevMember()" class="nav-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+               <span id="carousel-counter">1 / </span>
+               <button onclick="nextMember()" class="nav-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+             </div>
+             <button class="btn btn-primary" style="margin-left: 1rem;" onclick="openDetailView()">View Details</button>
           </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-            <div class="team-feature-card">
-              <i class="fa-solid fa-map-location-dot" style="font-size: 2rem; color: var(--color-brand-red); margin-bottom: 1rem;"></i>
-              <h4 style="font-family: 'Inter', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">Region-Wise Expertise</h4>
-              <p style="color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 0;">Dedicated teams localized across India to provide rapid, culturally-aligned service.</p>
-            </div>
-            
-            <div class="team-feature-card">
-              <i class="fa-solid fa-handshake-angle" style="font-size: 2rem; color: var(--color-brand-red); margin-bottom: 1rem;"></i>
-              <h4 style="font-family: 'Inter', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">One-To-One Touch</h4>
-              <p style="color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 0;">We build long-term relationships through highly personalized, direct customer interaction.</p>
-            </div>
-          </div>
-
         </div>
 
       </div>
+
     </div>
   </section>
 
+  <!-- Full-Screen Detail View Overlay -->
+  <div class="people-detail-view" id="people-detail-view">
+     <div class="detail-split">
+        <div class="detail-photo" id="detail-photo-container">
+           <!-- Photo placeholder -->
+        </div>
+        <div class="detail-content">
+           <button class="back-link" onclick="closeDetailView()">
+             <i class="fa-solid fa-arrow-left"></i> Back to Team
+           </button>
+           <h1 class="detail-name" id="detail-name">Name</h1>
+           <p class="detail-title" id="detail-title">Title</p>
+           <div class="detail-bio" id="detail-bio">
+              Bio goes here
+           </div>
+        </div>
+     </div>
+  </div>
+
+  <script>
+    const teamData = ;
+    let currentIndex = 0;
+
+    function updateActiveMember(index) {
+        currentIndex = index;
+        const member = teamData[index];
+        
+        // Update photo
+        const photoContainer = document.getElementById('active-person-photo');
+        photoContainer.innerHTML = `<div class="avatar-placeholder-large" style="background-color: #f8f9fa; color: var(--color-brand-red); font-size: 5rem;">${member.initials}</div>`;
+        
+        // Update info with subtle animation
+        const infoContainer = document.getElementById('active-person-info');
+        infoContainer.style.opacity = '0';
+        infoContainer.style.transform = 'translateY(10px)';
+        
+        setTimeout(() => {
+            document.querySelector('.active-name').textContent = member.name;
+            document.querySelector('.active-title').textContent = member.title;
+            infoContainer.style.opacity = '1';
+            infoContainer.style.transform = 'translateY(0)';
+        }, 300);
+
+        // Update thumbnails
+        document.querySelectorAll('.people-thumbnail').forEach((thumb, i) => {
+            if (i === index) {
+                thumb.classList.add('active');
+            } else {
+                thumb.classList.remove('active');
+            }
+        });
+        
+        // Update counter
+        document.getElementById('carousel-counter').textContent = `${index + 1} / ${teamData.length}`;
+        
+        // Scroll track
+        const track = document.getElementById('people-track');
+        if (index > 2) {
+            track.style.transform = `translateX(-${(index - 2) * 140}px)`;
+        } else {
+            track.style.transform = `translateX(0)`;
+        }
+    }
+
+    function selectTeamMember(index) {
+        updateActiveMember(index);
+    }
+
+    function nextMember() {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= teamData.length) newIndex = 0;
+        updateActiveMember(newIndex);
+    }
+
+    function prevMember() {
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) newIndex = teamData.length - 1;
+        updateActiveMember(newIndex);
+    }
+    
+    function openDetailView() {
+        const member = teamData[currentIndex];
+        const detailView = document.getElementById('people-detail-view');
+        
+        // Populate data
+        document.getElementById('detail-photo-container').innerHTML = `<div class="avatar-placeholder-detail" style="background-color: #f8f9fa; color: var(--color-brand-red); font-size: 8rem;">${member.initials}</div>`;
+        document.getElementById('detail-name').textContent = member.name;
+        document.getElementById('detail-title').textContent = member.title;
+        document.getElementById('detail-bio').innerHTML = `<p>${member.bio}</p>`;
+        
+        detailView.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeDetailView() {
+        const detailView = document.getElementById('people-detail-view');
+        detailView.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    // Initialize first member
+    document.addEventListener('DOMContentLoaded', () => {
+        updateActiveMember(0);
+    });
+  </script>
+
+  
   <!-- Shared Footer -->
   <div id="shared-footer"></div>
-  <script src="includes.js?v=120"></script>
+  <script src="includes.js"></script>
 </body>
 </html>
