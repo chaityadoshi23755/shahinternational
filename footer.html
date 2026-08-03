@@ -112,3 +112,61 @@
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cursor = document.getElementById('customCursor');
+    if (cursor) {
+        // Make the cursor follow the mouse
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        // Select all interactive elements that should trigger the expand effect
+        const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .clickable-class, .pdp-thumb, .card');
+        
+        // Add hover listeners to toggle the expansion class
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+        // Unified Universal Auto-scroll for pages with a banner
+        const pageBanner = document.querySelector('.page-banner');
+        if (pageBanner) {
+            setTimeout(function() {
+                const isMobile = window.innerWidth <= 900;
+                
+                // If on mobile and it's Decor Collection, use the exact filter button logic to preserve its specific mobile offset.
+                if (isMobile && document.getElementById('mobile-filter-btn')) {
+                    const filterBtn = document.getElementById('mobile-filter-btn');
+                    if (window.scrollY < 50) {
+                        const y = filterBtn.getBoundingClientRect().top + window.pageYOffset - 20;
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    }
+                } else {
+                    // For all desktop pages (and mobile pages without a filter button), 
+                    // universally scroll exactly to the bottom of the banner. 
+                    // Since the header is ~65px and the page content has 4rem (~64px) padding,
+                    // scrolling to the exact bottom of the banner places the padding perfectly behind the header,
+                    // flawlessly hiding the banner and aligning the content just below the header.
+                    if (window.scrollY < 100) {
+                        const y = pageBanner.getBoundingClientRect().bottom + window.pageYOffset;
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    }
+                }
+            }, 600);
+        }
+        
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scroll-progress');
+            if (scrollProgress) {
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                scrollProgress.style.width = progress + '%';
+            }
+        });
+    }
+});
+</script>
