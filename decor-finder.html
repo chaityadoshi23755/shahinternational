@@ -8,82 +8,240 @@
 </head>
 <body>
   <div id="shared-header"></div>
-  
+<style>
+@media (min-width: 901px) {
+  .filter-close-btn {
+    display: none !important;
+  }
+}
+</style>
+
+
   <section class="page-banner">
     <img src="sites/default/files/2018-12/about.jpg" alt="Decor Finder" class="page-banner-bg">
     <div class="page-banner-overlay"></div>
     <div class="page-banner-content">
       <h1>Decor Finder</h1>
-      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Decor Finder</li></ol>
+      <ol class="breadcrumb"><li><a href=""><i class="fa-solid fa-house" style="font-size: 0.9em;"></i></a></li><li>Decor Finder</li></ol>
     </div>
-    
   </section>
 
   <section class="page-content">
     <div class="container">
-      <div class="text-center reveal" style="margin-bottom: 6rem;">
+      
 
-        <svg class="svg-draw" viewBox="0 0 100 100" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 80px; height: 80px; margin: 0 auto 1.5rem auto; display: block;">
-          <!-- Diamond / Compass -->
-          <polygon points="50,10 90,50 50,90 10,50" stroke="var(--color-brand-red)" />
-          <polygon points="50,25 75,50 50,75 25,50" stroke="var(--color-brand-red)" />
-          <path d="M 10 50 L 90 50" stroke="var(--color-brand-red)" />
-          <path d="M 50 10 L 50 90" stroke="var(--color-brand-red)" />
-          <circle cx="50" cy="50" r="3" fill="var(--color-brand-red)" stroke="none" class="pulse-node" style="animation-duration: 3s;" />
-        </svg>
+      <button id="mobile-filter-btn" class="mobile-filter-toggle"><i class="fa-solid fa-filter"></i> Filter Products</button>
 
-        <h2 class="editorial-heading" style="font-size: 3rem; margin-bottom: 1rem; color: #111;">Decor Finder</h2>
-        <p style="font-family: 'Inter', sans-serif; font-size: 1.2rem; color: #555; max-width: 600px; margin: 0 auto;">Explore Our Collection</p>
-      </div>
+      <div class="collection-grid-layout">
 
-      <div class="decor-finder-layout">
-        <aside class="filter-sidebar" style="background: #fff; padding: 1.5rem; border: 1px solid var(--color-text);">
-          <h3>Filters</h3>
-          <button id="clear-filters" class="btn btn-secondary" style="margin-bottom:1rem; width:100%;">Clear Filters</button>
-          
-          <div class="filter-group">
-            <h4 class="filter-title">Principal</h4>
-            <div class="filter-options">
-              <label><input type="checkbox" value="schattdecor" class="filter-checkbox" data-filter-type="principal"> Schattdecor</label>
-              <label><input type="checkbox" value="kingdecor" class="filter-checkbox" data-filter-type="principal"> Kingdecor</label>
+        <!-- Sidebar Filter -->
+        <aside class="product-sidebar" style="background: #fff; padding: 1.5rem; border-radius: 0; border: 1px solid var(--color-text); box-shadow: var(--shadow-sm); position: sticky; top: 100px;">
+          <!-- Drawer Header -->
+          <div class="filter-drawer-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid #eee;">
+            <h3 style="margin: 0; font-size: 1.25rem;">Filter Products</h3>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <button type="button" id="clear-filters-btn" style="background: none; border: none; color: var(--color-brand-red); cursor: pointer; text-decoration: underline; font-size: 0.9rem; padding: 0;">Clear All</button>
+              <button class="filter-close-btn" id="filter-close-btn" aria-label="Close filters">&times;</button>
             </div>
           </div>
           
-          <div class="filter-group">
-            <h4 class="filter-title">Color Group</h4>
-            <div class="filter-options">
-              <label><input type="checkbox" value="oak" class="filter-checkbox" data-filter-type="color"> Oak</label>
-              <label><input type="checkbox" value="walnut" class="filter-checkbox" data-filter-type="color"> Walnut</label>
-              <label><input type="checkbox" value="grey" class="filter-checkbox" data-filter-type="color"> Grey</label>
-              <label><input type="checkbox" value="blue" class="filter-checkbox" data-filter-type="color"> Blue</label>
-              <label><input type="checkbox" value="white" class="filter-checkbox" data-filter-type="color"> White</label>
-            </div>
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);">Search</h4>
+            <input type="text" id="filter-search" placeholder="Search products..." style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
           </div>
 
-          <div class="filter-group">
-            <h4 class="filter-title">Application</h4>
-            <div class="filter-options">
-              <label><input type="checkbox" value="furniture" class="filter-checkbox" data-filter-type="application"> Furniture</label>
-              <label><input type="checkbox" value="flooring" class="filter-checkbox" data-filter-type="application"> Flooring</label>
-            </div>
+          
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);">Collection / Category</h4>
+            <ul style="list-style: none; padding: 0;">
+              
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox" class="filter-category" value=""> </label></li>
+              
+            </ul>
           </div>
+          
+          
+          
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);">GSM</h4>
+            <ul style="list-style: none; padding: 0;">
+              
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox" class="filter-gsm" value="">  gsm</label></li>
+              
+            </ul>
+          </div>
+          
+          
+          
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);">Available Widths</h4>
+            <ul style="list-style: none; padding: 0;">
+              
+              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox" class="filter-width" value=""> </label></li>
+              
+            </ul>
+          </div>
+          
         </aside>
 
-        <main class="decor-results">
-          <div class="results-header">
-            <p><span id="result-count">0</span> decors found</p>
-          </div>
-          <div id="decor-grid" class="card-grid grid-cols-4">
-            <!-- Decors will be injected here via JS -->
-          </div>
-        </main>
+        <!-- Dark backdrop for mobile drawer -->
+        <div class="filter-drawer-backdrop" id="filter-backdrop"></div>
+
+        <!-- Product Grid Wrapper -->
+        <div>
+          <!-- Product Counter -->
+          <p id="product-counter" style="margin-bottom: 1.5rem; color: #666; font-size: 0.95rem;">
+            Showing <strong id="visible-count"></strong> of <strong></strong> products
+          </p>
+
+          <!-- Product Grid -->
+
+            <a href="" class="card filter-item" data-search="" data-gsm="" data-widths="" data-cats="">
+              <div class="card-img-wrap">
+                <img src="" alt="" class="card-img" style="aspect-ratio: 4/5; object-fit: cover;">
+              </div>
+              <div class="card-body">
+                <h3 class="card-title"></h3>
+                
+                <div class="card-thumbnails" style="display: flex; gap: 5px; margin-top: 10px;">
+                  
+                    
+                      <img src="" alt="Variant" class="card-thumbnail" data-full="" data-index="" style="width:30px; height:30px; border-radius:50%; object-fit:cover; cursor:pointer;">
+                    
+                  
+                </div>
+              </div>
+            </a>
+            
       </div>
-      <script src="decor-data.js"></script>
-      <script src="decor-finder.js"></script>
+        </div>
+
+      <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          const searchInput = document.getElementById('filter-search');
+          const gsmCheckboxes = document.querySelectorAll('.filter-gsm');
+          const widthCheckboxes = document.querySelectorAll('.filter-width');
+          const categoryCheckboxes = document.querySelectorAll('.filter-category');
+          const items = document.querySelectorAll('.filter-item');
+          
+          const mobileBtn = document.getElementById('mobile-filter-btn');
+          const sidebar = document.querySelector('.product-sidebar');
+          const closeBtn = document.getElementById('filter-close-btn');
+          const backdrop = document.getElementById('filter-backdrop');
+
+          function openDrawer() {
+              sidebar.classList.add('active');
+              backdrop.classList.add('active');
+              document.body.style.overflow = 'hidden';
+          }
+          function closeDrawer() {
+              sidebar.classList.remove('active');
+              backdrop.classList.remove('active');
+              document.body.style.overflow = '';
+          }
+
+          if (mobileBtn) mobileBtn.addEventListener('click', openDrawer);
+          if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+          if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+          // Auto-scroll on load
+          setTimeout(function() {
+              const isMobile = window.innerWidth <= 900;
+              if (isMobile) {
+                  const filterBtn = document.getElementById('mobile-filter-btn');
+                  if (filterBtn && window.scrollY < 50) {
+                      const y = filterBtn.getBoundingClientRect().top + window.pageYOffset - 20;
+                      window.scrollTo({top: y, behavior: 'smooth'});
+                  }
+              } else {
+                  const gridLayout = document.querySelector('.collection-grid-layout');
+                  if (gridLayout && window.scrollY < 100) {
+                      const y = gridLayout.getBoundingClientRect().top + window.pageYOffset - 120;
+                      window.scrollTo({top: y, behavior: 'smooth'});
+                  }
+              }
+          }, 600);
+
+          // Initialize search from URL if present
+          const urlParams = new URLSearchParams(window.location.search);
+          const queryParam = urlParams.get('q');
+          if (queryParam) {
+              searchInput.value = queryParam;
+              // We'll call filterProducts() once it's defined, or set a small timeout
+              setTimeout(filterProducts, 100);
+          }
+
+          function filterProducts() {
+              const searchText = searchInput.value.toLowerCase().trim();
+              
+              const selectedGSMs = Array.from(gsmCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+              const selectedWidths = Array.from(widthCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+              const selectedCats = Array.from(categoryCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+
+              let visibleCount = 0;
+
+              items.forEach(item => {
+                  let show = true;
+                  
+                  // Text Search
+                  if (searchText !== "") {
+                      const itemSearch = item.getAttribute('data-search') || "";
+                      if (!itemSearch.includes(searchText)) {
+                          show = false;
+                      }
+                  }
+                  
+                  // Category Filter
+                  if (show && selectedCats.length > 0) {
+                      const itemCats = (item.getAttribute('data-cats') || "").split(',');
+                      const hasCat = selectedCats.some(cat => itemCats.includes(cat));
+                      if (!hasCat) show = false;
+                  }
+
+                  // GSM Filter
+                  if (show && selectedGSMs.length > 0) {
+                      const itemGSMs = (item.getAttribute('data-gsm') || "").split(',');
+                      const hasGSM = selectedGSMs.some(gsm => itemGSMs.includes(gsm));
+                      if (!hasGSM) show = false;
+                  }
+                  
+                  // Width Filter
+                  if (show && selectedWidths.length > 0) {
+                      const itemWidths = (item.getAttribute('data-widths') || "").split(',');
+                      const hasWidth = selectedWidths.some(w => itemWidths.includes(w));
+                      if (!hasWidth) show = false;
+                  }
+                  
+                  
+                  item.style.display = show ? 'block' : 'none';
+                  if (show) visibleCount++;
+              });
+              
+              // Update counter text
+              const countEl = document.getElementById('visible-count');
+              if (countEl) countEl.innerText = visibleCount;
+          }
+
+          function clearAllFilters() {
+              searchInput.value = '';
+              gsmCheckboxes.forEach(cb => cb.checked = false);
+              widthCheckboxes.forEach(cb => cb.checked = false);
+              categoryCheckboxes.forEach(cb => cb.checked = false);
+              filterProducts();
+          }
+
+          searchInput.addEventListener('input', filterProducts);
+          gsmCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
+          widthCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
+          categoryCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
+          
+          const clearBtn = document.getElementById('clear-filters-btn');
+          if (clearBtn) clearBtn.addEventListener('click', clearAllFilters);
+      });
+      </script>
     </div>
-</section>
-  
-  <div id="shared-footer"></div>
+  </section>
+<div id="shared-footer"></div>
   <script src="includes.js?v=120"></script>
 
 </body></html>

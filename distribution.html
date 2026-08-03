@@ -13,6 +13,17 @@
 
   <!-- Shared Header -->
   <div id="shared-header"></div>
+<style>
+    .stat-box:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-lg) !important;
+    }
+  </style>
+
+
+
+  <!-- Shared Header -->
+  
 
   <!-- Page Banner -->
   <section class="page-banner">
@@ -21,7 +32,7 @@
     <div class="page-banner-content">
       <h1>Distribution Network</h1>
       <ol class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.9em;"></i></a></li>
         <li><span style="color: rgba(255,255,255,0.7); margin: 0 10px;">/</span> Company</li>
         <li><span style="color: rgba(255,255,255,0.7); margin: 0 10px;">/</span> Distribution Network</li>
       </ol>
@@ -32,20 +43,7 @@
   <section class="section bg-light" style="padding: 4rem 0;">
     <div class="container">
       
-      <div class="text-center mb-xl reveal">
-        
-        <div class="text-center reveal" style="margin-bottom: 1.5rem;">
-          <svg class="svg-draw" viewBox="0 0 100 100" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 80px; height: 80px; margin: 0 auto; display: block;">
-            <polygon points="50,10 90,50 50,90 10,50" stroke="var(--color-brand-red)" />
-            <polygon points="50,25 75,50 50,75 25,50" stroke="var(--color-brand-red)" />
-            <path d="M 10 50 L 90 50" stroke="var(--color-brand-red)" />
-            <path d="M 50 10 L 50 90" stroke="var(--color-brand-red)" />
-            <circle cx="50" cy="50" r="3" fill="var(--color-brand-red)" stroke="none" class="pulse-node" style="animation-duration: 3s;" />
-          </svg>
-        </div>
-<h2 class="section-heading">Our PAN India Presence</h2>
-        <p class="section-subheading" style="max-width: 800px; margin: 0 auto;">A robust and expansive network built to deliver world-class products efficiently across the entire Indian subcontinent.</p>
-      </div>
+
 
       <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: center; justify-content: space-between;">
         
@@ -162,7 +160,7 @@
           <div class="stat-box" style="padding: 2.5rem; background: #fff; box-shadow: var(--shadow-sm); border-radius: 8px; border-left: 5px solid var(--color-brand-red); transition: transform 0.3s ease;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
               <div>
-                <h3 style="font-size: 3.5rem; color: var(--color-brand-red); font-weight: 800; margin-bottom: 0; line-height: 1;"><span class="counter" data-target="250">0</span>+</h3>
+                <h3 style="font-size: 3.5rem; color: var(--color-brand-red); font-weight: 800; margin-bottom: 0; line-height: 1;"><span class="rolling-counter" data-target="250">0</span>+</h3>
                 <p style="font-size: 1.25rem; font-weight: 600; color: var(--color-text); margin-top: 0.5rem;">Dedicated Employees</p>
               </div>
               <i class="fa-solid fa-users" style="font-size: 3rem; color: rgba(226,49,55,0.1);"></i>
@@ -172,7 +170,7 @@
           <div class="stat-box" style="padding: 2.5rem; background: #fff; box-shadow: var(--shadow-sm); border-radius: 8px; border-left: 5px solid var(--color-brand-red); transition: transform 0.3s ease;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
               <div>
-                <h3 style="font-size: 3.5rem; color: var(--color-brand-red); font-weight: 800; margin-bottom: 0; line-height: 1;"><span class="counter" data-target="400">0</span>+</h3>
+                <h3 style="font-size: 3.5rem; color: var(--color-brand-red); font-weight: 800; margin-bottom: 0; line-height: 1;"><span class="rolling-counter" data-target="400">0</span>+</h3>
                 <p style="font-size: 1.25rem; font-weight: 600; color: var(--color-text); margin-top: 0.5rem;">Product SKUs</p>
               </div>
               <i class="fa-solid fa-boxes-stacked" style="font-size: 3rem; color: rgba(226,49,55,0.1);"></i>
@@ -182,7 +180,7 @@
           <div class="stat-box" style="padding: 2.5rem; background: #fff; box-shadow: var(--shadow-sm); border-radius: 8px; border-left: 5px solid var(--color-brand-red); transition: transform 0.3s ease;">
             <div style="display: flex; align-items: center; justify-content: space-between;">
               <div>
-                <h3 style="font-size: 3.5rem; color: var(--color-brand-red); font-weight: 800; margin-bottom: 0; line-height: 1;"><span class="counter" data-target="2">0</span></h3>
+                <h3 style="font-size: 3.5rem; color: var(--color-brand-red); font-weight: 800; margin-bottom: 0; line-height: 1;"><span class="rolling-counter" data-target="2">0</span></h3>
                 <p style="font-size: 1.25rem; font-weight: 600; color: var(--color-text); margin-top: 0.5rem;">Mega Warehouses</p>
               </div>
               <i class="fa-solid fa-warehouse" style="font-size: 3rem; color: rgba(226,49,55,0.1);"></i>
@@ -197,6 +195,19 @@
 
   <!-- Shared Footer -->
   <div id="shared-footer"></div>
+  
+
+  <!-- Rolling Numbers Script -->
+  
+
+  <!-- Optional CSS for hovering the stat boxes -->
+  <style>
+    .stat-box:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-lg) !important;
+    }
+  </style>
+<div id="shared-footer"></div>
   <script src="includes.js?v=120"></script>
 
   <!-- Rolling Numbers Script -->

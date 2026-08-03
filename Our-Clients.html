@@ -10,29 +10,18 @@
 </head>
 <body>
   <div id="shared-header"></div>
-    <section class="page-banner">
+<section class="page-banner">
     <img src="sites/default/files/2018-12/about.jpg" alt="Our Clients" class="page-banner-bg">
     <div class="page-banner-overlay"></div>
     <div class="page-banner-content">
       <h1>Our Clients</h1>
-      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Our Clients</li></ol>
+      <ol class="breadcrumb"><li><a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.9em;"></i></a></li><li>Our Clients</li></ol>
     </div>
     
   </section>
   <section class="page-content">
     <div class="container">
-      <div class="text-center reveal" style="margin-bottom: 6rem;">
-        <svg class="svg-draw" viewBox="0 0 100 100" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 80px; height: 80px; margin: 0 auto 1.5rem auto; display: block;">
-          <!-- Diamond / Compass -->
-          <polygon points="50,10 90,50 50,90 10,50" stroke="var(--color-brand-red)" />
-          <polygon points="50,25 75,50 50,75 25,50" stroke="var(--color-brand-red)" />
-          <path d="M 10 50 L 90 50" stroke="var(--color-brand-red)" />
-          <path d="M 50 10 L 50 90" stroke="var(--color-brand-red)" />
-          <circle cx="50" cy="50" r="3" fill="var(--color-brand-red)" stroke="none" class="pulse-node" style="animation-duration: 3s;" />
-        </svg>
-        <h2 class="editorial-heading" style="font-size: 3rem; margin-bottom: 1rem; color: #111;">Our Global Partners</h2>
-        <p style="font-family: 'Inter', sans-serif; font-size: 1.2rem; color: #555; max-width: 600px; margin: 0 auto;">Trusted by the world's leading brands and manufacturers.</p>
-      </div>
+      
 
 
       
@@ -40,25 +29,32 @@
       
       
       <style>
+        .clients-5-col .principal-tile {
+          height: auto !important;
+          aspect-ratio: 1 / 1;
+          padding: 1rem;
+        }
         .client-grid-logo {
-          height: 180px !important;
+          height: 100% !important; 
+          max-height: 120px !important;
           width: 100%;
-          max-width: 250px;
+          max-width: 90% !important;
           object-fit: contain;
           margin: 0 auto;
-          filter: grayscale(100%);
-          opacity: 0.7;
           transition: all 0.5s ease;
           position: relative;
           z-index: 5;
         }
         .principal-tile:hover .client-grid-logo {
-          filter: grayscale(0%);
-          opacity: 1;
-          transform: scale(1.05);
+          transform: scale(1.1);
+        }
+        @media (min-width: 1000px) {
+          .clients-5-col {
+            grid-template-columns: repeat(5, 1fr) !important;
+          }
         }
       </style>
-<div class="principals-masonry" style="margin-bottom: 5rem;">
+<div class="principals-masonry clients-5-col" style="margin-bottom: 5rem;">
 
         <div class="principal-tile reveal">
           <div class="principal-tile-hover-sweep"></div>
@@ -181,6 +177,7 @@
     </div>
   </section>
   <div id="shared-footer"></div>
+<div id="shared-footer"></div>
   <script src="includes.js?v=120"></script>
 </body>
 </html>

@@ -10,13 +10,12 @@
 </head>
 <body>
   <div id="shared-header"></div>
-  
-    <section class="page-banner">
+<section class="page-banner">
     <img src="sites/default/files/2018-12/about.jpg" alt="Contact Us" class="page-banner-bg">
     <div class="page-banner-overlay"></div>
     <div class="page-banner-content">
       <h1>Contact Us</h1>
-      <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li>Contact Us</li></ol>
+      <ol class="breadcrumb"><li><a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.9em;"></i></a></li><li>Contact Us</li></ol>
     </div>
     
   </section>
@@ -67,37 +66,62 @@
         <div class="premium-contact-card">
           <h3 class="premium-contact-heading" style="margin-bottom: 2.5rem;">
             Send a Message
-            <!-- Drawing Envelope SVG -->
-            <svg class="svg-draw svg-envelope reveal" viewBox="0 0 100 100" fill="none" stroke="var(--color-brand-red)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; margin-left: auto; display: inline-block; vertical-align: middle;">
-              <path d="M 10 30 L 90 30 L 90 70 L 10 70 Z" />
-              <path d="M 10 30 L 50 60 L 90 30" />
-            </svg>
+            <!-- Drawing Envelope SVG with animated flap -->
+            <div class="envelope-container" style="position: relative; margin-left: auto; display: inline-block; vertical-align: middle; width: 40px; height: 40px;">
+              <svg class="svg-draw svg-envelope" viewBox="0 0 100 100" fill="none" stroke="var(--color-brand-red)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;">
+                <!-- Envelope Body -->
+                <path d="M 10 30 L 90 30 L 90 70 L 10 70 Z" />
+              </svg>
+              <!-- Animated Flap -->
+              <svg class="svg-envelope-flap" viewBox="0 0 100 100" fill="none" stroke="var(--color-brand-red)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform-origin: 50% 30%; transition: transform 0.5s ease; z-index: 2;">
+                <path d="M 10 30 L 50 60 L 90 30" class="flap-path" />
+              </svg>
+              <!-- Paper Plane that flies out on hover -->
+              <svg class="svg-paper-plane" viewBox="0 0 100 100" fill="var(--color-brand-red)" style="position: absolute; top: 30px; left: 20px; width: 60%; height: 60%; opacity: 0; transition: all 0.5s ease; z-index: 1;">
+                <polygon points="10,50 90,10 50,90 40,60" />
+              </svg>
+            </div>
+          </h3>
+          <style>
+            .premium-contact-card:hover .svg-envelope-flap { transform: rotateX(180deg); }
+            .premium-contact-card:hover .svg-paper-plane { transform: translate(30px, -40px) scale(1.2); opacity: 1; transition-delay: 0.3s; }
+          </style>
           </h3>
           <form action="#" method="POST" class="contact-form">
-            <div class="minimalist-input-group">
-              <input type="text" id="name" name="name" class="minimalist-input" placeholder="Full Name *" required>
+            <div class="minimalist-input-group floating-label-group" style="position: relative; margin-bottom: 2rem;">
+              <input type="text" id="name" name="name" class="minimalist-input floating-input" placeholder=" " required style="width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #ccc; background: transparent; outline: none; transition: border-color 0.3s;">
+              <label for="name" class="floating-label" style="position: absolute; left: 0; top: 10px; color: #999; transition: all 0.3s ease; pointer-events: none;">Full Name *</label>
             </div>
-            <div class="minimalist-input-group">
-              <input type="email" id="email" name="email" class="minimalist-input" placeholder="Email Address *" required>
+            <div class="minimalist-input-group floating-label-group" style="position: relative; margin-bottom: 2rem;">
+              <input type="email" id="email" name="email" class="minimalist-input floating-input" placeholder=" " required style="width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #ccc; background: transparent; outline: none; transition: border-color 0.3s;">
+              <label for="email" class="floating-label" style="position: absolute; left: 0; top: 10px; color: #999; transition: all 0.3s ease; pointer-events: none;">Email Address *</label>
             </div>
-            <div class="minimalist-input-group">
-              <input type="tel" id="phone" name="phone" class="minimalist-input" placeholder="Phone Number">
+            <div class="minimalist-input-group floating-label-group" style="position: relative; margin-bottom: 2rem;">
+              <input type="tel" id="phone" name="phone" class="minimalist-input floating-input" placeholder=" " style="width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #ccc; background: transparent; outline: none; transition: border-color 0.3s;">
+              <label for="phone" class="floating-label" style="position: absolute; left: 0; top: 10px; color: #999; transition: all 0.3s ease; pointer-events: none;">Phone Number</label>
             </div>
-            <div class="minimalist-input-group">
-              <textarea id="message" name="message" rows="3" class="minimalist-input" placeholder="Your Message *" required style="resize: vertical;"></textarea>
+            <div class="minimalist-input-group floating-label-group" style="position: relative; margin-bottom: 2rem;">
+              <textarea id="message" name="message" rows="3" class="minimalist-input floating-input" placeholder=" " required style="width: 100%; padding: 10px 0; border: none; border-bottom: 1px solid #ccc; background: transparent; outline: none; transition: border-color 0.3s; resize: vertical;"></textarea>
+              <label for="message" class="floating-label" style="position: absolute; left: 0; top: 10px; color: #999; transition: all 0.3s ease; pointer-events: none;">Your Message *</label>
             </div>
+            <style>
+              .floating-input:focus, .floating-input:not(:placeholder-shown) { border-bottom-color: var(--color-brand-red); }
+              .floating-input:focus ~ .floating-label, .floating-input:not(:placeholder-shown) ~ .floating-label {
+                top: -15px; font-size: 0.8rem; color: var(--color-brand-red);
+              }
+            </style>
             <button type="submit" class="premium-btn" style="margin-top: 1rem;">Send Message</button>
           </form>
         </div>
         
         <div class="premium-map-container">
-          <iframe allowfullscreen frameborder="0" height="100%" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15080.780391163471!2d72.9061212!3d19.0990952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7bd0b29d5b3%3A0x66f14ce9cfa31b3a!2sSHAH%20INTERNATIONAL!5e0!3m2!1sen!2sin!4v1652921627579!5m2!1sen!2sin" style="border:0; width: 100%; min-height: 100%;"></iframe>
-        </div>
+          <iframe allowfullscreen frameborder="0" height="100%" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15080.780391163471!2d72.9061212!3d19.0990952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7bd0b29d5b3%3A0x66f14ce9cfa31b3a!2sSHAH%20INTERNATIONAL!5e0!3m2!1sen!2sin!4v1652921627579!5m2!1sen!2sin" style="border:0; width: 100%; min-height: 400px; border-radius: 8px;"></iframe>
       </div>
     </div>
   </section>
   
   <div id="shared-footer"></div>
+<div id="shared-footer"></div>
   <script src="includes.js?v=120"></script>
 </body>
 </html>
