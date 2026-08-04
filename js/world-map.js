@@ -2,16 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const mapConfig = { width: 4378, height: 2434 };
     
-    const indiaHQ = { id: 'india-hq', name: 'Shah International', type: 'Exclusive Regional Partner', country: 'India', x: 3020, y: 1180 };
+    const indiaHQ = { id: 'india-hq', name: 'Shah International', type: 'Exclusive Regional Partner', country: 'India', x: 2750, y: 1250 };
     
     const suppliers = [
-        { id: 'schattdecor', name: 'Schattdecor', country: 'Germany', relationship: 'Official Partner', x: 2120, y: 420 },
-        { id: 'hueck', name: 'Hueck Rheinische', country: 'Germany', relationship: 'Exclusive Principal', x: 2080, y: 380 },
-        { id: 'deurowood', name: 'Deurowood', country: 'Austria', relationship: 'Official Partner', x: 2150, y: 450 },
-        { id: 'arcolor', name: 'Arcolor', country: 'Switzerland', relationship: 'Official Partner', x: 2050, y: 470 },
-        { id: 'kingdecor', name: 'Kingdecor', country: 'China', relationship: 'Exclusive Principal', x: 3580, y: 840 },
-        { id: 'mitsubishi', name: 'Mitsubishi Chemical', country: 'Japan', relationship: 'Official Partner', x: 3800, y: 740 },
-        { id: 'coveright', name: 'Coveright', country: 'Brazil', relationship: 'Official Partner', x: 1300, y: 1600 }
+        { id: 'schattdecor', name: 'Schattdecor', country: 'Germany', relationship: 'Official Partner', x: 1900, y: 600 },
+        { id: 'hueck', name: 'Hueck Rheinische', country: 'Germany', relationship: 'Exclusive Principal', x: 1860, y: 560 },
+        { id: 'deurowood', name: 'Deurowood', country: 'Austria', relationship: 'Official Partner', x: 1930, y: 630 },
+        { id: 'arcolor', name: 'Arcolor', country: 'Switzerland', relationship: 'Official Partner', x: 1830, y: 650 },
+        { id: 'kingdecor', name: 'Kingdecor', country: 'China', relationship: 'Exclusive Principal', x: 3360, y: 980 },
+        { id: 'mitsubishi', name: 'Mitsubishi Chemical', country: 'Japan', relationship: 'Official Partner', x: 3580, y: 920 }
     ];
 
     const markersLayer = document.getElementById('map-markers-layer');
