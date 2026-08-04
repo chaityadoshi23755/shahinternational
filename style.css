@@ -4074,7 +4074,7 @@ p {
    CUSTOM CURSOR
    ========================================================================== */
 * {
-    /* cursor: none !important; Hide default cursor */
+    cursor: none !important; /* Hide default cursor */
 }
 
 input, textarea, select {
