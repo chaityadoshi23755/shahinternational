@@ -2506,7 +2506,8 @@ p {
 
 .principal-tile {
   position: relative;
-  height: 360px;
+  height: auto;
+  min-height: 360px;
   background-color: #ffffff;
   border: 1px solid rgba(0,0,0,0.05);
   border-radius: 16px;
@@ -3649,7 +3650,8 @@ p {
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.02);
   border: 1px solid rgba(0,0,0,0.05);
-  height: 360px;
+  height: auto;
+  min-height: 360px;
   opacity: 1;
   visibility: visible;
   display: flex;
@@ -3666,7 +3668,7 @@ p {
 
 .testimonial-quote {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
   font-style: italic;
   line-height: 1.6;
   color: var(--color-text);
