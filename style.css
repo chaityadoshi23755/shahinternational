@@ -4075,6 +4075,10 @@ p {
     /* cursor: none !important; Hide default cursor */
 }
 
+input, textarea, select {
+    cursor: auto !important; /* Keep default cursor for form elements */
+}
+
 .custom-cursor {
     position: fixed;
     top: 0;
