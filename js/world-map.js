@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="hq-pulse"></div>
         <div class="hq-pulse delay"></div>
         <div class="hq-dot"></div>
-        <div class="hq-badge">${indiaHQ.type}</div>
+        
     `;
     markersLayer.appendChild(hqEl);
 
