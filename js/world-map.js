@@ -2,15 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const mapConfig = { width: 4378, height: 2434 };
     
-    const indiaHQ = { id: 'india-hq', name: 'Shah International', type: 'Exclusive Regional Partner', country: 'India', x: 2910, y: 1020 };
+    const indiaHQ = { id: 'india-hq', name: 'Shah International', type: 'Exclusive Regional Partner', country: 'India', x: 2970, y: 1020 };
     
     const suppliers = [
-        { id: 'schattdecor', name: 'Schattdecor', country: 'Germany', relationship: 'Official Partner', x: 2110, y: 500 },
-        { id: 'hueck', name: 'Hueck Rheinische', country: 'Germany', relationship: 'Exclusive Principal', x: 2090, y: 480 },
-        { id: 'deurowood', name: 'Deurowood', country: 'Austria', relationship: 'Official Partner', x: 2130, y: 510 },
-        { id: 'arcolor', name: 'Arcolor', country: 'Switzerland', relationship: 'Official Partner', x: 2090, y: 520 },
-        { id: 'kingdecor', name: 'Kingdecor', country: 'China', relationship: 'Exclusive Principal', x: 3560, y: 780 },
-        { id: 'mitsubishi', name: 'Mitsubishi Chemical', country: 'Japan', relationship: 'Official Partner', x: 3780, y: 700 }
+        { id: 'schattdecor', name: 'Schattdecor', country: 'Germany', relationship: 'Official Partner', x: 2140, y: 500 },
+        { id: 'hueck', name: 'Hueck Rheinische', country: 'Germany', relationship: 'Exclusive Principal', x: 2120, y: 480 },
+        { id: 'deurowood', name: 'Deurowood', country: 'Austria', relationship: 'Official Partner', x: 2160, y: 510 },
+        { id: 'arcolor', name: 'Arcolor', country: 'Switzerland', relationship: 'Official Partner', x: 2120, y: 520 },
+        { id: 'kingdecor', name: 'Kingdecor', country: 'China', relationship: 'Exclusive Principal', x: 3590, y: 780 },
+        { id: 'mitsubishi', name: 'Mitsubishi Chemical', country: 'Japan', relationship: 'Official Partner', x: 3820, y: 700 }
     ];
 
     const markersLayer = document.getElementById('map-markers-layer');
