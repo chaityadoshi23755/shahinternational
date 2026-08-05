@@ -34,10 +34,79 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    loadInclude('shared-header', 'header.html', highlightActiveNav);
+    loadInclude('shared-header', 'header.html', function() {
+      highlightActiveNav();
+      initCursorAndScroll();
+    });
     loadInclude('shared-footer', 'footer.html');
-
   });
+
+  function initCursorAndScroll() {
+    const cursor = document.getElementById('customCursor');
+    if (cursor) {
+        // Make the cursor follow the mouse
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        // Select all interactive elements that should trigger the expand effect
+        // Use event delegation or just select what's currently in the DOM
+        const addHover = () => {
+            const hoverElements = document.querySelectorAll('a, button, input, textarea, select, .clickable-class, .pdp-thumb, .card');
+            hoverElements.forEach(el => {
+                // remove old listeners if any by cloning or just add (might add multiple times if called again, but we only call once after header)
+                el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+            });
+        };
+        addHover();
+        
+        // We also need a mutation observer to catch dynamically added elements, 
+        // or just rely on mouseover delegation for the body!
+        document.body.addEventListener('mouseover', (e) => {
+            if (e.target.closest('a, button, input, textarea, select, .clickable-class, .pdp-thumb, .card')) {
+                cursor.classList.add('hovering');
+            }
+        });
+        document.body.addEventListener('mouseout', (e) => {
+            if (e.target.closest('a, button, input, textarea, select, .clickable-class, .pdp-thumb, .card')) {
+                cursor.classList.remove('hovering');
+            }
+        });
+
+        // Unified Universal Auto-scroll for pages with a banner
+        const pageBanner = document.querySelector('.page-banner');
+        if (pageBanner) {
+            setTimeout(function() {
+                const isMobile = window.innerWidth <= 900;
+                
+                if (isMobile && document.getElementById('mobile-filter-btn')) {
+                    const filterBtn = document.getElementById('mobile-filter-btn');
+                    if (window.scrollY < 50) {
+                        const y = filterBtn.getBoundingClientRect().top + window.pageYOffset - 20;
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    }
+                } else {
+                    if (window.scrollY < 100) {
+                        const y = pageBanner.getBoundingClientRect().bottom + window.pageYOffset;
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    }
+                }
+            }, 600);
+        }
+        
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scroll-progress');
+            if (scrollProgress) {
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                scrollProgress.style.width = progress + '%';
+            }
+        });
+    }
+  }
 
 
     // Image Magnifier logic for Product Detail Pages
