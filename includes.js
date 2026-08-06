@@ -34,11 +34,17 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    loadInclude('shared-header', 'header.html', function() {
-      highlightActiveNav();
-      initCursorAndScroll();
-    });
-    loadInclude('shared-footer', 'footer.html');
+    if (document.getElementById('shared-header')) {
+        loadInclude('shared-header', 'header.html', function() {
+          highlightActiveNav();
+          initCursorAndScroll();
+        });
+        loadInclude('shared-footer', 'footer.html');
+    } else {
+        // WordPress environment
+        highlightActiveNav();
+        initCursorAndScroll();
+    }
   });
 
   function initCursorAndScroll() {
