@@ -48,7 +48,24 @@
   });
 
   function initCursorAndScroll() {
-    const cursor = document.getElementById('customCursor');
+    // Remove any existing cursor element that may be trapped inside header stacking context
+    const existing = document.getElementById('customCursor');
+    if (existing) existing.remove();
+
+    // Inject cursor:none globally via a style tag to guarantee it loads
+    if (!document.getElementById('cursor-none-style')) {
+        const styleTag = document.createElement('style');
+        styleTag.id = 'cursor-none-style';
+        styleTag.textContent = '* { cursor: none !important; } input, textarea, select { cursor: auto !important; } @media (max-width:768px) { * { cursor: auto !important; } }';
+        document.head.appendChild(styleTag);
+    }
+
+    // Create the cursor div fresh directly on body (top-level, no stacking context issues)
+    const cursor = document.createElement('div');
+    cursor.id = 'customCursor';
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
     if (cursor) {
         // Make the cursor follow the mouse
         document.addEventListener('mousemove', e => {
