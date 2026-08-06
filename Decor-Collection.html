@@ -1,209 +1,56 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Decor Collection | Shah International</title>
+  <title>Décor Collection | Shah International</title>
+  <meta name="description" content="Explore our full range of premium decorative surfaces — woodgrains, stone & marble, unique colors and fabrics.">
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=1784915559">
+  <link rel="stylesheet" href="style.css?v=2026080601">
 </head>
 <body>
   <div id="shared-header"></div>
 <style>
-@media (min-width: 901px) {
-  .filter-close-btn {
-    display: none !important;
-  }
-}
+.decor-hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+@media(max-width:900px){ .decor-hub-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
+@media(max-width:500px){ .decor-hub-grid { grid-template-columns: 1fr; } }
+.category-tile { position: relative; border-radius: 2px; overflow: hidden; text-decoration: none; display: block; aspect-ratio: 4/5; background: #111; }
+.category-tile img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease, filter 0.4s ease; filter: brightness(0.7); }
+.category-tile:hover img { transform: scale(1.06); filter: brightness(0.5); }
+.category-tile-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: #fff; }
+.category-tile-label h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; margin: 0 0 0.25rem; letter-spacing: 0.05em; }
+.category-tile-label span { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+.category-tile-arrow { position: absolute; top: 1rem; right: 1rem; width: 32px; height: 32px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.8rem; transition: background 0.3s; }
+.category-tile:hover .category-tile-arrow { background: var(--color-brand-red); }
 </style>
 
+<section class="page-banner">
+  <img src="sites/default/files/2018-12/about.jpg" alt="Décor Collection" class="page-banner-bg">
+  <div class="page-banner-overlay"></div>
+  <div class="page-banner-content">
+    <h1>Décor Collection</h1>
+    <ol class="breadcrumb"><li><a href=""><i class="fa-solid fa-house" style="font-size:0.9em;"></i></a></li><li>Décor Collection</li></ol>
+  </div>
+</section>
 
+<section class="page-content">
+  <div class="container">
+    <p style="color:#666;font-size:1rem;margin-bottom:0.5rem;letter-spacing:0.04em;">Choose a category to explore our range of premium décor surfaces.</p>
+    <div class="decor-hub-grid">
 
-
-  
-  
-    <section class="page-banner">
-    <img src="sites/default/files/2018-12/about.jpg" alt="Decor Collection" class="page-banner-bg">
-    <div class="page-banner-overlay"></div>
-    <div class="page-banner-content">
-      <h1>Decor Collection</h1>
-      <ol class="breadcrumb"><li><a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.9em;"></i></a></li><li>Decor Collection</li></ol>
-    </div>
-    
-  </section>
-    
-  <section class="page-content">
-    <div class="container">
+      
+      <a href="" class="category-tile">
+        <img src="" alt="" loading="lazy">
+        <div class="category-tile-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="category-tile-label">
+          <h3></h3>
+          <span></span>
+        </div>
+      </a>
       
 
-      <button id="mobile-filter-btn" class="mobile-filter-toggle"><i class="fa-solid fa-filter"></i> Filter Products</button>
-
-      <div class="collection-grid-layout">
-
-        <!-- Sidebar Filter -->
-        <aside class="product-sidebar" style="background: #fff; padding: 1.5rem; border-radius: 0; border: 1px solid var(--color-text); box-shadow: var(--shadow-sm); position: sticky; top: 100px;">
-          <!-- Drawer Header -->
-          <div class="filter-drawer-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid #eee;">
-            <h3 style="margin: 0; font-size: 1.25rem;"><i class="fa-solid fa-sliders" style="color: var(--color-brand-red); margin-right: 8px;"></i> Filter Products</h3>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              <button type="button" id="clear-filters-btn" style="background: none; border: none; color: var(--color-brand-red); cursor: pointer; text-decoration: underline; font-size: 0.9rem; padding: 0;">Clear All</button>
-              <button class="filter-close-btn" id="filter-close-btn" aria-label="Close filters">&times;</button>
-            </div>
-          </div>
-          
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);"><i class="fa-solid fa-magnifying-glass" style="margin-right: 6px;"></i> Search</h4>
-            <input type="text" id="filter-search" placeholder="Search products..." style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
-          </div>
-          
-          
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);"><i class="fa-solid fa-weight-scale" style="margin-right: 6px;"></i> GSM</h4>
-            <ul style="list-style: none; padding: 0;">
-              
-              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox" class="filter-gsm" value="">  gsm</label></li>
-              
-            </ul>
-          </div>
-          
-          
-          
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--color-brand-red);"><i class="fa-solid fa-ruler-horizontal" style="margin-right: 6px;"></i> Available Widths</h4>
-            <ul style="list-style: none; padding: 0;">
-              
-              <li style="margin-bottom: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;"><input type="checkbox" class="filter-width" value=""> </label></li>
-              
-            </ul>
-          </div>
-          
-        </aside>
-
-        <!-- Dark backdrop for mobile drawer -->
-        <div class="filter-drawer-backdrop" id="filter-backdrop"></div>
-
-        <!-- Product Grid Wrapper -->
-        <div>
-          <!-- Product Counter -->
-          <p id="product-counter" style="margin-bottom: 1.5rem; color: #666; font-size: 0.95rem;">
-            Showing <strong id="visible-count"></strong> of <strong></strong> products
-          </p>
-
-          <!-- Product Grid -->
-
-            <a href="" class="card filter-item" data-search="" data-gsm="" data-widths="">
-              <div class="card-img-wrap">
-                <img src="" alt="" class="card-img" style="aspect-ratio: 4/5; object-fit: cover;">
-              </div>
-              <div class="card-body">
-                <h3 class="card-title"></h3>
-                
-                <div class="card-thumbnails" style="display: flex; gap: 5px; margin-top: 10px;">
-                  
-                    
-                      <img src="" alt="Variant" class="card-thumbnail" data-full="" data-index="" style="width:30px; height:30px; border-radius:50%; object-fit:cover; cursor:pointer;">
-                    
-                  
-                </div>
-              </div>
-            </a>
-            
-      </div>
-        </div>
-
-      <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          const searchInput = document.getElementById('filter-search');
-          const gsmCheckboxes = document.querySelectorAll('.filter-gsm');
-          const widthCheckboxes = document.querySelectorAll('.filter-width');
-          const items = document.querySelectorAll('.filter-item');
-          
-          const mobileBtn = document.getElementById('mobile-filter-btn');
-          const sidebar = document.querySelector('.product-sidebar');
-          const closeBtn = document.getElementById('filter-close-btn');
-          const backdrop = document.getElementById('filter-backdrop');
-
-          function openDrawer() {
-              sidebar.classList.add('active');
-              backdrop.classList.add('active');
-              document.body.style.overflow = 'hidden';
-          }
-          function closeDrawer() {
-              sidebar.classList.remove('active');
-              backdrop.classList.remove('active');
-              document.body.style.overflow = '';
-          }
-
-          if (mobileBtn) mobileBtn.addEventListener('click', openDrawer);
-          if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-          if (backdrop) backdrop.addEventListener('click', closeDrawer);
-
-          function filterProducts() {
-              const searchText = searchInput.value.toLowerCase().trim();
-              
-              // Get selected GSMs
-              const selectedGSMs = Array.from(gsmCheckboxes)
-                  .filter(cb => cb.checked)
-                  .map(cb => cb.value);
-                  
-              // Get selected Widths
-              const selectedWidths = Array.from(widthCheckboxes)
-                  .filter(cb => cb.checked)
-                  .map(cb => cb.value);
-
-              let visibleCount = 0;
-
-              items.forEach(item => {
-                  let show = true;
-                  
-                  // 1. Text Search
-                  if (searchText !== "") {
-                      const itemSearch = item.getAttribute('data-search') || "";
-                      if (!itemSearch.includes(searchText)) {
-                          show = false;
-                      }
-                  }
-                  
-                  // 2. GSM Filter
-                  if (show && selectedGSMs.length > 0) {
-                      const itemGSMs = (item.getAttribute('data-gsm') || "").split(',');
-                      const hasGSM = selectedGSMs.some(gsm => itemGSMs.includes(gsm));
-                      if (!hasGSM) show = false;
-                  }
-                  
-                  // 3. Width Filter
-                  if (show && selectedWidths.length > 0) {
-                      const itemWidths = (item.getAttribute('data-widths') || "").split(',');
-                      const hasWidth = selectedWidths.some(w => itemWidths.includes(w));
-                      if (!hasWidth) show = false;
-                  }
-                  
-                  item.style.display = show ? 'block' : 'none';
-                  if (show) visibleCount++;
-              });
-              
-              // Update counter text
-              const countEl = document.getElementById('visible-count');
-              if (countEl) countEl.innerText = visibleCount;
-          }
-
-          function clearAllFilters() {
-              searchInput.value = '';
-              gsmCheckboxes.forEach(cb => cb.checked = false);
-              widthCheckboxes.forEach(cb => cb.checked = false);
-              filterProducts();
-          }
-
-          searchInput.addEventListener('input', filterProducts);
-          gsmCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
-          widthCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
-          
-          const clearBtn = document.getElementById('clear-filters-btn');
-          if (clearBtn) clearBtn.addEventListener('click', clearAllFilters);
-      });
-      </script>
+    </div>
+  </div>
 </section>
-  <div id="shared-footer"></div>
 <div id="shared-footer"></div>
-  <script src="includes.js?v=120"></script>
-
+  <script src="includes.js?v=2026080601"></script>
 </body></html>

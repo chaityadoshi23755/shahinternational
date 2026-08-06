@@ -1,50 +1,143 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>woodgrains | Shah International</title>
+  <title>Woodgrains | Shah International</title>
+  <meta name="description" content="Explore our extensive collection of premium woodgrain décor surfaces. Filter by Oak, Beech, Maple, Walnut and more.">
   <link rel="shortcut icon" href="sites/default/files/favicon_v3_2024_0.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=1784915559">
+  <link rel="stylesheet" href="style.css?v=2026080601">
 </head>
 <body>
   <div id="shared-header"></div>
+'OAK',
+  'BEECH'                  => 'BEECHES',
+  'MAPLE'                  => 'MAPLES',
+  'WALNUT'                 => 'WALNUTS',
+  'CHERRY'                 => 'CHERRY',
+  'ASH'                    => 'ASH',
+  'CHESTNUT'               => 'CHESTNUT',
+  'ACACIA'                 => 'ACACIA & ELM',
+  'ELM'                    => 'ACACIA & ELM',
+  'OLIVE'                  => 'OLIVE & EBONY',
+  'EBONY'                  => 'OLIVE & EBONY',
+  'PINE'                   => 'PINE',
+  'TEAK'                   => 'TEAK',
+  'WENGE'                  => 'WENGE',
+  'MANGO'                  => 'MANGO',
+  'MAHOGANY'               => 'SANDALWOOD & MAHOGANY',
+  'SANDALWOOD'             => 'SANDALWOOD & MAHOGANY',
+  'ABSTRACT'               => 'NATURAL & JUNGLE WOOD',
+];
+
+$filter_order = ['OAK','BEECHES','MAPLES','WALNUTS','CHERRY','ASH','CHESTNUT','ACACIA & ELM','OLIVE & EBONY','PINE','TEAK','WENGE','MANGO','SANDALWOOD & MAHOGANY','NATURAL & JUNGLE WOOD'];
+
+$args = ['post_type'=>'product','posts_per_page'=>-1,'tax_query'=>[['taxonomy'=>'product_category','field'=>'slug','terms'=>'woodgrains']]];
+$query = new WP_Query($args);
+?>
+<style>
+.cat-filter-bar { display:flex; flex-wrap:wrap; gap:0.5rem 1.5rem; margin-bottom:2rem; border-bottom:1px solid #e5e5e5; padding-bottom:1rem; }
+.cat-filter-btn { background:none; border:none; padding:0.4rem 0; font-family:'Inter',sans-serif; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:#666; cursor:pointer; border-bottom:2px solid transparent; transition:color 0.2s,border-color 0.2s; }
+.cat-filter-btn:hover { color:var(--color-brand-red); }
+.cat-filter-btn.active { color:var(--color-brand-red); border-bottom-color:var(--color-brand-red); font-weight:600; }
+.filter-search-box { display:flex; align-items:center; gap:0.5rem; background:#f7f7f7; border:1px solid #e0e0e0; border-radius:4px; padding:0.4rem 0.75rem; margin-bottom:1.5rem; }
+.filter-search-box input { border:none; background:transparent; outline:none; font-size:0.9rem; width:100%; }
+@media(min-width:901px){ .filter-close-btn { display:none !important; } }
+</style>
+
 <section class="page-banner">
-    <img src="sites/default/files/2018-12/about.jpg" alt="woodgrains" class="page-banner-bg">
-    <div class="page-banner-overlay"></div>
-    <div class="page-banner-content">
-      <h1>woodgrains</h1>
-      <ol class="breadcrumb"><li><a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.9em;"></i></a></li><li>woodgrains</li></ol>
+  <img src="sites/default/files/2018-12/about.jpg" alt="Woodgrains" class="page-banner-bg">
+  <div class="page-banner-overlay"></div>
+  <div class="page-banner-content">
+    <h1>Woodgrains</h1>
+    <ol class="breadcrumb">
+      <li><a href=""><i class="fa-solid fa-house" style="font-size:0.9em;"></i></a></li>
+      <li><a href="">Décor Collection</a></li>
+      <li>Woodgrains</li>
+    </ol>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    <button id="mobile-filter-btn" class="mobile-filter-toggle"><i class="fa-solid fa-filter"></i> Filter</button>
+    <div class="collection-grid-layout">
+
+      <aside class="product-sidebar" style="background:#fff;padding:1.5rem;border-radius:0;border:1px solid var(--color-text);box-shadow:var(--shadow-sm);position:sticky;top:100px;">
+        <div class="filter-drawer-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:0.75rem;border-bottom:1px solid #eee;">
+          <h3 style="margin:0;font-size:1.25rem;"><i class="fa-solid fa-sliders" style="color:var(--color-brand-red);margin-right:8px;"></i> Filters</h3>
+          <button class="filter-close-btn" id="filter-close-btn" aria-label="Close">&times;</button>
+        </div>
+        <div class="filter-search-box">
+          <i class="fa-solid fa-magnifying-glass" style="color:#aaa;font-size:0.85rem;"></i>
+          <input type="text" id="filter-search" placeholder="Search products...">
+        </div>
+        <div class="cat-filter-bar" style="flex-direction:column;border:none;padding:0;">
+          <button class="cat-filter-btn active" data-filter="ALL">All</button>
+          
+          <button class="cat-filter-btn" data-filter=""></button>
+          
+        </div>
+      </aside>
+
+      <div class="filter-drawer-backdrop" id="filter-backdrop"></div>
+
+      <div>
+        <p id="product-counter" style="margin-bottom:1.5rem;color:#666;font-size:0.95rem;">
+          Showing <strong id="visible-count"></strong> of <strong></strong> products
+        </p>
+        <div class="card-grid grid-cols-4" id="product-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        
+          <a href="" class="card filter-item" data-filter="" data-search="">
+            <div class="card-img-wrap"><img src="" alt="" class="card-img" style="aspect-ratio:4/5;object-fit:cover;" loading="lazy"></div>
+            <div class="card-body"><h3 class="card-title"></h3></div>
+          </a>
+        
+        </div>
+      </div>
     </div>
-    
-  </section>
-    
-  <section class="page-content">
-    <div class="container">
-      
+  </div>
+</section>
 
-      
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var items = document.querySelectorAll('.filter-item');
+    var filterBtns = document.querySelectorAll('.cat-filter-btn');
+    var searchInput = document.getElementById('filter-search');
+    var mobileBtn = document.getElementById('mobile-filter-btn');
+    var sidebar = document.querySelector('.product-sidebar');
+    var closeBtn = document.getElementById('filter-close-btn');
+    var backdrop = document.getElementById('filter-backdrop');
+    var countEl = document.getElementById('visible-count');
+    var activeFilter = 'ALL';
 
-            <a href="" class="card">
-              <div class="card-img-wrap">
-                <img src="" alt="" class="card-img" style="aspect-ratio: 4/5; object-fit: cover;">
-              </div>
-              <div class="card-body">
-                <h3 class="card-title"></h3>
-                
-                <div class="card-thumbnails" style="display: flex; gap: 5px; margin-top: 10px;">
-                  
-                    
-                      <img src="" alt="Variant" class="card-thumbnail" data-full="" data-index="" style="width:30px; height:30px; border-radius:50%; object-fit:cover; cursor:pointer;">
-                    
-                  
-                </div>
-              </div>
-            </a>
-            
+    if(mobileBtn) mobileBtn.addEventListener('click', function(){ sidebar.classList.add('active'); backdrop.classList.add('active'); document.body.style.overflow='hidden'; });
+    if(closeBtn) closeBtn.addEventListener('click', function(){ sidebar.classList.remove('active'); backdrop.classList.remove('active'); document.body.style.overflow=''; });
+    if(backdrop) backdrop.addEventListener('click', function(){ sidebar.classList.remove('active'); backdrop.classList.remove('active'); document.body.style.overflow=''; });
 
-</div></section>
-  <div id="shared-footer"></div>
+    function applyFilters() {
+        var search = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        var count = 0;
+        items.forEach(function(item) {
+            var matchF = (activeFilter === 'ALL' || item.getAttribute('data-filter') === activeFilter);
+            var matchS = (!search || (item.getAttribute('data-search')||'').includes(search));
+            item.style.display = (matchF && matchS) ? '' : 'none';
+            if(matchF && matchS) count++;
+        });
+        if(countEl) countEl.innerText = count;
+    }
+
+    filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(function(b){ b.classList.remove('active'); });
+            btn.classList.add('active');
+            activeFilter = btn.getAttribute('data-filter');
+            applyFilters();
+        });
+    });
+    if(searchInput) searchInput.addEventListener('input', applyFilters);
+    applyFilters();
+});
+</script>
 <div id="shared-footer"></div>
-  <script src="includes.js?v=120"></script>
-
+  <script src="includes.js?v=2026080601"></script>
 </body></html>
